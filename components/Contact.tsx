@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle, Loader2 } from 'lucide-react';
+import { Send, Loader2 } from 'lucide-react';
 import { NavProps } from '../types';
 
 export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNavigate }) => {
@@ -17,7 +17,7 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
+    // Simulate API call since we don't have a backend in this environment
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     console.log("Form Submitted:", formData);
@@ -38,13 +38,16 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
     <section id="contact" className="py-24 bg-[#0a0a0f] border-t border-white/10">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Ready to Transform?</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Ready to Transform Your Learning Experience?</h2>
           <p className="text-lg text-slate-400">
             Join institutions already improving accessibility, reducing costs, and enhancing learning outcomes with Design X Factor.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-3xl backdrop-blur-sm shadow-2xl">
+          {/* Honeypot field */}
+          <input type="text" name="honeypot" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div className="space-y-2">
               <label htmlFor="name" className="text-sm font-bold text-white uppercase tracking-wider">Full Name *</label>
@@ -56,7 +59,6 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full bg-[#15151a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
-                placeholder="John Doe"
               />
             </div>
             <div className="space-y-2">
@@ -69,7 +71,6 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full bg-[#15151a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
-                placeholder="john@university.edu"
               />
             </div>
           </div>
@@ -84,7 +85,6 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
                 value={formData.institution}
                 onChange={handleChange}
                 className="w-full bg-[#15151a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
-                placeholder="University of Innovation"
               />
             </div>
             <div className="space-y-2">
@@ -117,7 +117,7 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
               value={formData.message}
               onChange={handleChange}
               className="w-full bg-[#15151a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
-              placeholder="Tell us about your current challenges and goals..."
+              placeholder="Tell us about your needs..."
             ></textarea>
           </div>
 

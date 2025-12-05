@@ -19,30 +19,30 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
         <div>
           <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Solutions</h4>
           <ul className="space-y-4 text-slate-400 text-sm">
-            <li><button onClick={() => onNavigate('home')} className="hover:text-brand-blue transition-colors">Learning Transformer</button></li>
-            <li><button onClick={() => onNavigate('home')} className="hover:text-brand-blue transition-colors">Catalyst Studio</button></li>
-            <li><button onClick={() => onNavigate('home')} className="hover:text-brand-blue transition-colors">Catalyst Course</button></li>
-            <li><button onClick={() => onNavigate('home')} className="hover:text-brand-blue transition-colors">Dynamic Platform</button></li>
+            <li><button onClick={() => { onNavigate('home'); setTimeout(() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="hover:text-brand-blue transition-colors text-left">Learning Transformer</button></li>
+            <li><button onClick={() => { onNavigate('home'); setTimeout(() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="hover:text-brand-blue transition-colors text-left">Catalyst Studio</button></li>
+            <li><button onClick={() => { onNavigate('home'); setTimeout(() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="hover:text-brand-blue transition-colors text-left">Catalyst Course</button></li>
+            <li><button onClick={() => { onNavigate('home'); setTimeout(() => document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="hover:text-brand-blue transition-colors text-left">Dynamic Platform</button></li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Platform</h4>
           <ul className="space-y-4 text-slate-400 text-sm">
-            <li><button onClick={() => onNavigate('home')} className="hover:text-brand-blue transition-colors">Why Design X Factor</button></li>
-            <li><button onClick={() => onNavigate('home')} className="hover:text-brand-blue transition-colors">Features</button></li>
-            <li><button onClick={() => onNavigate('home')} className="hover:text-brand-blue transition-colors">Roadmap</button></li>
-            <li><button onClick={() => onNavigate('api')} className="hover:text-brand-blue transition-colors">API Documentation</button></li>
+            <li><button onClick={() => { onNavigate('home'); setTimeout(() => document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="hover:text-brand-blue transition-colors text-left">Why Design X Factor</button></li>
+            <li><button onClick={() => { onNavigate('home'); setTimeout(() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="hover:text-brand-blue transition-colors text-left">Features</button></li>
+            <li><button onClick={() => { onNavigate('home'); setTimeout(() => document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="hover:text-brand-blue transition-colors text-left">Roadmap</button></li>
+            <li><button onClick={() => onNavigate('api')} className="hover:text-brand-blue transition-colors text-left">API Documentation</button></li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Company</h4>
           <ul className="space-y-4 text-slate-400 text-sm">
-            <li><button onClick={() => onNavigate('home')} className="hover:text-brand-blue transition-colors">About Us</button></li>
-            <li><button onClick={() => onNavigate('home')} className="hover:text-brand-blue transition-colors">Contact</button></li>
-            <li><button onClick={() => onNavigate('privacy')} className="hover:text-brand-blue transition-colors">Privacy Policy</button></li>
-            <li><button onClick={() => onNavigate('terms')} className="hover:text-brand-blue transition-colors">Terms of Service</button></li>
+            <li><button onClick={() => onNavigate('home')} className="hover:text-brand-blue transition-colors text-left">About Us</button></li>
+            <li><button onClick={() => { onNavigate('home'); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="hover:text-brand-blue transition-colors text-left">Contact</button></li>
+            <li><button onClick={() => onNavigate('privacy')} className="hover:text-brand-blue transition-colors text-left">Privacy Policy</button></li>
+            <li><button onClick={() => onNavigate('terms')} className="hover:text-brand-blue transition-colors text-left">Terms of Service</button></li>
           </ul>
         </div>
       </div>

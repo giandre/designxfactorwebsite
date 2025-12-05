@@ -45,11 +45,10 @@ export const ProductShowcase: React.FC = () => {
   const cardRef = useRef<HTMLDivElement>(null);
   const triggerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Scroll Observer
+  // Scroll Observer (Desktop Only)
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
     
-    // Only run observer on desktop/large screens where the layout is sticky
     if (window.matchMedia("(min-width: 1024px)").matches) {
       triggerRefs.current.forEach((trigger, index) => {
         if (!trigger) return;
@@ -75,11 +74,11 @@ export const ProductShowcase: React.FC = () => {
 
   const getIcon = (name: string, size = 24) => {
     switch(name) {
-      case 'ShieldCheck': return <ShieldCheck size={size} />;
-      case 'Layout': return <Layout size={size} />;
-      case 'Video': return <Video size={size} />;
-      case 'Bot': return <Bot size={size} />;
-      default: return <ShieldCheck size={size} />;
+      case 'ShieldCheck': return <ShieldCheck size={size} aria-hidden="true" />;
+      case 'Layout': return <Layout size={size} aria-hidden="true" />;
+      case 'Video': return <Video size={size} aria-hidden="true" />;
+      case 'Bot': return <Bot size={size} aria-hidden="true" />;
+      default: return <ShieldCheck size={size} aria-hidden="true" />;
     }
   };
 
@@ -103,10 +102,13 @@ export const ProductShowcase: React.FC = () => {
   };
 
   const handleNavClick = (index: number) => {
-    if (sectionRef.current) {
+    if (sectionRef.current && window.innerWidth >= 1024) {
       const sectionTop = sectionRef.current.offsetTop;
       const scrollPos = sectionTop + (index * window.innerHeight);
       window.scrollTo({ top: scrollPos, behavior: 'smooth' });
+    } else {
+      // Mobile direct switch
+      setActiveId(products[index].id);
     }
   };
 
@@ -116,8 +118,77 @@ export const ProductShowcase: React.FC = () => {
     <section 
       id="solutions" 
       ref={sectionRef} 
-      className="relative bg-space border-t border-white/10 lg:h-[400vh]"
+      className="relative bg-space border-t border-white/10 lg:h-[400vh] pt-24 lg:pt-0"
+      aria-label="Our Ecosystem Products"
     >
+      {/* Background Ambience */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.05),transparent_50%)] pointer-events-none"></div>
+
+      {/* --- Mobile View (Tabs + Card) --- */}
+      <div className="lg:hidden container mx-auto px-4 pb-20 relative z-10">
+        <div className="mb-8 text-center">
+            <h2 className="text-3xl font-black text-white mb-2">Our Ecosystem</h2>
+            <p className="text-slate-400 text-sm">Select a product below to explore.</p>
+        </div>
+
+        {/* Mobile Product Selection Grid (Replaces Scroll) */}
+        <div className="grid grid-cols-2 gap-3 mb-8" role="tablist">
+          {products.map((product, idx) => {
+            const isActive = activeId === product.id;
+            return (
+              <button
+                key={product.id}
+                role="tab"
+                aria-selected={isActive}
+                aria-controls={`panel-${product.id}`}
+                onClick={() => handleNavClick(idx)}
+                className={`flex flex-col items-center justify-center gap-3 p-4 rounded-2xl border transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue
+                  ${isActive 
+                    ? `bg-white/10 border-white/40 text-white shadow-[0_0_20px_rgba(255,255,255,0.1)] scale-[1.02]` 
+                    : 'bg-white/5 border-white/5 text-slate-400 hover:bg-white/10 hover:border-white/10'}`}
+              >
+                <div className={`${isActive ? product.color : 'text-slate-500'} transition-colors duration-300`}>
+                  {getIcon(product.icon, 28)}
+                </div>
+                <span className="text-xs font-bold text-center leading-tight uppercase tracking-wider">{product.name}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Mobile Product Card */}
+        <div 
+          id={`panel-${activeProduct.id}`}
+          role="tabpanel"
+          className="bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-2xl overflow-hidden relative animate-fadeIn"
+        >
+           {/* Color Glow */}
+           <div className={`absolute top-0 right-0 w-32 h-32 opacity-20 blur-[50px] rounded-full pointer-events-none ${activeProduct.color.replace('text-', 'bg-')}`}></div>
+           
+           <div className={`inline-flex p-3 rounded-xl bg-white/5 mb-6 border border-white/10 shadow-lg ${activeProduct.color}`}>
+             {getIcon(activeProduct.icon, 32)}
+           </div>
+
+           <h3 className="text-3xl font-black text-white mb-4 leading-tight">{activeProduct.name}</h3>
+           <p className="text-slate-300 text-sm leading-relaxed mb-6">{activeProduct.description}</p>
+           
+           <div className="space-y-3 mb-8">
+             {activeProduct.features.map((feat, i) => (
+                <div key={i} className="flex items-center gap-2 text-xs font-bold text-slate-400">
+                   <Zap size={12} className={activeProduct.color} /> {feat}
+                </div>
+             ))}
+           </div>
+
+           <button className="w-full py-3 bg-white text-space font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-200 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue">
+              <PlayCircle size={18} /> Watch Demo
+           </button>
+        </div>
+      </div>
+
+
+      {/* --- Desktop View (Scroll Sticky) --- */}
+      
       {/* Scroll Triggers (Desktop Only) */}
       <div className="hidden lg:block absolute inset-0 pointer-events-none">
         {products.map((_, idx) => (
@@ -130,12 +201,8 @@ export const ProductShowcase: React.FC = () => {
         ))}
       </div>
 
-      {/* Sticky Content Container */}
-      <div className="lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden flex items-center py-20 lg:py-0">
+      <div className="hidden lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden lg:flex items-center py-20 lg:py-0">
         
-        {/* Background Ambience */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.05),transparent_50%)] pointer-events-none"></div>
-
         <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center relative z-10">
           
           {/* Navigation List */}
@@ -145,10 +212,12 @@ export const ProductShowcase: React.FC = () => {
               <p className="text-slate-400 text-sm">Select a product or scroll to explore.</p>
             </div>
             
-            <div className="space-y-3">
+            <div className="space-y-3" role="tablist" aria-orientation="vertical">
               {products.map((product, idx) => (
                 <button
                   key={product.id}
+                  role="tab"
+                  aria-selected={activeId === product.id}
                   onClick={() => handleNavClick(idx)}
                   className={`w-full text-left p-4 rounded-xl border transition-all duration-300 group focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-space focus-visible:ring-brand-blue
                     ${activeId === product.id 

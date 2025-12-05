@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { ShieldCheck, Layout, Video, BrainCircuit, Activity, Smartphone, Sparkles, CheckCircle, FileText, Globe, Bot } from 'lucide-react';
+import { ShieldCheck, Layout, Video, BrainCircuit, CheckCircle, FileText, Globe, Bot, ChevronDown, Smartphone, Sparkles } from 'lucide-react';
 import { LayerType } from '../types';
 
 const layers = [
@@ -13,7 +13,7 @@ const layers = [
     border: "border-brand-blue",
     bg: "bg-brand-blue",
     hex: "#38bdf8",
-    icon: <ShieldCheck size={32} />
+    icon: <ShieldCheck size={24} />
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const layers = [
     border: "border-brand-purple",
     bg: "bg-brand-purple",
     hex: "#d946ef",
-    icon: <Layout size={32} />
+    icon: <Layout size={24} />
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const layers = [
     border: "border-brand-gold",
     bg: "bg-brand-gold",
     hex: "#f59e0b",
-    icon: <Video size={32} />
+    icon: <Video size={24} />
   },
   {
     id: 4,
@@ -49,57 +49,277 @@ const layers = [
     border: "border-brand-red",
     bg: "bg-brand-red",
     hex: "#ff4d6d",
-    icon: <BrainCircuit size={32} />
+    icon: <BrainCircuit size={24} />
   }
 ];
+
+// --- Internal Components for the "Screen Content" to be reused on Mobile & Desktop ---
+
+const ScreenLayer1 = () => (
+  <div className="absolute inset-0 flex flex-col items-center justify-center animate-fadeIn">
+    <div className="relative w-32 h-44 md:w-48 md:h-64 border-2 border-slate-700/50 rounded-lg bg-slate-800/20 p-4 flex flex-col gap-3 overflow-hidden shadow-2xl">
+      {/* Document Skeleton */}
+      <div className="w-1/2 h-2 bg-slate-600/50 rounded"></div>
+      <div className="w-full h-20 md:h-32 bg-slate-700/30 rounded flex items-center justify-center">
+        <FileText size={32} className="text-slate-600" aria-hidden="true" />
+      </div>
+      <div className="w-full h-2 bg-slate-600/50 rounded"></div>
+      <div className="w-3/4 h-2 bg-slate-600/50 rounded"></div>
+      
+      {/* Scanning Beam */}
+      <div className="absolute left-0 top-[-20%] w-full h-[20%] bg-brand-blue/20 blur-md animate-scan border-b-2 border-brand-blue shadow-[0_0_20px_#38bdf8]"></div>
+    </div>
+    
+    {/* Stats Card */}
+    <div className="mt-4 md:mt-8 w-48 md:w-64 bg-slate-900/80 border border-brand-blue/30 rounded-xl p-3 md:p-4 backdrop-blur-md">
+      <div className="flex justify-between items-center mb-2">
+          <span className="text-[10px] md:text-xs text-brand-blue uppercase font-bold">Accessibility</span>
+          <span className="text-[10px] md:text-xs text-white font-mono">100%</span>
+      </div>
+      <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+          <div className="h-full bg-brand-blue w-full shadow-[0_0_10px_#38bdf8]"></div>
+      </div>
+      <div className="flex items-center gap-2 mt-2 md:mt-3 text-[10px] text-slate-400">
+          <CheckCircle size={10} className="text-green-500" aria-hidden="true" /> WCAG 2.1 AA
+      </div>
+    </div>
+  </div>
+);
+
+const ScreenLayer2 = () => (
+  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 animate-fadeIn">
+    {/* Background Grid */}
+    <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+    
+    {/* Floating Cards */}
+    <div className="relative w-full max-w-[200px] md:max-w-[280px] perspective-[1000px]">
+      <div className="bg-gradient-to-br from-slate-800 to-black border border-white/10 rounded-2xl p-4 shadow-2xl mb-4 transform translate-x-2 translate-y-2 opacity-50 scale-95">
+          <div className="h-2 w-1/3 bg-white/20 rounded mb-2"></div>
+          <div className="h-12 md:h-20 bg-slate-700/30 rounded"></div>
+      </div>
+      
+      {/* Main Active Card */}
+      <div className="relative bg-space border border-brand-purple/50 rounded-2xl p-4 md:p-5 shadow-[0_20px_50px_rgba(217,70,239,0.15)] z-10 animate-float">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+                <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-brand-purple/20 flex items-center justify-center">
+                  <Smartphone size={14} className="text-brand-purple" aria-hidden="true" />
+                </div>
+                <div className="h-2 w-12 md:w-16 bg-white/20 rounded"></div>
+            </div>
+            <Globe size={14} className="text-slate-600" aria-hidden="true" />
+          </div>
+          <div className="h-16 md:h-24 rounded-lg bg-gradient-to-r from-brand-purple/10 via-brand-purple/5 to-transparent border border-brand-purple/20 mb-3 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-brand-purple/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+          </div>
+          <div className="h-2 w-full bg-white/10 rounded mb-2"></div>
+          <div className="h-2 w-2/3 bg-white/10 rounded"></div>
+          
+          <button className="mt-4 w-full py-1.5 md:py-2 bg-brand-purple text-white text-[10px] md:text-xs font-bold rounded shadow-lg">
+            START
+          </button>
+      </div>
+    </div>
+  </div>
+);
+
+const ScreenLayer3 = () => (
+  <div className="absolute inset-0 flex flex-col items-center justify-center animate-fadeIn">
+    <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center mb-6 md:mb-10">
+      {/* Ripples */}
+      <div className="absolute inset-0 border border-brand-gold/30 rounded-full animate-[ping_3s_linear_infinite]"></div>
+      <div className="absolute inset-4 border border-brand-gold/50 rounded-full animate-[ping_3s_linear_infinite_0.5s]"></div>
+      
+      {/* Play Button */}
+      <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 bg-brand-gold rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(245,158,11,0.6)]">
+          <Video size={28} className="text-black fill-current ml-1" aria-hidden="true" />
+      </div>
+    </div>
+
+    {/* Audio Waveform */}
+    <div className="flex items-end justify-center gap-1 md:gap-1.5 h-12 md:h-16 w-full px-8 md:px-12">
+      {[...Array(12)].map((_, i) => (
+        <div 
+            key={i} 
+            className="w-1 md:w-1.5 bg-gradient-to-t from-brand-gold to-yellow-200 rounded-full animate-wave"
+            style={{ 
+              height: '30%', 
+              animationDelay: `${Math.random() * -1}s`,
+              animationDuration: `${0.5 + Math.random() * 0.5}s` 
+            }}
+        ></div>
+      ))}
+    </div>
+    <div className="mt-4 md:mt-6 font-mono text-[10px] md:text-xs text-brand-gold tracking-widest uppercase animate-pulse">
+      Generating Media...
+    </div>
+  </div>
+);
+
+const ScreenLayer4 = () => (
+  <div className="absolute inset-0 flex flex-col animate-fadeIn">
+    {/* Chat Header */}
+    <div className="mt-8 md:mt-12 px-4 md:px-6 pb-2 md:pb-4 border-b border-white/5">
+      <div className="flex items-center gap-3">
+          <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-red flex items-center justify-center shadow-[0_0_15px_rgba(255,77,109,0.5)]">
+            <Bot size={18} className="text-white" aria-hidden="true" />
+          </div>
+          <div>
+            <div className="text-xs md:text-sm font-bold text-white">AI Tutor</div>
+            <div className="text-[10px] text-green-400 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 bg-green-400 rounded-full"></span> Online
+            </div>
+          </div>
+      </div>
+    </div>
+
+    {/* Chat Area */}
+    <div className="flex-1 p-4 md:p-6 space-y-3 md:space-y-4 overflow-hidden relative">
+      {/* User Msg */}
+      <div className="flex justify-end">
+          <div className="bg-slate-800 text-slate-200 text-[10px] md:text-xs py-2 px-3 md:py-2.5 md:px-4 rounded-2xl rounded-tr-sm max-w-[80%]">
+            I'm struggling with Section 3.
+          </div>
+      </div>
+      
+      {/* AI Response */}
+      <div className="flex justify-start">
+          <div className="bg-gradient-to-br from-brand-red/90 to-rose-600 text-white text-[10px] md:text-xs py-3 px-4 rounded-2xl rounded-tl-sm max-w-[90%] md:max-w-[85%] shadow-lg">
+            <p className="mb-2">No problem! I've analyzed your quiz results.</p>
+            <div className="bg-black/20 rounded p-2 mb-2 border border-white/10">
+                <div className="flex items-center gap-2 mb-1">
+                  <Sparkles size={10} className="text-yellow-300" aria-hidden="true" />
+                  <span className="font-bold text-[10px] uppercase opacity-80">Recommendation</span>
+                </div>
+                <div className="text-[10px] opacity-90 leading-relaxed">
+                  Review the "Interactive Compliance" module.
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+    {/* Input Area Placeholder */}
+    <div className="p-3 md:p-4 bg-slate-900/50 backdrop-blur border-t border-white/5 mx-3 mb-4 rounded-2xl flex items-center gap-3">
+      <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-700/50 flex items-center justify-center">
+          <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-slate-500 rounded-full"></div>
+      </div>
+      <div className="h-1.5 md:h-2 bg-slate-700/50 rounded w-full"></div>
+    </div>
+  </div>
+);
 
 export const MonolithSection: React.FC = () => {
   const [activeLayerIndex, setActiveLayerIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const triggerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  // Mobile State
+  const [mobileExpandedIndex, setMobileExpandedIndex] = useState<number | null>(0);
+
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+    // Only set up observer for desktop
+    if (window.innerWidth >= 1024) {
+      const observers: IntersectionObserver[] = [];
 
-    triggerRefs.current.forEach((trigger, index) => {
-      if (!trigger) return;
+      triggerRefs.current.forEach((trigger, index) => {
+        if (!trigger) return;
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveLayerIndex(index);
-            }
-          });
-        },
-        { threshold: 0.5, rootMargin: "-10% 0px -10% 0px" }
-      );
-      
-      observer.observe(trigger);
-      observers.push(observer);
-    });
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setActiveLayerIndex(index);
+              }
+            });
+          },
+          { threshold: 0.5, rootMargin: "-10% 0px -10% 0px" }
+        );
+        
+        observer.observe(trigger);
+        observers.push(observer);
+      });
 
-    return () => observers.forEach(obs => obs.disconnect());
+      return () => observers.forEach(obs => obs.disconnect());
+    }
   }, []);
 
+  const getScreenContent = (index: number) => {
+    switch(index) {
+      case 0: return <ScreenLayer1 />;
+      case 1: return <ScreenLayer2 />;
+      case 2: return <ScreenLayer3 />;
+      case 3: return <ScreenLayer4 />;
+      default: return null;
+    }
+  };
+
   return (
-    <section className="relative z-20">
-      {/* Mobile View (Card Stack) */}
-      <div className="lg:hidden px-4 py-20 bg-space space-y-12">
-        <h2 className="text-3xl font-bold text-center mb-10 text-white">The Transformation Engine</h2>
-        {layers.map((layer) => (
-          <div key={layer.id} className={`p-6 rounded-2xl border ${layer.border} bg-white/5 backdrop-blur-md`}>
-            <div className={`flex items-center gap-3 mb-4 ${layer.color}`}>
-              {layer.icon}
-              <span className="uppercase tracking-widest text-xs font-bold">{layer.title}</span>
+    <section className="relative z-20" aria-label="Transformation Process">
+      
+      {/* --- Mobile View (Interactive Accordion) --- */}
+      <div className="lg:hidden px-4 py-20 bg-space space-y-6">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-black text-white mb-2">The Engine</h2>
+          <p className="text-slate-400 text-sm">Tap a layer to reveal the technology.</p>
+        </div>
+
+        {layers.map((layer, idx) => {
+           const isExpanded = mobileExpandedIndex === idx;
+           
+           return (
+            <div 
+              key={layer.id} 
+              className={`rounded-2xl transition-all duration-300 border ${isExpanded ? layer.border : 'border-white/10'} ${isExpanded ? 'bg-white/5' : 'bg-transparent'}`}
+            >
+              <button 
+                onClick={() => setMobileExpandedIndex(isExpanded ? null : idx)}
+                className="w-full flex items-center justify-between p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-2xl"
+                aria-expanded={isExpanded}
+                aria-controls={`layer-content-${idx}`}
+              >
+                <div className={`flex items-center gap-4 ${isExpanded ? layer.color : 'text-slate-400'}`}>
+                  {layer.icon}
+                  <div className="text-left">
+                    <span className="block text-xs font-bold uppercase tracking-widest opacity-70">Layer 0{layer.id}</span>
+                    <span className={`block text-lg font-bold ${isExpanded ? 'text-white' : 'text-slate-300'}`}>
+                      {layer.heading}
+                    </span>
+                  </div>
+                </div>
+                <ChevronDown 
+                  className={`transition-transform duration-300 ${isExpanded ? 'rotate-180 text-white' : 'text-slate-500'}`} 
+                />
+              </button>
+
+              <div 
+                id={`layer-content-${idx}`}
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}
+              >
+                <div className="p-6 pt-0">
+                  <p className="text-slate-300 text-sm leading-relaxed mb-6 border-l-2 border-white/10 pl-4">
+                    {layer.description}
+                  </p>
+
+                  {/* Mini Monolith Device for Mobile */}
+                  <div className="relative mx-auto w-full max-w-[280px] aspect-[9/16] bg-[#0a0a0f] rounded-[24px] border-4 border-slate-800 shadow-2xl overflow-hidden ring-1 ring-white/10">
+                     {/* Mobile Status Bar */}
+                     <div className="absolute top-0 w-full h-6 bg-black/50 z-20 flex justify-center items-center">
+                        <div className="w-16 h-3 bg-black rounded-b-lg"></div>
+                     </div>
+                     
+                     {/* The Animation Content */}
+                     {getScreenContent(idx)}
+                  </div>
+                </div>
+              </div>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">{layer.heading}</h3>
-            <p className="text-slate-300 leading-relaxed">{layer.description}</p>
-          </div>
-        ))}
+           );
+        })}
       </div>
 
-      {/* Desktop View (Monolith Scroll) */}
+
+      {/* --- Desktop View (Monolith Scroll) --- */}
       <div ref={containerRef} className="hidden lg:block h-[500vh] relative">
         {/* Sticky Viewport */}
         <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden perspective-[1000px]">
@@ -127,157 +347,18 @@ export const MonolithSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* --- Layer 1: FOUNDATION (Scanner) --- */}
-                <div className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-700 ${activeLayerIndex === 0 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
-                  <div className="relative w-48 h-64 border-2 border-slate-700/50 rounded-lg bg-slate-800/20 p-4 flex flex-col gap-3 overflow-hidden shadow-2xl">
-                     {/* Document Skeleton */}
-                     <div className="w-1/2 h-2 bg-slate-600/50 rounded"></div>
-                     <div className="w-full h-32 bg-slate-700/30 rounded flex items-center justify-center">
-                        <FileText size={40} className="text-slate-600" />
-                     </div>
-                     <div className="w-full h-2 bg-slate-600/50 rounded"></div>
-                     <div className="w-3/4 h-2 bg-slate-600/50 rounded"></div>
-                     
-                     {/* Scanning Beam */}
-                     <div className="absolute left-0 top-[-20%] w-full h-[20%] bg-brand-blue/20 blur-md animate-scan border-b-2 border-brand-blue shadow-[0_0_20px_#38bdf8]"></div>
-                  </div>
-                  
-                  {/* Stats Card */}
-                  <div className="mt-8 w-64 bg-slate-900/80 border border-brand-blue/30 rounded-xl p-4 backdrop-blur-md">
-                    <div className="flex justify-between items-center mb-2">
-                       <span className="text-xs text-brand-blue uppercase font-bold">Accessibility</span>
-                       <span className="text-xs text-white font-mono">100%</span>
-                    </div>
-                    <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                       <div className="h-full bg-brand-blue w-full shadow-[0_0_10px_#38bdf8]"></div>
-                    </div>
-                    <div className="flex items-center gap-2 mt-3 text-[10px] text-slate-400">
-                       <CheckCircle size={10} className="text-green-500" /> WCAG 2.1 AA Compliant
-                    </div>
-                  </div>
+                {/* Render All Layers (Opacity Transition) */}
+                <div className={`absolute inset-0 transition-all duration-700 ${activeLayerIndex === 0 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
+                  <ScreenLayer1 />
                 </div>
-
-                {/* --- Layer 2: ENGAGEMENT (Morphing UI) --- */}
-                <div className={`absolute inset-0 flex flex-col items-center justify-center p-6 transition-all duration-700 ${activeLayerIndex === 1 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
-                   {/* Background Grid */}
-                   <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-                   
-                   {/* Floating Cards */}
-                   <div className="relative w-full max-w-[280px] perspective-[1000px]">
-                      <div className="bg-gradient-to-br from-slate-800 to-black border border-white/10 rounded-2xl p-4 shadow-2xl mb-4 transform translate-x-2 translate-y-2 opacity-50 scale-95">
-                         <div className="h-2 w-1/3 bg-white/20 rounded mb-2"></div>
-                         <div className="h-20 bg-slate-700/30 rounded"></div>
-                      </div>
-                      
-                      {/* Main Active Card */}
-                      <div className="relative bg-space border border-brand-purple/50 rounded-2xl p-5 shadow-[0_20px_50px_rgba(217,70,239,0.15)] z-10 animate-float">
-                         <div className="flex items-center justify-between mb-4">
-                            <div className="flex items-center gap-2">
-                               <div className="w-8 h-8 rounded-full bg-brand-purple/20 flex items-center justify-center">
-                                  <Smartphone size={16} className="text-brand-purple" />
-                               </div>
-                               <div className="h-2 w-16 bg-white/20 rounded"></div>
-                            </div>
-                            <Globe size={16} className="text-slate-600" />
-                         </div>
-                         <div className="h-24 rounded-lg bg-gradient-to-r from-brand-purple/10 via-brand-purple/5 to-transparent border border-brand-purple/20 mb-3 relative overflow-hidden group">
-                            <div className="absolute inset-0 bg-brand-purple/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                         </div>
-                         <div className="h-2 w-full bg-white/10 rounded mb-2"></div>
-                         <div className="h-2 w-2/3 bg-white/10 rounded"></div>
-                         
-                         <button className="mt-4 w-full py-2 bg-brand-purple text-white text-xs font-bold rounded shadow-lg hover:bg-fuchsia-400 transition-colors">
-                            START LEARNING
-                         </button>
-                      </div>
-                   </div>
+                <div className={`absolute inset-0 transition-all duration-700 ${activeLayerIndex === 1 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
+                  <ScreenLayer2 />
                 </div>
-
-                {/* --- Layer 3: MULTIMODAL (Audio/Video) --- */}
-                <div className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-700 ${activeLayerIndex === 2 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
-                   <div className="relative w-40 h-40 flex items-center justify-center mb-10">
-                      {/* Ripples */}
-                      <div className="absolute inset-0 border border-brand-gold/30 rounded-full animate-[ping_3s_linear_infinite]"></div>
-                      <div className="absolute inset-4 border border-brand-gold/50 rounded-full animate-[ping_3s_linear_infinite_0.5s]"></div>
-                      
-                      {/* Play Button */}
-                      <div className="relative z-10 w-20 h-20 bg-brand-gold rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(245,158,11,0.6)]">
-                         <Video size={32} className="text-black fill-current ml-1" />
-                      </div>
-                   </div>
-
-                   {/* Audio Waveform */}
-                   <div className="flex items-end justify-center gap-1.5 h-16 w-full px-12">
-                      {[...Array(12)].map((_, i) => (
-                        <div 
-                           key={i} 
-                           className="w-1.5 bg-gradient-to-t from-brand-gold to-yellow-200 rounded-full animate-wave"
-                           style={{ 
-                              height: '30%', 
-                              animationDelay: `${Math.random() * -1}s`,
-                              animationDuration: `${0.5 + Math.random() * 0.5}s` 
-                           }}
-                        ></div>
-                      ))}
-                   </div>
-                   <div className="mt-6 font-mono text-xs text-brand-gold tracking-widest uppercase animate-pulse">
-                      Generating Audio...
-                   </div>
+                <div className={`absolute inset-0 transition-all duration-700 ${activeLayerIndex === 2 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
+                  <ScreenLayer3 />
                 </div>
-
-                {/* --- Layer 4: EMPOWERMENT (AI Chat) --- */}
-                <div className={`absolute inset-0 flex flex-col transition-all duration-700 ${activeLayerIndex === 3 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
-                   {/* Chat Header */}
-                   <div className="mt-12 px-6 pb-4 border-b border-white/5">
-                      <div className="flex items-center gap-3">
-                         <div className="w-10 h-10 rounded-full bg-brand-red flex items-center justify-center shadow-[0_0_15px_rgba(255,77,109,0.5)]">
-                            <Bot size={20} className="text-white" />
-                         </div>
-                         <div>
-                            <div className="text-sm font-bold text-white">AI Tutor</div>
-                            <div className="text-[10px] text-green-400 flex items-center gap-1">
-                               <span className="w-1.5 h-1.5 bg-green-400 rounded-full"></span> Online
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-
-                   {/* Chat Area */}
-                   <div className="flex-1 p-6 space-y-4 overflow-hidden relative">
-                      {/* User Msg */}
-                      <div className="flex justify-end">
-                         <div className="bg-slate-800 text-slate-200 text-xs py-2.5 px-4 rounded-2xl rounded-tr-sm max-w-[80%]">
-                            I'm struggling with Section 3.
-                         </div>
-                      </div>
-                      
-                      {/* AI Response */}
-                      <div className="flex justify-start">
-                         <div className="bg-gradient-to-br from-brand-red/90 to-rose-600 text-white text-xs py-3 px-4 rounded-2xl rounded-tl-sm max-w-[85%] shadow-lg">
-                            <p className="mb-2">No problem! I've analyzed your quiz results.</p>
-                            <div className="bg-black/20 rounded p-2 mb-2 border border-white/10">
-                               <div className="flex items-center gap-2 mb-1">
-                                  <Sparkles size={10} className="text-yellow-300" />
-                                  <span className="font-bold text-[10px] uppercase opacity-80">Recommendation</span>
-                               </div>
-                               <div className="text-[10px] opacity-90 leading-relaxed">
-                                  Review the "Interactive Compliance" module. It covers your weak spots.
-                               </div>
-                            </div>
-                            <button className="bg-white text-brand-red text-[10px] font-bold py-1.5 px-3 rounded-full w-full hover:bg-slate-100 transition-colors">
-                               Start Personalized Lesson
-                            </button>
-                         </div>
-                      </div>
-                   </div>
-                   
-                   {/* Input Area Placeholder */}
-                   <div className="p-4 bg-slate-900/50 backdrop-blur border-t border-white/5 mx-3 mb-4 rounded-2xl flex items-center gap-3">
-                      <div className="w-6 h-6 rounded-full bg-slate-700/50 flex items-center justify-center">
-                         <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
-                      </div>
-                      <div className="h-2 bg-slate-700/50 rounded w-full"></div>
-                   </div>
+                <div className={`absolute inset-0 transition-all duration-700 ${activeLayerIndex === 3 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
+                  <ScreenLayer4 />
                 </div>
 
               </div>

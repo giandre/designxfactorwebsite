@@ -35,12 +35,12 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#0a0a0f] border-t border-white/10">
+    <section id="contact" className="py-24 bg-[#0a0a0f] border-t border-white/10 scroll-mt-24">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Ready to Transform Your Learning Experience?</h2>
           <p className="text-lg text-slate-400">
-            Join institutions already improving accessibility, reducing costs, and enhancing learning outcomes with Design X Factor.
+            Join institutions already improving accessibility, reducing costs, and enhancing learning outcomes with Design X Factor
           </p>
         </div>
 

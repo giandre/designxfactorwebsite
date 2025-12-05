@@ -9,8 +9,8 @@ export interface ProductData {
   id: number;
   name: string;
   description: string;
-  icon: string; // Lucide icon name
-  color: string; // Hex or tailwind class ref
+  icon: string;
+  color: string;
   features: string[];
 }
 
@@ -20,6 +20,13 @@ export interface LayerContent {
   title: string;
   subtitle: string;
   description: string;
-  color: string; // Tailwind color class core (e.g., 'brand-blue')
+  color: string;
   hex: string;
+}
+
+export type PageView = 'home' | 'terms' | 'privacy' | 'api' | 'thank-you';
+
+export interface NavProps {
+  onNavigate: (page: PageView) => void;
+  currentPage: PageView;
 }

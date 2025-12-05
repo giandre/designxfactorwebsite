@@ -1,5 +1,4 @@
 import React from 'react';
-import { Layers } from 'lucide-react';
 import { NavProps } from '../types';
 
 export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
@@ -21,9 +20,8 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
     <footer className="relative z-30 border-t border-white/10 bg-space pt-20 pb-8 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
         <div className="md:col-span-1">
-          <div className="flex items-center gap-2 font-extrabold text-xl tracking-tight text-white mb-6">
-            <Layers className="text-brand-red" size={24} />
-            <span>DESIGN X FACTOR</span>
+          <div className="flex items-center gap-2 mb-6">
+            <img src="/images/DXF_logo.png" alt="Design X Factor" className="h-8 w-auto" />
           </div>
           <p className="text-slate-400 text-sm leading-relaxed">
             Transforming learning experiences through AI-powered solutions built on Universal Design principles.

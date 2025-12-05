@@ -216,6 +216,7 @@ export const MonolithSection: React.FC = () => {
 
   // Mobile State
   const [mobileExpandedIndex, setMobileExpandedIndex] = useState<number | null>(0);
+  const mobileCardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     // Only set up observer for desktop
@@ -254,6 +255,29 @@ export const MonolithSection: React.FC = () => {
     }
   };
 
+  const handleMobileToggle = (index: number) => {
+    const isClosing = mobileExpandedIndex === index;
+    setMobileExpandedIndex(isClosing ? null : index);
+
+    if (!isClosing) {
+      // Wait a tick for the state to update and CSS to start expanding
+      setTimeout(() => {
+        const element = mobileCardRefs.current[index];
+        if (element) {
+          // Calculate position: Element Top + Current Scroll - Navbar Height - Padding
+          const navbarHeight = 85; 
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - navbarHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <section className="relative z-20" aria-label="Transformation Process">
       
@@ -270,10 +294,12 @@ export const MonolithSection: React.FC = () => {
            return (
             <div 
               key={layer.id} 
+              // @ts-ignore
+              ref={el => mobileCardRefs.current[idx] = el}
               className={`rounded-2xl transition-all duration-300 border ${isExpanded ? layer.border : 'border-white/10'} ${isExpanded ? 'bg-white/5' : 'bg-transparent'}`}
             >
               <button 
-                onClick={() => setMobileExpandedIndex(isExpanded ? null : idx)}
+                onClick={() => handleMobileToggle(idx)}
                 className="w-full flex items-center justify-between p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-2xl"
                 aria-expanded={isExpanded}
                 aria-controls={`layer-content-${idx}`}

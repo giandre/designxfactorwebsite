@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layers, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { NavProps } from '../types';
 
 export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
@@ -30,9 +30,8 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
 
   return (
     <nav className="fixed top-0 w-full h-[70px] bg-space/90 backdrop-blur-xl border-b border-white/10 z-50 px-6 lg:px-12 flex items-center justify-between transition-all duration-300">
-      <a href="#" onClick={handleHomeClick} className="flex items-center gap-3 font-extrabold text-xl tracking-tight text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red rounded-lg p-1">
-        <Layers className="text-brand-red" size={28} aria-hidden="true" />
-        <span>DESIGN X FACTOR</span>
+      <a href="#" onClick={handleHomeClick} className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red rounded-lg p-1">
+        <img src="/images/DXF_logo.png" alt="Design X Factor" className="h-8 md:h-10 w-auto" />
       </a>
 
       {/* Desktop Nav */}

@@ -83,7 +83,7 @@ export const MonolithSection: React.FC = () => {
   }, []);
 
   return (
-    <main className="relative z-20">
+    <section className="relative z-20">
       {/* Mobile View (Card Stack) */}
       <div className="lg:hidden px-4 py-20 bg-space space-y-12">
         <h2 className="text-3xl font-bold text-center mb-10 text-white">The Transformation Engine</h2>
@@ -309,6 +309,6 @@ export const MonolithSection: React.FC = () => {
           ))}
         </div>
       </div>
-    </main>
+    </section>
   );
 };

@@ -35,22 +35,22 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#0a0a0f] border-t border-white/10 scroll-mt-24">
+    <section id="contact" className="py-24 bg-slate-50 relative z-30 scroll-mt-24">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Ready to Transform Your Learning Experience?</h2>
-          <p className="text-lg text-slate-400">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Ready to Transform Your Learning Experience?</h2>
+          <p className="text-lg text-slate-600">
             Join institutions already improving accessibility, reducing costs, and enhancing learning outcomes with Design X Factor
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-3xl backdrop-blur-sm shadow-2xl">
+        <form onSubmit={handleSubmit} className="bg-white border border-slate-200 p-8 md:p-12 rounded-3xl shadow-xl">
           {/* Honeypot field */}
           <input type="text" name="honeypot" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-bold text-white uppercase tracking-wider">Full Name *</label>
+              <label htmlFor="name" className="text-sm font-bold text-slate-900 uppercase tracking-wider">Full Name *</label>
               <input 
                 type="text" 
                 id="name" 
@@ -58,11 +58,11 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-[#15151a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
+                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-bold text-white uppercase tracking-wider">Email Address *</label>
+              <label htmlFor="email" className="text-sm font-bold text-slate-900 uppercase tracking-wider">Email Address *</label>
               <input 
                 type="email" 
                 id="email" 
@@ -70,31 +70,31 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-[#15151a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
+                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
               />
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div className="space-y-2">
-              <label htmlFor="institution" className="text-sm font-bold text-white uppercase tracking-wider">Institution</label>
+              <label htmlFor="institution" className="text-sm font-bold text-slate-900 uppercase tracking-wider">Institution</label>
               <input 
                 type="text" 
                 id="institution" 
                 name="institution"
                 value={formData.institution}
                 onChange={handleChange}
-                className="w-full bg-[#15151a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
+                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="role" className="text-sm font-bold text-white uppercase tracking-wider">Your Role</label>
+              <label htmlFor="role" className="text-sm font-bold text-slate-900 uppercase tracking-wider">Your Role</label>
               <select 
                 id="role" 
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
-                className="w-full bg-[#15151a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors appearance-none"
+                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors appearance-none"
               >
                 <option value="">Select your role...</option>
                 <option value="Dean">Dean</option>
@@ -108,7 +108,7 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
           </div>
 
           <div className="space-y-2 mb-8">
-            <label htmlFor="message" className="text-sm font-bold text-white uppercase tracking-wider">Message *</label>
+            <label htmlFor="message" className="text-sm font-bold text-slate-900 uppercase tracking-wider">Message *</label>
             <textarea 
               id="message" 
               name="message"
@@ -116,22 +116,22 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
               rows={4}
               value={formData.message}
               onChange={handleChange}
-              className="w-full bg-[#15151a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
+              className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
               placeholder="Tell us about your needs..."
             ></textarea>
           </div>
 
-          <div className="flex items-center gap-3 mb-8 p-4 bg-brand-blue/10 rounded-lg border border-brand-blue/20">
+          <div className="flex items-center gap-3 mb-8 p-4 bg-brand-blue/5 rounded-lg border border-brand-blue/10">
             <input 
               type="checkbox" 
               id="pilot" 
               name="pilot"
               checked={formData.pilot}
               onChange={handleCheckbox}
-              className="w-5 h-5 text-brand-blue rounded focus:ring-brand-blue bg-[#15151a] border-white/30 cursor-pointer"
+              className="w-5 h-5 text-brand-blue rounded focus:ring-brand-blue border-slate-300 cursor-pointer"
             />
-            <label htmlFor="pilot" className="text-sm text-slate-200 cursor-pointer select-none">
-              I'm interested in the <span className="text-white font-bold">free pilot program</span>
+            <label htmlFor="pilot" className="text-sm text-slate-700 cursor-pointer select-none">
+              I'm interested in the <span className="text-brand-blue font-bold">free pilot program</span>
             </label>
           </div>
 

@@ -18,7 +18,7 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer className="border-t border-white/10 bg-space pt-20 pb-8 px-6">
+    <footer className="relative z-30 border-t border-white/10 bg-space pt-20 pb-8 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
         <div className="md:col-span-1">
           <div className="flex items-center gap-2 font-extrabold text-xl tracking-tight text-white mb-6">

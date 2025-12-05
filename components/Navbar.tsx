@@ -31,7 +31,7 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
   return (
     <nav className="fixed top-0 w-full h-[70px] bg-space/90 backdrop-blur-xl border-b border-white/10 z-50 px-6 lg:px-12 flex items-center justify-between transition-all duration-300">
       <a href="#" onClick={handleHomeClick} className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red rounded-lg p-1">
-        <img src="../images/DXF_logo-white.png" alt="Design X Factor" className="h-8 md:h-10 w-auto" />
+        <img src="DXF_logo-white.png" alt="Design X Factor" className="h-8 md:h-10 w-auto" />
       </a>
 
       {/* Desktop Nav */}

@@ -205,7 +205,7 @@ export const Hero: React.FC = () => {
 
         {/* Central Text */}
         <div 
-          className="relative z-20 text-center max-w-5xl px-6 transition-all duration-300"
+          className="relative z-20 text-center max-w-4xl px-6 pt-16 transition-all duration-300"
           style={{ 
             opacity: heroOpacity,
             transform: `scale(${1 + progress * 0.2})`, 
@@ -214,14 +214,14 @@ export const Hero: React.FC = () => {
         >
           <div className="absolute inset-0 bg-brand-blue/5 blur-[60px] -z-10 rounded-full"></div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-9xl font-black text-white tracking-tighter mb-8 drop-shadow-2xl">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter mb-6 drop-shadow-2xl">
             Transforming Your <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-white to-brand-purple">
               Content Experience
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-slate-400 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
             Turn your static documents into an intelligent, accessible, and interactive ecosystem.
           </p>
 

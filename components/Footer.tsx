@@ -21,7 +21,7 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
         <div className="md:col-span-1">
           <div className="flex items-center gap-2 mb-6">
-          <img src="https://raw.githubusercontent.com/giandre/designxfactorwebsite/main/images/DXF_logo-white.png" alt="Design X Factor" className="h-8 w-auto" />
+          <img src="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/DXF_logo-white.png" alt="Design X Factor" className="h-8 w-auto" />
           </div>
           <p className="text-slate-400 text-sm leading-relaxed">
             Transforming learning experiences through AI-powered solutions built on Universal Design principles.

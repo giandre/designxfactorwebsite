@@ -4,7 +4,7 @@ import { FileText, FileType, Presentation, FileSpreadsheet, Code, ChevronDown } 
 export const Hero: React.FC = () => {
   const [orbiters, setOrbiters] = useState([]);
   const [fallers, setFallers] = useState([]);
-  const [nextId, setNextId] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
   const types = ['pdf', 'doc', 'ppt', 'xls', 'html'];
 
@@ -16,9 +16,9 @@ export const Hero: React.FC = () => {
       type: types[Math.floor(Math.random() * types.length)],
       angle: Math.random() * Math.PI * 2,
       radius: orbitRadius,
-      orbitSpeed: (0.001 + Math.random() * 0.001) * (Math.random() > 0.5 ? 1 : -1),
+      orbitSpeed: (0.0008 + Math.random() * 0.0008) * (Math.random() > 0.5 ? 1 : -1),
       z: Math.random() * 100 - 50,
-      scale: 0.45 + Math.random() * 0.35,
+      scale: 0.55 + Math.random() * 0.35,
       rotation: Math.random() * 20 - 10,
       wobble: Math.random() * Math.PI * 2,
       wobbleSpeed: 0.002 + Math.random() * 0.002,
@@ -32,12 +32,21 @@ export const Hero: React.FC = () => {
       type: fromOrbiter ? fromOrbiter.type : types[Math.floor(Math.random() * types.length)],
       angle: fromOrbiter ? fromOrbiter.angle : Math.random() * Math.PI * 2,
       distance: fromOrbiter ? fromOrbiter.radius : (350 + Math.random() * 100),
-      speed: 1 + Math.random() * 0.5,
-      orbitSpeed: 0.008 + Math.random() * 0.006,
+      speed: 0.8 + Math.random() * 0.4,
+      orbitSpeed: 0.006 + Math.random() * 0.005,
       z: fromOrbiter ? fromOrbiter.z : (Math.random() * 100 - 50),
-      scale: fromOrbiter ? fromOrbiter.scale : (0.45 + Math.random() * 0.35),
+      scale: fromOrbiter ? fromOrbiter.scale : (0.55 + Math.random() * 0.35),
       rotation: fromOrbiter ? fromOrbiter.rotation : (Math.random() * 20 - 10),
     };
+  }, []);
+
+  // Handle scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Initialize orbiters
@@ -47,7 +56,6 @@ export const Hero: React.FC = () => {
       initial.push(createOrbiter(i));
     }
     setOrbiters(initial);
-    setNextId(18);
   }, [createOrbiter]);
 
   // Occasionally send an orbiter falling into center
@@ -56,20 +64,16 @@ export const Hero: React.FC = () => {
       setOrbiters(prev => {
         if (prev.length < 10) return prev;
         
-        // Pick a random orbiter to fall
         const idx = Math.floor(Math.random() * prev.length);
         const chosen = prev[idx];
         
-        // Create a faller from this orbiter
         setFallers(f => [...f, createFaller(Date.now(), chosen)]);
-        setNextId(n => n + 1);
         
-        // Remove from orbiters and add a new one at a different position
         const newOrbiters = prev.filter((_, i) => i !== idx);
         const replacement = createOrbiter(Date.now() + 1);
         return [...newOrbiters, replacement];
       });
-    }, 2000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [createOrbiter, createFaller]);
@@ -77,25 +81,20 @@ export const Hero: React.FC = () => {
   // Animation loop
   useEffect(() => {
     let animationId;
-    let time = 0;
 
     const animate = () => {
-      time += 1;
-
-      // Update orbiters (just rotate around)
       setOrbiters(prev => prev.map(p => ({
         ...p,
         angle: p.angle + p.orbitSpeed,
         wobble: p.wobble + p.wobbleSpeed,
       })));
 
-      // Update fallers (spiral inward)
       setFallers(prev => {
         return prev
           .map(p => {
             const newDistance = p.distance - p.speed;
-            const newSpeed = p.speed * 1.015; // Accelerate
-            const newOrbitSpeed = p.orbitSpeed * 1.01;
+            const newSpeed = p.speed * 1.012;
+            const newOrbitSpeed = p.orbitSpeed * 1.008;
             
             return {
               ...p,
@@ -103,10 +102,10 @@ export const Hero: React.FC = () => {
               angle: p.angle + p.orbitSpeed,
               speed: newSpeed,
               orbitSpeed: newOrbitSpeed,
-              rotation: p.rotation + 2,
+              rotation: p.rotation + 1.5,
             };
           })
-          .filter(p => p.distance > 20); // Remove when reached center
+          .filter(p => p.distance > 20);
       });
 
       animationId = requestAnimationFrame(animate);
@@ -116,13 +115,18 @@ export const Hero: React.FC = () => {
     return () => cancelAnimationFrame(animationId);
   }, []);
 
+  // Scroll-based fade out
+  const scrollThreshold = 900;
+  const progress = Math.min(Math.max(scrollY / scrollThreshold, 0), 1);
+  const heroOpacity = 1 - Math.pow(progress, 2);
+
   const getStyle = (type) => {
     const styles = {
-      pdf: { color: 'bg-red-500', icon: FileType, iconColor: 'text-red-500' },
-      doc: { color: 'bg-blue-500', icon: FileText, iconColor: 'text-blue-500' },
-      ppt: { color: 'bg-orange-500', icon: Presentation, iconColor: 'text-orange-500' },
-      xls: { color: 'bg-green-500', icon: FileSpreadsheet, iconColor: 'text-green-500' },
-      html: { color: 'bg-purple-500', icon: Code, iconColor: 'text-purple-500' },
+      pdf: { color: 'bg-red-500', icon: FileType, iconColor: 'text-red-500', label: 'PDF' },
+      doc: { color: 'bg-blue-500', icon: FileText, iconColor: 'text-blue-500', label: 'DOCX' },
+      ppt: { color: 'bg-orange-500', icon: Presentation, iconColor: 'text-orange-500', label: 'PPTX' },
+      xls: { color: 'bg-green-500', icon: FileSpreadsheet, iconColor: 'text-green-500', label: 'XLSX' },
+      html: { color: 'bg-purple-500', icon: Code, iconColor: 'text-purple-500', label: 'HTML' },
     };
     return styles[type] || styles.doc;
   };
@@ -133,13 +137,13 @@ export const Hero: React.FC = () => {
     const x = Math.cos(p.angle) * dist;
     const y = Math.sin(p.angle) * dist + wobbleOffset;
     
-    let opacity = 0.85;
+    let opacity = 0.9;
     if (isFalling && p.distance < 80) {
       opacity = (p.distance - 20) / 60;
     }
     
     const scale = isFalling 
-      ? p.scale * (1 + (350 - p.distance) / 400)
+      ? p.scale * (1 + (350 - p.distance) / 500)
       : p.scale;
     
     const style = getStyle(p.type);
@@ -148,20 +152,24 @@ export const Hero: React.FC = () => {
     return (
       <div
         key={p.id}
-        className="absolute top-1/2 left-1/2 w-16 h-20 pointer-events-none transition-opacity duration-300"
+        className="absolute top-1/2 left-1/2 w-[70px] h-[90px] pointer-events-none"
         style={{
           transform: `translate(-50%, -50%) translate3d(${x}px, ${y}px, ${p.z}px) scale(${scale}) rotateZ(${p.rotation}deg)`,
-          opacity: Math.max(0, opacity),
+          opacity: Math.max(0, opacity) * heroOpacity,
         }}
       >
-        <div className="w-full h-full bg-white/95 rounded-md shadow-lg overflow-hidden border border-white/50">
+        <div className="w-full h-full bg-slate-100/95 backdrop-blur-sm rounded-md shadow-[0_0_15px_rgba(0,0,0,0.3)] overflow-hidden border border-white/20">
           <div className={`h-2 w-full ${style.color}`} />
-          <div className="p-1.5">
-            <Icon size={12} className={style.iconColor} />
-            <div className="mt-1.5 space-y-1">
-              <div className="h-1 w-full bg-slate-200 rounded" />
-              <div className="h-1 w-3/4 bg-slate-100 rounded" />
-              <div className="h-1 w-5/6 bg-slate-100 rounded" />
+          <div className="p-2 flex-1 flex flex-col gap-1 bg-gradient-to-b from-white to-slate-50">
+            <div className="flex justify-between items-center">
+              <Icon size={14} className={style.iconColor} />
+              <span className="text-[6px] font-bold text-slate-400 tracking-wider">{style.label}</span>
+            </div>
+            <div className="space-y-1 opacity-60">
+              <div className="h-0.5 w-full bg-slate-300 rounded-sm" />
+              <div className="h-0.5 w-4/5 bg-slate-200 rounded-sm" />
+              <div className="h-0.5 w-full bg-slate-200 rounded-sm" />
+              <div className="h-0.5 w-3/4 bg-slate-200 rounded-sm" />
             </div>
           </div>
         </div>
@@ -174,54 +182,66 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-screen bg-black overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-black to-slate-950" />
-      
-      {/* Center glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-        <div className="w-2 h-2 bg-white rounded-full blur-sm" />
-        <div className="absolute -inset-12 bg-blue-400/30 rounded-full blur-xl" />
-        <div className="absolute -inset-24 bg-blue-500/15 rounded-full blur-2xl" />
-        <div className="absolute -inset-40 bg-purple-500/10 rounded-full blur-3xl" />
-      </div>
+    <div className="relative h-[150vh] bg-space">
+      {/* Sticky Container */}
+      <div className="sticky top-0 left-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center perspective-[1200px]">
+        
+        {/* Background Gradients - matching original */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050508] via-[#0a0a15] to-[#050508] opacity-90" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-[80px] animate-pulse-slow" />
 
-      {/* Particles container */}
-      <div className="absolute inset-0" style={{ perspective: '600px' }}>
-        {orbiters.map(p => renderParticle(p, false))}
-        {fallers.map(p => renderParticle(p, true))}
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-6">
-          Transforming Your <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-purple-400">
-            Content Experience
-          </span>
-        </h1>
-        
-        <p className="text-lg md:text-xl text-slate-400 font-light max-w-xl mx-auto mb-10">
-          Turn your static documents into an intelligent, accessible, and interactive ecosystem.
-        </p>
-        
-        <button 
-          onClick={scrollToNext}
-          className="px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white font-medium transition-all backdrop-blur-sm"
-        >
-          Get Started
-        </button>
-        
-        <div 
-          onClick={scrollToNext}
-          className="absolute bottom-8 flex flex-col items-center gap-2 text-slate-500 cursor-pointer hover:text-slate-300"
-        >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <ChevronDown size={20} className="animate-bounce" />
+        {/* Center glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <div className="w-2 h-2 bg-white/80 rounded-full blur-sm" />
+          <div className="absolute -inset-8 bg-blue-400/20 rounded-full blur-xl" />
+          <div className="absolute -inset-16 bg-blue-500/10 rounded-full blur-2xl" />
         </div>
+
+        {/* Particles container */}
+        <div className="absolute inset-0 overflow-hidden" style={{ perspective: '600px' }}>
+          {orbiters.map(p => renderParticle(p, false))}
+          {fallers.map(p => renderParticle(p, true))}
+        </div>
+
+        {/* Central Text */}
+        <div 
+          className="relative z-20 text-center max-w-5xl px-6 transition-all duration-300"
+          style={{ 
+            opacity: heroOpacity,
+            transform: `scale(${1 + progress * 0.2})`, 
+            filter: `blur(${progress * 10}px)` 
+          }}
+        >
+          <div className="absolute inset-0 bg-brand-blue/5 blur-[60px] -z-10 rounded-full"></div>
+
+          <h1 className="text-5xl md:text-7xl lg:text-9xl font-black text-white tracking-tighter mb-8 drop-shadow-2xl">
+            Transforming Your <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-white to-brand-purple">
+              Content Experience
+            </span>
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-slate-400 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+            Turn your static documents into an intelligent, accessible, and interactive ecosystem.
+          </p>
+
+          <button 
+            onClick={scrollToNext}
+            className="px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white font-medium transition-all backdrop-blur-sm mb-8"
+          >
+            Get Started
+          </button>
+
+          <div 
+            onClick={scrollToNext}
+            className="flex flex-col items-center gap-4 animate-bounce-slow opacity-60 cursor-pointer"
+          >
+            <span className="text-xs uppercase tracking-[0.3em] text-slate-500">Scroll</span>
+            <ChevronDown size={20} className="text-slate-500" />
+          </div>
+        </div>
+
       </div>
     </div>
   );
-}
-
-// Named export to match: import { Hero } from '@/components/Hero'
+};

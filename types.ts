@@ -24,7 +24,7 @@ export interface LayerContent {
   hex: string;
 }
 
-export type PageView = 'home' | 'terms' | 'privacy' | 'api' | 'thank-you';
+export type PageView = 'home' | 'terms' | 'privacy' | 'api' | 'thank-you' | 'learning-transformer';
 
 export interface NavProps {
   onNavigate: (page: PageView) => void;

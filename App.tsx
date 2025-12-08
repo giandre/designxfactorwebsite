@@ -9,6 +9,7 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Legal } from './pages/Legal';
 import { ThankYou } from './pages/ThankYou';
+import { LearningTransformer } from './pages/products/LearningTransformer';
 import { PageView } from './types';
 
 function App() {
@@ -21,12 +22,14 @@ function App() {
           <main>
             <Hero />
             <MonolithSection />
-            <ProductShowcase />
+            <ProductShowcase onNavigate={setCurrentPage} />
             <WhyUs />
             <Roadmap />
             <Contact onNavigate={setCurrentPage} />
           </main>
         );
+      case 'learning-transformer':
+        return <LearningTransformer onNavigate={setCurrentPage} />;
       case 'thank-you':
         return <ThankYou onNavigate={setCurrentPage} />;
       case 'terms':

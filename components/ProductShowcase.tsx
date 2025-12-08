@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ShieldCheck, Layout, Video, Bot, ArrowRight, PlayCircle, Layers, Zap, MousePointer2, X } from 'lucide-react';
-import { ProductData } from '../types';
+import { ProductData, PageView } from '../types';
 
 const products = [
   {
@@ -53,7 +53,11 @@ const products = [
   }
 ];
 
-export const ProductShowcase: React.FC = () => {
+interface ProductShowcaseProps {
+  onNavigate: (page: PageView) => void;
+}
+
+export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) => {
   const [activeId, setActiveId] = useState<number>(1);
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const [showVideo, setShowVideo] = useState(false);
@@ -137,6 +141,14 @@ export const ProductShowcase: React.FC = () => {
 
   const closeVideo = () => {
     setShowVideo(false);
+  };
+
+  const handleLearnMore = () => {
+    if (activeId === 1) {
+      onNavigate('learning-transformer');
+      window.scrollTo(0, 0);
+    }
+    // Future products can be added here
   };
 
   const activeProduct = products.find(p => p.id === activeId) || products[0];
@@ -258,7 +270,10 @@ export const ProductShowcase: React.FC = () => {
               {activeProduct.videoId ? 'Watch Demo' : 'Demo Coming Soon'}
             </button>
             
-            <button className="w-full py-3.5 bg-white/5 border border-white/10 text-white font-semibold rounded-xl cursor-pointer flex items-center justify-center gap-2 text-sm hover:bg-white/10 transition-colors">
+            <button 
+              onClick={handleLearnMore}
+              className="w-full py-3.5 bg-white/5 border border-white/10 text-white font-semibold rounded-xl cursor-pointer flex items-center justify-center gap-2 text-sm hover:bg-white/10 transition-colors"
+            >
               Learn More <ArrowRight size={16} />
             </button>
           </div>
@@ -376,7 +391,10 @@ export const ProductShowcase: React.FC = () => {
                       <PlayCircle size={20} className="group-hover:fill-current" /> 
                       {activeProduct.videoId ? 'Watch Demo' : 'Demo Coming Soon'}
                     </button>
-                    <button className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white border border-white/20 hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30">
+                    <button 
+                      onClick={handleLearnMore}
+                      className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white border border-white/20 hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
+                    >
                       Learn More <ArrowRight size={20} />
                     </button>
                   </div>

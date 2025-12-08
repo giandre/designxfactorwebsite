@@ -8,7 +8,7 @@ const products = [
     name: "Learning Transformer",
     shortName: "Transformer",
     description: "The foundation. Seamlessly integrate compliance checking and analytics into your existing LMS.",
-    icon: "ShieldCheck",
+    iconUrl: "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/LT-WhiteLine.png",
     bgColor: "#c73e4a",
     textHex: "#c73e4a",
     headerGradient: "linear-gradient(135deg, #1e3a5f 0%, #c73e4a 100%)",
@@ -20,7 +20,7 @@ const products = [
     name: "Catalyst Studio",
     shortName: "Studio",
     description: "Transform dense technical manuals into beautiful, mobile-first learning cards.",
-    icon: "Layout",
+    iconUrl: "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/Catalyst_Studio_logo-whline.png",
     bgColor: "#1e3a5f",
     textHex: "#1e3a5f",
     headerGradient: "linear-gradient(135deg, #1e3a5f 0%, #9e4a5d 100%)",
@@ -32,7 +32,7 @@ const products = [
     name: "Catalyst Architect",
     shortName: "Architect",
     description: "Generate podcasts and videos from text instantly using generative AI.",
-    icon: "Video",
+    iconUrl: "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/C2Alinewhite2.png",
     bgColor: "#8b3d4d",
     textHex: "#8b3d4d",
     headerGradient: "linear-gradient(135deg, #8b3d4d 0%, #c73e4a 100%)",
@@ -44,7 +44,7 @@ const products = [
     name: "DidactaX",
     shortName: "DidactaX",
     description: "The AI agent that adapts learning paths in real-time based on learner performance.",
-    icon: "Bot",
+    iconUrl: "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/Didactaxwhitelines.png",
     bgColor: "#38bdf8",
     textHex: "#38bdf8",
     headerGradient: "linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%)",
@@ -93,15 +93,18 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
     return () => observers.forEach(obs => obs.disconnect());
   }, []);
 
-  const getIcon = (name: string, size = 24, color?: string) => {
-    const props = { size, color, "aria-hidden": true as const };
-    switch(name) {
-      case 'ShieldCheck': return <ShieldCheck {...props} />;
-      case 'Layout': return <Layout {...props} />;
-      case 'Video': return <Video {...props} />;
-      case 'Bot': return <Bot {...props} />;
-      default: return <ShieldCheck {...props} />;
-    }
+  const getIcon = (product: typeof products[0], size = 24, className?: string) => {
+    return (
+      <img 
+        src={product.iconUrl} 
+        alt={`${product.name} Logo`}
+        className={`${className} object-contain`}
+        style={{
+          width: size,
+          height: size,
+        }}
+      />
+    );
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -209,14 +212,16 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
                 <button
                   key={product.id}
                   onClick={() => handleNavClick(idx)}
-                  className="flex-1 py-2.5 rounded-lg text-xs font-semibold transition-all border-none cursor-pointer"
+                  className="flex-1 py-2.5 rounded-lg text-xs font-semibold transition-all border-none cursor-pointer flex items-center justify-center gap-1.5"
                   style={{
                     backgroundColor: isActive ? product.bgColor : 'transparent',
                     color: isActive ? 'white' : '#64748b',
                     boxShadow: isActive ? '0 4px 12px rgba(0,0,0,0.3)' : 'none'
                   }}
                 >
-                  {product.shortName}
+                  <img src={product.iconUrl} className="w-4 h-4 object-contain" alt="" />
+                  <span className="hidden sm:inline">{product.shortName}</span>
+                  <span className="sm:hidden">{product.shortName.slice(0, 4)}..</span>
                 </button>
               );
             })}
@@ -230,8 +235,8 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
             className="p-4 flex items-center gap-3"
             style={{ background: activeProduct.headerGradient }}
           >
-            <div className="p-2 bg-white/20 rounded-lg flex items-center justify-center">
-              {getIcon(activeProduct.icon, 24, 'white')}
+            <div className="p-2 bg-white/20 rounded-lg flex items-center justify-center text-white">
+              {getIcon(activeProduct, 24)}
             </div>
             <h3 className="text-xl font-black text-white">{activeProduct.name}</h3>
           </div>
@@ -321,7 +326,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
                     className={`flex items-center gap-4 ${activeId === product.id ? '' : 'text-slate-400 group-hover:text-white'}`}
                     style={{ color: activeId === product.id ? product.textHex : undefined }}
                   >
-                    {getIcon(product.icon, 24, activeId === product.id ? product.textHex : undefined)}
+                    {getIcon(product, 24)}
                     <div>
                       <span className="font-bold text-base block">{product.name}</span>
                       {activeId === product.id && (
@@ -360,7 +365,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
                     className="inline-flex p-4 rounded-2xl bg-white/5 mb-8 border border-white/10 shadow-lg transition-colors duration-500"
                     style={{ color: activeProduct.textHex }}
                   >
-                    {getIcon(activeProduct.icon, 48, activeProduct.textHex)}
+                    {getIcon(activeProduct, 48)}
                   </div>
                   
                   {/* Key prop ensures text animation re-triggers on change */}

@@ -46,12 +46,12 @@ const products = [
     id: 4,
     name: "DidactaX",
     shortName: "DidactaX",
-    description: "The AI agent that adapts learning paths in real-time based on learner performance.",
+    description: "Transform your corporate training content into interactive video and audio experiences.",
     iconUrl: "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/Didactaxwhitelines.png",
     bgColor: "#38bdf8",
     textHex: "#38bdf8",
     headerGradient: "linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%)",
-    features: ["Personalized Paths", "AI Tutor", "Skill Gap Analysis"],
+    features: ["Personalized Experience", "AI Tutor", "Knowledge Check Analysis"],
     videoId: null,
     videoLabel: "Watch Demo"
   }

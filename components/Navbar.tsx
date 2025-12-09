@@ -227,6 +227,14 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
         </a>
         
         <a 
+          href="#roadmap"
+          onClick={(e) => handleNavClick(e, 'roadmap')}
+          className="text-slate-400 hover:text-white transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded px-2 py-1"
+        >
+          Roadmap
+        </a>
+
+        <a 
           href="#contact"
           onClick={(e) => handleNavClick(e, 'contact')}
           className="bg-brand-red hover:bg-red-500 text-white px-6 py-2 rounded-lg font-semibold text-sm transition-all transform hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-500/50 shadow-lg shadow-brand-red/20"
@@ -301,6 +309,14 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
             onClick={(e) => handleNavClick(e, 'comparison')}
           >
             Why Us
+          </a>
+
+          <a 
+            href="#roadmap"
+            className="text-slate-300 text-lg font-medium"
+            onClick={(e) => handleNavClick(e, 'roadmap')}
+          >
+            Roadmap
           </a>
           
           <a 

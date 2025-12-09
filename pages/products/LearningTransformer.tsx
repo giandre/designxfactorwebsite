@@ -29,6 +29,16 @@ export const LearningTransformer: React.FC<{ onNavigate: NavProps['onNavigate'] 
     window.scrollTo(0, 0);
   }, []);
 
+  const handleRequestAccess = () => {
+    // Navigate to home first
+    onNavigate('home');
+    // Wait for route change/render, then scroll
+    setTimeout(() => {
+      const el = document.getElementById('contact');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
   return (
     <div className="min-h-screen bg-space text-slate-200 pt-20">
       {/* Video Modal */}
@@ -51,7 +61,7 @@ export const LearningTransformer: React.FC<{ onNavigate: NavProps['onNavigate'] 
             <div className="relative pt-[56.25%] rounded-xl overflow-hidden bg-black">
               <iframe
                 className="absolute inset-0 w-full h-full border-none"
-                src={`https://www.youtube.com/embed/AdoFkMShHCA?autoplay=1&rel=0`}
+                src={`https://www.youtube.com/embed/I5ib4qt6nDQ?autoplay=1&rel=0`}
                 title="Learning Transformer Demo"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -90,14 +100,10 @@ export const LearningTransformer: React.FC<{ onNavigate: NavProps['onNavigate'] 
                   onClick={() => setShowVideo(true)}
                   className="flex items-center gap-2 bg-brand-red hover:bg-red-500 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-brand-red/20"
                 >
-                  <PlayCircle size={20} /> Watch Demo
+                  <PlayCircle size={20} /> Watch Promo
                 </button>
                 <button 
-                  onClick={() => {
-                    const el = document.getElementById('contact');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    else onNavigate('home');
-                  }}
+                  onClick={handleRequestAccess}
                   className="px-8 py-4 border border-white/20 hover:bg-white/5 rounded-xl text-white font-bold transition-colors"
                 >
                   Request Access
@@ -106,55 +112,16 @@ export const LearningTransformer: React.FC<{ onNavigate: NavProps['onNavigate'] 
           </div>
           
           <div className="relative">
-            {/* Abstract visual representation of transformation */}
-            <div className="relative z-10 bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
-              <div className="flex justify-between items-center mb-8 border-b border-white/5 pb-4">
-                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-brand-red/20 flex items-center justify-center text-brand-red">
-                       <ShieldCheck size={24} />
-                    </div>
-                    <div>
-                       <div className="text-white font-bold">Transformer Engine</div>
-                       <div className="text-xs text-green-400 flex items-center gap-1"><div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div> Active</div>
-                    </div>
-                 </div>
-                 <div className="text-xs text-slate-500 font-mono">v2.4.0</div>
-              </div>
-
-              <div className="space-y-4">
-                 <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
-                    <div className="flex items-center gap-3">
-                       <FileText size={18} className="text-slate-400" />
-                       <span className="text-sm text-slate-300">Course_Syllabus.pdf</span>
-                    </div>
-                    <ArrowRight size={14} className="text-slate-600" />
-                    <div className="flex items-center gap-2">
-                       <span className="text-xs bg-brand-blue/20 text-brand-blue px-2 py-0.5 rounded">Accessible HTML</span>
-                       <CheckCircle size={14} className="text-green-500" />
-                    </div>
-                 </div>
-                 <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
-                    <div className="flex items-center gap-3">
-                       <FileSpreadsheet size={18} className="text-slate-400" />
-                       <span className="text-sm text-slate-300">Q3_Data.xlsx</span>
-                    </div>
-                    <ArrowRight size={14} className="text-slate-600" />
-                    <div className="flex items-center gap-2">
-                       <span className="text-xs bg-brand-purple/20 text-brand-purple px-2 py-0.5 rounded">Interactive Chart</span>
-                       <CheckCircle size={14} className="text-green-500" />
-                    </div>
-                 </div>
-                 <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
-                    <div className="flex items-center gap-3">
-                       <Briefcase size={18} className="text-slate-400" />
-                       <span className="text-sm text-slate-300">Training_Module.docx</span>
-                    </div>
-                    <ArrowRight size={14} className="text-slate-600" />
-                    <div className="flex items-center gap-2">
-                       <span className="text-xs bg-brand-gold/20 text-brand-gold px-2 py-0.5 rounded">Video & Audio</span>
-                       <CheckCircle size={14} className="text-green-500" />
-                    </div>
-                 </div>
+            {/* Replaced Abstract visual with Video Embed */}
+            <div className="relative z-10 bg-slate-900 border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative pt-[56.25%]">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/AdoFkMShHCA?rel=0"
+                  title="Transformer Engine Preview"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
             </div>
             
@@ -413,13 +380,7 @@ export const LearningTransformer: React.FC<{ onNavigate: NavProps['onNavigate'] 
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                <button 
-                  onClick={() => {
-                    onNavigate('home');
-                    setTimeout(() => {
-                      const el = document.getElementById('contact');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
-                  }}
+                  onClick={handleRequestAccess}
                   className="bg-white text-space hover:bg-slate-200 font-bold px-8 py-4 rounded-xl transition-colors"
                >
                   Get Started Now

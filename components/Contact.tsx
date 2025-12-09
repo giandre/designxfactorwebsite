@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Loader2 } from 'lucide-react';
+import { Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { NavProps } from '../types';
 
 export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNavigate }) => {
@@ -12,17 +12,63 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
     pilot: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call since we don't have a backend in this environment
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log("Form Submitted:", formData);
-    setIsSubmitting(false);
-    onNavigate('thank-you');
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: 'd5ec859f-b3b7-49b9-830b-36b8a09c12ee',
+          name: formData.name,
+          email: formData.email,
+          institution: formData.institution || 'Not provided',
+          role: formData.role || 'Not provided',
+          message: formData.message,
+          pilot_program_interest: formData.pilot ? 'Yes' : 'No',
+          subject: 'New Contact Form Submission - Design X Factor',
+          from_name: 'Design X Factor Website'
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          institution: '',
+          role: '',
+          message: '',
+          pilot: false
+        });
+        // Navigate to thank you page after a brief delay
+        setTimeout(() => {
+          onNavigate('thank-you');
+        }, 1500);
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(result.message || 'Submission failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitStatus('error');
+      setErrorMessage('An error occurred. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -48,6 +94,25 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
           {/* Honeypot field */}
           <input type="text" name="honeypot" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
 
+          {/* Success Message */}
+          {submitStatus === 'success' && (
+            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3 text-green-800">
+              <CheckCircle size={20} />
+              <span className="font-medium">Success! Redirecting you now...</span>
+            </div>
+          )}
+
+          {/* Error Message */}
+          {submitStatus === 'error' && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3 text-red-800">
+              <AlertCircle size={20} className="mt-0.5" />
+              <div>
+                <p className="font-medium">Submission failed</p>
+                <p className="text-sm">{errorMessage}</p>
+              </div>
+            </div>
+          )}
+
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div className="space-y-2">
               <label htmlFor="name" className="text-sm font-bold text-slate-900 uppercase tracking-wider">Full Name *</label>
@@ -58,7 +123,8 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
+                disabled={isSubmitting}
+                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
             <div className="space-y-2">
@@ -70,7 +136,8 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
+                disabled={isSubmitting}
+                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
           </div>
@@ -84,7 +151,8 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
                 name="institution"
                 value={formData.institution}
                 onChange={handleChange}
-                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
+                disabled={isSubmitting}
+                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
             <div className="space-y-2">
@@ -94,7 +162,8 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
-                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors appearance-none"
+                disabled={isSubmitting}
+                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <option value="">Select your role...</option>
                 <option value="Dean">Dean</option>
@@ -116,7 +185,8 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
               rows={4}
               value={formData.message}
               onChange={handleChange}
-              className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors"
+              disabled={isSubmitting}
+              className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               placeholder="Tell us about your needs..."
             ></textarea>
           </div>
@@ -128,7 +198,8 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
               name="pilot"
               checked={formData.pilot}
               onChange={handleCheckbox}
-              className="w-5 h-5 text-brand-blue rounded focus:ring-brand-blue border-slate-300 cursor-pointer"
+              disabled={isSubmitting}
+              className="w-5 h-5 text-brand-blue rounded focus:ring-brand-blue border-slate-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             />
             <label htmlFor="pilot" className="text-sm text-slate-700 cursor-pointer select-none">
               I'm interested in the <span className="text-brand-blue font-bold">free pilot program</span>
@@ -137,11 +208,13 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
 
           <button 
             type="submit" 
-            disabled={isSubmitting}
+            disabled={isSubmitting || submitStatus === 'success'}
             className="w-full bg-brand-red hover:bg-red-500 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-brand-red/20 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
-              <><Loader2 className="animate-spin" /> Sending...</>
+              <><Loader2 className="animate-spin" size={20} /> Sending...</>
+            ) : submitStatus === 'success' ? (
+              <><CheckCircle size={20} /> Sent Successfully!</>
             ) : (
               <><Send size={20} /> Request Consultation</>
             )}

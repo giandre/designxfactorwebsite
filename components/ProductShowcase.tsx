@@ -13,7 +13,8 @@ const products = [
     textHex: "#c73e4a",
     headerGradient: "linear-gradient(135deg, #1e3a5f 0%, #c73e4a 100%)",
     features: ["WCAG 2.1 Compliance", "Deep Analytics", "LMS Integration"],
-    videoId: "AdoFkMShHCA"
+    videoId: "I5ib4qt6nDQ",
+    videoLabel: "Watch Promo"
   },
   {
     id: 2,
@@ -25,7 +26,8 @@ const products = [
     textHex: "#1e3a5f",
     headerGradient: "linear-gradient(135deg, #1e3a5f 0%, #9e4a5d 100%)",
     features: ["Drag & Drop Builder", "Responsive Output", "Asset Library"],
-    videoId: null
+    videoId: null,
+    videoLabel: "Watch Demo"
   },
   {
     id: 3,
@@ -37,7 +39,8 @@ const products = [
     textHex: "#8b3d4d",
     headerGradient: "linear-gradient(135deg, #8b3d4d 0%, #c73e4a 100%)",
     features: ["Text-to-Video", "Audio Synthesis", "Interactive Overlays"],
-    videoId: null
+    videoId: null,
+    videoLabel: "Watch Demo"
   },
   {
     id: 4,
@@ -49,7 +52,8 @@ const products = [
     textHex: "#38bdf8",
     headerGradient: "linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%)",
     features: ["Personalized Paths", "AI Tutor", "Skill Gap Analysis"],
-    videoId: null
+    videoId: null,
+    videoLabel: "Watch Demo"
   }
 ];
 
@@ -272,7 +276,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
               }}
             >
               <PlayCircle size={18} /> 
-              {activeProduct.videoId ? 'Watch Demo' : 'Demo Coming Soon'}
+              {activeProduct.videoId ? (activeProduct.videoLabel || 'Watch Demo') : 'Demo Coming Soon'}
             </button>
             
             <button 
@@ -353,10 +357,11 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
                 ref={cardRef}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                className="relative w-full max-w-2xl bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out cursor-none"
+                className="relative w-full max-w-2xl bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out"
                 style={{
                   transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
-                  transformStyle: 'preserve-3d'
+                  transformStyle: 'preserve-3d',
+                  cursor: 'default'
                 }}
              >
                 {/* Content Layer (Popped out) */}
@@ -394,7 +399,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
                       className="group flex items-center gap-2 bg-white text-space px-8 py-4 rounded-xl font-bold transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-200 hover:scale-105"
                     >
                       <PlayCircle size={20} className="group-hover:fill-current" /> 
-                      {activeProduct.videoId ? 'Watch Demo' : 'Demo Coming Soon'}
+                      {activeProduct.videoId ? (activeProduct.videoLabel || 'Watch Demo') : 'Demo Coming Soon'}
                     </button>
                     <button 
                       onClick={handleLearnMore}
@@ -415,11 +420,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
                   className="absolute inset-0 rounded-3xl pointer-events-none bg-gradient-to-tr from-white/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"
                   style={{ mixBlendMode: 'overlay' }}
                 ></div>
-             </div>
-
-             {/* Custom Cursor Hint (Desktop only) */}
-             <div className="hidden lg:flex absolute bottom-10 right-10 text-slate-500 text-sm items-center gap-2 animate-pulse pointer-events-none">
-               <MousePointer2 size={16} /> Hover to interact
              </div>
 
           </div>

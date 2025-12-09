@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { MonolithSection } from './components/MonolithSection';
@@ -15,6 +15,43 @@ import { PageView } from './types';
 function App() {
   const [currentPage, setCurrentPage] = useState<PageView>('home');
 
+  // Handle routing based on URL hash
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1); // Remove the '#'
+      
+      const validPages: PageView[] = [
+        'learning-transformer', 
+        'thank-you', 
+        'terms', 
+        'privacy', 
+        'api'
+      ];
+
+      if (validPages.includes(hash as PageView)) {
+        setCurrentPage(hash as PageView);
+      } else {
+        setCurrentPage('home');
+      }
+    };
+
+    // Initial check
+    handleHashChange();
+
+    // Listen for hash changes (back/forward button)
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleNavigate = (page: PageView) => {
+    if (page === 'home') {
+      window.location.hash = '';
+    } else {
+      window.location.hash = page;
+    }
+    // State update is handled by the hashchange listener
+  };
+
   const renderContent = () => {
     switch (currentPage) {
       case 'home':
@@ -22,16 +59,16 @@ function App() {
           <main>
             <Hero />
             <MonolithSection />
-            <ProductShowcase onNavigate={setCurrentPage} />
+            <ProductShowcase onNavigate={handleNavigate} />
             <WhyUs />
             <Roadmap />
-            <Contact onNavigate={setCurrentPage} />
+            <Contact onNavigate={handleNavigate} />
           </main>
         );
       case 'learning-transformer':
-        return <LearningTransformer onNavigate={setCurrentPage} />;
+        return <LearningTransformer onNavigate={handleNavigate} />;
       case 'thank-you':
-        return <ThankYou onNavigate={setCurrentPage} />;
+        return <ThankYou onNavigate={handleNavigate} />;
       case 'terms':
       case 'privacy':
       case 'api':
@@ -43,11 +80,11 @@ function App() {
 
   return (
     <div className="bg-space min-h-screen text-slate-200 selection:bg-brand-red selection:text-white font-sans flex flex-col">
-      <Navbar onNavigate={setCurrentPage} currentPage={currentPage} />
+      <Navbar onNavigate={handleNavigate} currentPage={currentPage} />
       
       {renderContent()}
 
-      <Footer onNavigate={setCurrentPage} currentPage={currentPage} />
+      <Footer onNavigate={handleNavigate} currentPage={currentPage} />
     </div>
   );
 }

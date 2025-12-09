@@ -19,7 +19,9 @@ import {
   Database,
   MonitorPlay,
   ArrowDown,
-  Layout
+  Layout,
+  ChevronRight,
+  Home
 } from 'lucide-react';
 
 export const LearningTransformer: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNavigate }) => {
@@ -41,6 +43,23 @@ export const LearningTransformer: React.FC<{ onNavigate: NavProps['onNavigate'] 
 
   return (
     <div className="min-h-screen bg-space text-slate-200 pt-20">
+      
+      {/* Breadcrumbs */}
+      <div className="px-6 py-4 border-b border-white/5 bg-space/50 backdrop-blur-sm sticky top-[70px] z-40">
+        <div className="max-w-7xl mx-auto flex items-center gap-2 text-sm text-slate-500">
+          <button 
+            onClick={() => onNavigate('home')} 
+            className="hover:text-white transition-colors flex items-center gap-1"
+          >
+            <Home size={14} /> Home
+          </button>
+          <ChevronRight size={14} />
+          <span>Solutions</span>
+          <ChevronRight size={14} />
+          <span className="text-white font-medium">Learning Transformer</span>
+        </div>
+      </div>
+
       {/* Video Modal */}
       {showVideo && (
         <div 
@@ -112,7 +131,7 @@ export const LearningTransformer: React.FC<{ onNavigate: NavProps['onNavigate'] 
           </div>
           
           <div className="relative">
-            {/* Replaced Abstract visual with Video Embed */}
+            {/* Video Embed */}
             <div className="relative z-10 bg-slate-900 border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
               <div className="relative pt-[56.25%]">
                 <iframe

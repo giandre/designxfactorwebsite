@@ -2,14 +2,24 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { FileText, FileType, Presentation, FileSpreadsheet, Code, ChevronDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {
-  const [orbiters, setOrbiters] = useState([]);
-  const [fallers, setFallers] = useState([]);
+  const [orbiters, setOrbiters] = useState<any[]>([]);
+  const [fallers, setFallers] = useState<any[]>([]);
   const [scrollY, setScrollY] = useState(0);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   const types = ['pdf', 'doc', 'ppt', 'xls', 'html'];
 
-  // Create an orbiting particle (stays in orbit)
-  const createOrbiter = useCallback((id) => {
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
+  const createOrbiter = useCallback((id: number) => {
     const orbitRadius = 220 + Math.random() * 200;
     return {
       id: id,
@@ -25,8 +35,7 @@ export const Hero: React.FC = () => {
     };
   }, []);
 
-  // Create a falling particle (gets sucked in)
-  const createFaller = useCallback((id, fromOrbiter) => {
+  const createFaller = useCallback((id: number, fromOrbiter?: any) => {
     return {
       id: id,
       type: fromOrbiter ? fromOrbiter.type : types[Math.floor(Math.random() * types.length)],
@@ -40,7 +49,6 @@ export const Hero: React.FC = () => {
     };
   }, []);
 
-  // Handle scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -49,17 +57,19 @@ export const Hero: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Initialize orbiters
   useEffect(() => {
-    const initial = [];
+    if (prefersReducedMotion) return;
+    
+    const initial: any[] = [];
     for (let i = 0; i < 18; i++) {
       initial.push(createOrbiter(i));
     }
     setOrbiters(initial);
-  }, [createOrbiter]);
+  }, [createOrbiter, prefersReducedMotion]);
 
-  // Occasionally send an orbiter falling into center
   useEffect(() => {
+    if (prefersReducedMotion) return;
+    
     const interval = setInterval(() => {
       setOrbiters(prev => {
         if (prev.length < 10) return prev;
@@ -76,11 +86,12 @@ export const Hero: React.FC = () => {
     }, 2500);
 
     return () => clearInterval(interval);
-  }, [createOrbiter, createFaller]);
+  }, [createOrbiter, createFaller, prefersReducedMotion]);
 
-  // Animation loop
   useEffect(() => {
-    let animationId;
+    if (prefersReducedMotion) return;
+    
+    let animationId: number;
 
     const animate = () => {
       setOrbiters(prev => prev.map(p => ({
@@ -113,15 +124,14 @@ export const Hero: React.FC = () => {
 
     animationId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationId);
-  }, []);
+  }, [prefersReducedMotion]);
 
-  // Scroll-based fade out
   const scrollThreshold = 900;
   const progress = Math.min(Math.max(scrollY / scrollThreshold, 0), 1);
   const heroOpacity = 1 - Math.pow(progress, 2);
 
-  const getStyle = (type) => {
-    const styles = {
+  const getStyle = (type: string) => {
+    const styles: Record<string, { color: string; icon: any; iconColor: string; label: string }> = {
       pdf: { color: 'bg-red-500', icon: FileType, iconColor: 'text-red-500', label: 'PDF' },
       doc: { color: 'bg-blue-500', icon: FileText, iconColor: 'text-blue-500', label: 'DOCX' },
       ppt: { color: 'bg-orange-500', icon: Presentation, iconColor: 'text-orange-500', label: 'PPTX' },
@@ -131,7 +141,7 @@ export const Hero: React.FC = () => {
     return styles[type] || styles.doc;
   };
 
-  const renderParticle = (p, isFalling) => {
+  const renderParticle = (p: any, isFalling: boolean) => {
     const dist = isFalling ? p.distance : p.radius;
     const wobbleOffset = isFalling ? 0 : Math.sin(p.wobble) * 8;
     const x = Math.cos(p.angle) * dist;
@@ -181,67 +191,101 @@ export const Hero: React.FC = () => {
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      scrollToNext();
+    }
+  };
+
   return (
-    <div className="relative h-[150vh] bg-space">
+    <section 
+      className="relative h-[150vh] bg-space"
+      aria-label="Hero section - Transform your content experience"
+    >
       {/* Sticky Container */}
       <div className="sticky top-0 left-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center perspective-[1200px]">
         
-        {/* Background Gradients - matching original */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050508] via-[#0a0a15] to-[#050508] opacity-90" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-[80px] animate-pulse-slow" />
+        {/* Background Gradients - Decorative */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-b from-[#050508] via-[#0a0a15] to-[#050508] opacity-90" 
+          aria-hidden="true"
+        />
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-[80px] animate-pulse-slow" 
+          aria-hidden="true"
+        />
 
-        {/* Center glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+        {/* Center glow - Decorative */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          aria-hidden="true"
+        >
           <div className="w-2 h-2 bg-white/80 rounded-full blur-sm" />
           <div className="absolute -inset-8 bg-blue-400/20 rounded-full blur-xl" />
           <div className="absolute -inset-16 bg-blue-500/10 rounded-full blur-2xl" />
         </div>
 
-        {/* Particles container */}
-        <div className="absolute inset-0 overflow-hidden" style={{ perspective: '600px' }}>
-          {orbiters.map(p => renderParticle(p, false))}
-          {fallers.map(p => renderParticle(p, true))}
-        </div>
+        {/* Particles container - Decorative animation */}
+        {!prefersReducedMotion && (
+          <div 
+            className="absolute inset-0 overflow-hidden" 
+            style={{ perspective: '600px' }}
+            aria-hidden="true"
+            role="presentation"
+          >
+            {orbiters.map(p => renderParticle(p, false))}
+            {fallers.map(p => renderParticle(p, true))}
+          </div>
+        )}
 
-        {/* Central Text */}
+        {/* Central Text Content */}
         <div 
           className="relative z-20 text-center max-w-4xl px-6 pt-16 transition-all duration-300"
           style={{ 
             opacity: heroOpacity,
-            transform: `scale(${1 + progress * 0.2})`, 
-            filter: `blur(${progress * 10}px)` 
+            transform: prefersReducedMotion ? 'none' : `scale(${1 + progress * 0.2})`, 
+            filter: prefersReducedMotion ? 'none' : `blur(${progress * 10}px)` 
           }}
         >
-          <div className="absolute inset-0 bg-brand-blue/5 blur-[60px] -z-10 rounded-full"></div>
+          <div 
+            className="absolute inset-0 bg-brand-blue/5 blur-[60px] -z-10 rounded-full"
+            aria-hidden="true"
+          />
 
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter mb-6 drop-shadow-2xl">
-            Transforming Your <br />
+            Transforming Your{' '}
+            <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-white to-brand-purple">
               Content Experience
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-300 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
             Turn your static documents into an intelligent, accessible, and interactive ecosystem.
           </p>
 
           <button 
             onClick={scrollToNext}
-            className="px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white font-medium transition-all backdrop-blur-sm mb-8"
+            className="px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white font-medium transition-all backdrop-blur-sm mb-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-space"
           >
             Get Started
           </button>
 
           <div 
             onClick={scrollToNext}
-            className="flex flex-col items-center gap-4 animate-bounce-slow opacity-60 cursor-pointer"
+            onKeyDown={handleKeyDown}
+            role="button"
+            tabIndex={0}
+            className="flex flex-col items-center gap-4 opacity-60 cursor-pointer focus:outline-none focus-visible:opacity-100"
+            aria-label="Scroll to next section"
           >
-            <span className="text-xs uppercase tracking-[0.3em] text-slate-500">Scroll</span>
-            <ChevronDown size={20} className="text-slate-500" />
+            <span className="text-xs uppercase tracking-[0.3em] text-slate-400">Scroll</span>
+            <ChevronDown size={20} className="text-slate-400" aria-hidden="true" />
           </div>
         </div>
 
       </div>
-    </div>
+    </section>
   );
 };

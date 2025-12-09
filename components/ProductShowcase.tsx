@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ShieldCheck, Layout, Video, Bot, ArrowRight, PlayCircle, Layers, Zap, MousePointer2, X } from 'lucide-react';
-import { ProductData, PageView } from '../types';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { ArrowRight, PlayCircle, Layers, Zap, X } from 'lucide-react';
+import { PageView } from '../types';
 
 const products = [
   {
@@ -69,6 +69,47 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const triggerRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  // Focus trap for modal
+  useEffect(() => {
+    if (!showVideo || !modalRef.current) return;
+
+    // Store previous focus
+    previousFocusRef.current = document.activeElement as HTMLElement;
+
+    // Focus close button
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeVideo();
+      }
+
+      if (e.key === 'Tab') {
+        const focusableElements = modalRef.current?.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe'
+        );
+        if (!focusableElements || focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [showVideo]);
 
   // Scroll Observer (Desktop Only)
   useEffect(() => {
@@ -96,20 +137,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
 
     return () => observers.forEach(obs => obs.disconnect());
   }, []);
-
-  const getIcon = (product: typeof products[0], size = 24, className?: string) => {
-    return (
-      <img 
-        src={product.iconUrl} 
-        alt={`${product.name} Logo`}
-        className={`${className} object-contain`}
-        style={{
-          width: size,
-          height: size,
-        }}
-      />
-    );
-  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -146,16 +173,17 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
     }
   };
 
-  const closeVideo = () => {
+  const closeVideo = useCallback(() => {
     setShowVideo(false);
-  };
+    // Restore focus
+    previousFocusRef.current?.focus();
+  }, []);
 
   const handleLearnMore = () => {
     if (activeId === 1) {
       onNavigate('learning-transformer');
       window.scrollTo(0, 0);
     }
-    // Future products can be added here
   };
 
   const activeProduct = products.find(p => p.id === activeId) || products[0];
@@ -164,12 +192,18 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
     <section 
       id="solutions" 
       ref={sectionRef} 
-      className="relative bg-space border-t border-white/10 lg:h-[400vh] pt-24 lg:pt-0"
-      aria-label="Our Ecosystem Products"
+      className="relative bg-space border-t border-white/10 lg:h-[400vh] pt-24 lg:pt-0 scroll-mt-24"
+      aria-labelledby="solutions-heading"
     >
+      <h2 id="solutions-heading" className="sr-only">Our Product Ecosystem</h2>
+
       {/* Video Modal */}
       {showVideo && activeProduct.videoId && (
         <div 
+          ref={modalRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="video-modal-title"
           className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
           onClick={closeVideo}
         >
@@ -177,18 +211,22 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
             className="w-full max-w-4xl"
             onClick={(e) => e.stopPropagation()}
           >
+            <h3 id="video-modal-title" className="sr-only">
+              {activeProduct.name} Demo Video
+            </h3>
             <button 
+              ref={closeButtonRef}
               onClick={closeVideo}
-              className="flex items-center justify-center ml-auto mb-3 p-2 bg-white/10 hover:bg-white/20 border-none rounded-full cursor-pointer text-white transition-colors"
+              className="flex items-center justify-center ml-auto mb-3 p-2 bg-white/10 hover:bg-white/20 border-none rounded-full cursor-pointer text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               aria-label="Close video"
             >
-              <X size={24} />
+              <X size={24} aria-hidden="true" />
             </button>
             <div className="relative pt-[56.25%] rounded-xl overflow-hidden bg-black">
               <iframe
                 className="absolute inset-0 w-full h-full border-none"
                 src={`https://www.youtube.com/embed/${activeProduct.videoId}?autoplay=1&rel=0`}
-                title={`${activeProduct.name} Demo`}
+                title={`${activeProduct.name} Demo Video`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
@@ -198,50 +236,63 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
       )}
 
       {/* Background Ambience */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.05),transparent_50%)] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.05),transparent_50%)] pointer-events-none" aria-hidden="true"></div>
 
-      {/* --- Mobile View (Segmented Control + Card) --- */}
+      {/* --- Mobile View --- */}
       <div className="lg:hidden container mx-auto px-4 pb-20 relative z-10">
         <div className="mb-6 text-center">
-          <h2 className="text-2xl font-black text-white mb-1">Our Ecosystem</h2>
-          <p className="text-slate-500 text-sm">Select a product</p>
+          <h3 className="text-2xl font-black text-white mb-1">Our Ecosystem</h3>
+          <p className="text-slate-400 text-sm">Select a product</p>
         </div>
 
-      {/* Segmented Control - 2x2 Grid for better mobile readability */}
-      <div className="mb-6">
-        <div className="grid grid-cols-2 gap-2 bg-slate-900 border border-white/10 rounded-xl p-2">
-          {products.map((product, idx) => {
-            const isActive = activeId === product.id;
-            return (
-              <button
-                key={product.id}
-                onClick={() => handleNavClick(idx)}
-                className="py-3 px-3 rounded-lg text-xs font-semibold transition-all border-none cursor-pointer flex items-center justify-center gap-2"
-                style={{
-                  backgroundColor: isActive ? product.bgColor : 'rgba(255,255,255,0.05)',
-                  color: isActive ? 'white' : '#64748b',
-                  boxShadow: isActive ? '0 4px 12px rgba(0,0,0,0.3)' : 'none'
-                }}
-              >
-                <img src={product.iconUrl} className="w-5 h-5 object-contain" alt="" />
-                <span>{product.shortName}</span>
-              </button>
-            );
-          })}
+        {/* Segmented Control */}
+        <div className="mb-6">
+          <div 
+            role="tablist" 
+            aria-label="Product selection"
+            className="grid grid-cols-2 gap-2 bg-slate-900 border border-white/10 rounded-xl p-2"
+          >
+            {products.map((product, idx) => {
+              const isActive = activeId === product.id;
+              return (
+                <button
+                  key={product.id}
+                  role="tab"
+                  id={`tab-${product.id}`}
+                  aria-selected={isActive}
+                  aria-controls={`panel-${product.id}`}
+                  onClick={() => handleNavClick(idx)}
+                  className="py-3 px-3 rounded-lg text-xs font-semibold transition-all border-none cursor-pointer flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                  style={{
+                    backgroundColor: isActive ? product.bgColor : 'rgba(255,255,255,0.05)',
+                    color: isActive ? 'white' : '#94a3b8',
+                    boxShadow: isActive ? '0 4px 12px rgba(0,0,0,0.3)' : 'none'
+                  }}
+                >
+                  <img src={product.iconUrl} className="w-5 h-5 object-contain" alt="" aria-hidden="true" />
+                  <span>{product.shortName}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
 
         {/* Product Card */}
-        <div className="bg-slate-900/60 border border-white/10 rounded-2xl overflow-hidden">
+        <div 
+          id={`panel-${activeProduct.id}`}
+          role="tabpanel"
+          aria-labelledby={`tab-${activeProduct.id}`}
+          className="bg-slate-900/60 border border-white/10 rounded-2xl overflow-hidden"
+        >
           {/* Colored Header */}
           <div 
             className="p-4 flex items-center gap-3"
             style={{ background: activeProduct.headerGradient }}
           >
             <div className="p-2 bg-white/20 rounded-lg flex items-center justify-center text-white">
-              {getIcon(activeProduct, 24)}
+              <img src={activeProduct.iconUrl} alt="" className="w-6 h-6 object-contain" aria-hidden="true" />
             </div>
-            <h3 className="text-xl font-black text-white">{activeProduct.name}</h3>
+            <h4 className="text-xl font-black text-white">{activeProduct.name}</h4>
           </div>
 
           {/* Content */}
@@ -249,50 +300,51 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
             <p className="text-slate-300 text-sm leading-relaxed mb-5">{activeProduct.description}</p>
 
             {/* Features */}
-            <div className="mb-6 space-y-3">
+            <ul className="mb-6 space-y-3" aria-label={`${activeProduct.name} features`}>
               {activeProduct.features.map((feat, i) => (
-                <div key={i} className="flex items-center gap-3">
+                <li key={i} className="flex items-center gap-3">
                   <div 
                     className="w-6 h-6 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: `${activeProduct.bgColor}33` }}
+                    aria-hidden="true"
                   >
                     <Zap size={12} style={{ color: activeProduct.textHex }} />
                   </div>
                   <span className="text-sm text-slate-200">{feat}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
 
             {/* CTAs */}
             <button 
               onClick={openVideo}
               disabled={!activeProduct.videoId}
-              className="w-full py-3.5 font-bold rounded-xl border-none cursor-pointer flex items-center justify-center gap-2 mb-3 text-sm text-white transition-opacity"
+              aria-disabled={!activeProduct.videoId}
+              className="w-full py-3.5 font-bold rounded-xl border-none cursor-pointer flex items-center justify-center gap-2 mb-3 text-sm text-white transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
               style={{
                 backgroundColor: activeProduct.videoId ? activeProduct.bgColor : '#374151',
                 opacity: activeProduct.videoId ? 1 : 0.6,
                 cursor: activeProduct.videoId ? 'pointer' : 'not-allowed'
               }}
             >
-              <PlayCircle size={18} /> 
+              <PlayCircle size={18} aria-hidden="true" /> 
               {activeProduct.videoId ? (activeProduct.videoLabel || 'Watch Demo') : 'Demo Coming Soon'}
             </button>
             
             <button 
               onClick={handleLearnMore}
-              className="w-full py-3.5 bg-white/5 border border-white/10 text-white font-semibold rounded-xl cursor-pointer flex items-center justify-center gap-2 text-sm hover:bg-white/10 transition-colors"
+              className="w-full py-3.5 bg-white/5 border border-white/10 text-white font-semibold rounded-xl cursor-pointer flex items-center justify-center gap-2 text-sm hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
-              Learn More <ArrowRight size={16} />
+              Learn More <ArrowRight size={16} aria-hidden="true" />
             </button>
           </div>
         </div>
       </div>
 
-
-      {/* --- Desktop View (Scroll Sticky) --- */}
+      {/* --- Desktop View --- */}
       
-      {/* Scroll Triggers (Desktop Only) */}
-      <div className="hidden lg:block absolute inset-0 pointer-events-none">
+      {/* Scroll Triggers */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none" aria-hidden="true">
         {products.map((_, idx) => (
           <div 
             key={idx} 
@@ -309,16 +361,18 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
           {/* Navigation List */}
           <div className="lg:col-span-4 space-y-6">
             <div className="mb-8 lg:mb-0">
-              <h2 className="text-3xl font-bold text-white mb-2">Our Ecosystem</h2>
-              <p className="text-slate-400 text-sm">Select a product or scroll to explore.</p>
+              <h3 className="text-3xl font-bold text-white mb-2">Our Ecosystem</h3>
+              <p className="text-slate-300 text-sm">Select a product or scroll to explore.</p>
             </div>
             
-            <div className="space-y-3" role="tablist" aria-orientation="vertical">
+            <div role="tablist" aria-orientation="vertical" aria-label="Product navigation" className="space-y-3">
               {products.map((product, idx) => (
                 <button
                   key={product.id}
                   role="tab"
+                  id={`desktop-tab-${product.id}`}
                   aria-selected={activeId === product.id}
+                  aria-controls={`desktop-panel-${product.id}`}
                   onClick={() => setActiveId(product.id)}
                   className={`w-full text-left p-4 rounded-xl border transition-all duration-300 group focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-space focus-visible:ring-brand-blue
                     ${activeId === product.id 
@@ -326,14 +380,14 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
                       : 'bg-transparent border-transparent hover:bg-white/5 opacity-60 hover:opacity-100'}`}
                 >
                   <div 
-                    className={`flex items-center gap-4 ${activeId === product.id ? '' : 'text-slate-400 group-hover:text-white'}`}
+                    className={`flex items-center gap-4 ${activeId === product.id ? '' : 'text-slate-300 group-hover:text-white'}`}
                     style={{ color: activeId === product.id ? product.textHex : undefined }}
                   >
-                    {getIcon(product, 24)}
+                    <img src={product.iconUrl} alt="" className="w-6 h-6 object-contain" aria-hidden="true" />
                     <div>
                       <span className="font-bold text-base block">{product.name}</span>
                       {activeId === product.id && (
-                         <span className="text-xs text-slate-300 font-normal hidden lg:block">Viewing</span>
+                        <span className="text-xs text-slate-300 font-normal hidden lg:block">Viewing</span>
                       )}
                     </div>
                   </div>
@@ -342,87 +396,90 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
             </div>
           </div>
 
-          {/* 3D Stage Preview (Sticky on Desktop) */}
-          <div className="lg:col-span-8 perspective-[1500px] min-h-[500px] flex items-center justify-center relative p-4 lg:p-8">
-             
-             {/* Ambient Glow behind card */}
-             <div 
-               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] rounded-full blur-[100px] opacity-20 transition-colors duration-700"
-               style={{ backgroundColor: activeProduct.bgColor }}
-             ></div>
+          {/* 3D Stage Preview */}
+          <div 
+            className="lg:col-span-8 perspective-[1500px] min-h-[500px] flex items-center justify-center relative p-4 lg:p-8"
+            id={`desktop-panel-${activeProduct.id}`}
+            role="tabpanel"
+            aria-labelledby={`desktop-tab-${activeProduct.id}`}
+          >
+            {/* Ambient Glow */}
+            <div 
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] rounded-full blur-[100px] opacity-20 transition-colors duration-700"
+              style={{ backgroundColor: activeProduct.bgColor }}
+              aria-hidden="true"
+            ></div>
 
-             {/* The 3D Card */}
-             <div 
-                ref={cardRef}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                className="relative w-full max-w-2xl bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out"
-                style={{
-                  transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
-                  transformStyle: 'preserve-3d',
-                  cursor: 'default'
-                }}
-             >
-                {/* Content Layer (Popped out) */}
-                <div style={{ transform: 'translateZ(50px)' }}>
-                  <div 
-                    className="inline-flex p-4 rounded-2xl bg-white/5 mb-8 border border-white/10 shadow-lg transition-colors duration-500"
-                    style={{ color: activeProduct.textHex }}
-                  >
-                    {getIcon(activeProduct, 48)}
-                  </div>
-                  
-                  {/* Key prop ensures text animation re-triggers on change */}
-                  <div key={activeProduct.id} className="animate-[pulse_0.5s_ease-out]">
-                    <h3 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight drop-shadow-lg">
-                      {activeProduct.name}
-                    </h3>
-                    
-                    <p className="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 max-w-lg">
-                      {activeProduct.description}
-                    </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-                      {activeProduct.features.map((feat, i) => (
-                        <div key={i} className="px-4 py-3 bg-white/5 border border-white/5 rounded-lg text-sm text-slate-300 flex items-center gap-2">
-                          <Zap size={14} style={{ color: activeProduct.textHex }} /> {feat}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-4">
-                    <button 
-                      onClick={openVideo}
-                      disabled={!activeProduct.videoId}
-                      className="group flex items-center gap-2 bg-white text-space px-8 py-4 rounded-xl font-bold transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-200 hover:scale-105"
-                    >
-                      <PlayCircle size={20} className="group-hover:fill-current" /> 
-                      {activeProduct.videoId ? (activeProduct.videoLabel || 'Watch Demo') : 'Demo Coming Soon'}
-                    </button>
-                    <button 
-                      onClick={handleLearnMore}
-                      className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white border border-white/20 hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
-                    >
-                      Learn More <ArrowRight size={20} />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Decorative elements on the card surface */}
-                <div className="absolute top-10 right-10 opacity-20" style={{ transform: 'translateZ(20px)' }}>
-                   <Layers size={120} />
+            {/* The 3D Card */}
+            <div 
+              ref={cardRef}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              className="relative w-full max-w-2xl bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out"
+              style={{
+                transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
+                transformStyle: 'preserve-3d',
+              }}
+            >
+              {/* Content Layer */}
+              <div style={{ transform: 'translateZ(50px)' }}>
+                <div 
+                  className="inline-flex p-4 rounded-2xl bg-white/5 mb-8 border border-white/10 shadow-lg transition-colors duration-500"
+                  style={{ color: activeProduct.textHex }}
+                >
+                  <img src={activeProduct.iconUrl} alt="" className="w-12 h-12 object-contain" aria-hidden="true" />
                 </div>
                 
-                {/* Shine effect */}
-                <div 
-                  className="absolute inset-0 rounded-3xl pointer-events-none bg-gradient-to-tr from-white/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"
-                  style={{ mixBlendMode: 'overlay' }}
-                ></div>
-             </div>
+                <div key={activeProduct.id}>
+                  <h4 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight drop-shadow-lg">
+                    {activeProduct.name}
+                  </h4>
+                  
+                  <p className="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 max-w-lg">
+                    {activeProduct.description}
+                  </p>
 
+                  <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12" aria-label={`${activeProduct.name} features`}>
+                    {activeProduct.features.map((feat, i) => (
+                      <li key={i} className="px-4 py-3 bg-white/5 border border-white/5 rounded-lg text-sm text-slate-300 flex items-center gap-2">
+                        <Zap size={14} style={{ color: activeProduct.textHex }} aria-hidden="true" /> {feat}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="flex flex-wrap gap-4">
+                  <button 
+                    onClick={openVideo}
+                    disabled={!activeProduct.videoId}
+                    aria-disabled={!activeProduct.videoId}
+                    className="group flex items-center gap-2 bg-white text-space px-8 py-4 rounded-xl font-bold transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-200 hover:scale-105"
+                  >
+                    <PlayCircle size={20} className="group-hover:fill-current" aria-hidden="true" /> 
+                    {activeProduct.videoId ? (activeProduct.videoLabel || 'Watch Demo') : 'Demo Coming Soon'}
+                  </button>
+                  <button 
+                    onClick={handleLearnMore}
+                    className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white border border-white/20 hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
+                  >
+                    Learn More <ArrowRight size={20} aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Decorative elements */}
+              <div className="absolute top-10 right-10 opacity-20" style={{ transform: 'translateZ(20px)' }} aria-hidden="true">
+                <Layers size={120} />
+              </div>
+              
+              {/* Shine effect */}
+              <div 
+                className="absolute inset-0 rounded-3xl pointer-events-none bg-gradient-to-tr from-white/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"
+                style={{ mixBlendMode: 'overlay' }}
+                aria-hidden="true"
+              ></div>
+            </div>
           </div>
-
         </div>
       </div>
     </section>

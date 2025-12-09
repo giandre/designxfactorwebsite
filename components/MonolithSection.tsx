@@ -13,7 +13,8 @@ const layers = [
     border: "border-brand-blue",
     bg: "bg-brand-blue",
     hex: "#38bdf8",
-    icon: <ShieldCheck size={20} />
+    icon: <ShieldCheck size={20} aria-hidden="true" />,
+    screenDescription: "Document scanning animation showing accessibility compliance checking with a progress bar reaching 100% WCAG 2.1 AA compliance"
   },
   {
     id: 2,
@@ -25,7 +26,8 @@ const layers = [
     border: "border-brand-purple",
     bg: "bg-brand-purple",
     hex: "#d946ef",
-    icon: <Layout size={20} />
+    icon: <Layout size={20} aria-hidden="true" />,
+    screenDescription: "Mobile-first card interface showing responsive design transformation with modern UI elements"
   },
   {
     id: 3,
@@ -37,7 +39,8 @@ const layers = [
     border: "border-brand-gold",
     bg: "bg-brand-gold",
     hex: "#f59e0b",
-    icon: <Video size={20} />
+    icon: <Video size={20} aria-hidden="true" />,
+    screenDescription: "Media generation interface with play button and audio waveform visualization showing content being converted to video and audio"
   },
   {
     id: 4,
@@ -49,11 +52,12 @@ const layers = [
     border: "border-brand-red",
     bg: "bg-brand-red",
     hex: "#ff4d6d",
-    icon: <BrainCircuit size={20} />
+    icon: <BrainCircuit size={20} aria-hidden="true" />,
+    screenDescription: "AI chat interface showing a conversation between a student asking for help and an AI tutor providing personalized recommendations"
   }
 ];
 
-// ============ MOBILE Screen Components (Small) ============
+// ============ MOBILE Screen Components ============
 
 const MobileScreenLayer1 = () => (
   <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
@@ -74,7 +78,7 @@ const MobileScreenLayer1 = () => (
       <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
         <div className="h-full bg-brand-blue w-full"></div>
       </div>
-      <div className="flex items-center gap-1 mt-1.5 text-[8px] text-slate-400">
+      <div className="flex items-center gap-1 mt-1.5 text-[8px] text-slate-300">
         <CheckCircle size={8} className="text-green-500" /> WCAG 2.1 AA
       </div>
     </div>
@@ -101,7 +105,7 @@ const MobileScreenLayer2 = () => (
         <div className="h-12 rounded-lg bg-gradient-to-r from-brand-purple/10 to-transparent border border-brand-purple/20 mb-2"></div>
         <div className="h-1.5 w-full bg-white/10 rounded mb-1"></div>
         <div className="h-1.5 w-2/3 bg-white/10 rounded"></div>
-        <button className="mt-2 w-full py-1 bg-brand-purple text-white text-[8px] font-bold rounded">START</button>
+        <div className="mt-2 w-full py-1 bg-brand-purple text-white text-[8px] font-bold rounded text-center">START</div>
       </div>
     </div>
   </div>
@@ -161,7 +165,7 @@ const MobileScreenLayer4 = () => (
   </div>
 );
 
-// ============ DESKTOP Screen Components (Original Size) ============
+// ============ DESKTOP Screen Components ============
 
 const DesktopScreenLayer1 = () => (
   <div className="absolute inset-0 flex flex-col items-center justify-center animate-fadeIn">
@@ -182,7 +186,7 @@ const DesktopScreenLayer1 = () => (
       <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
         <div className="h-full bg-brand-blue w-full shadow-[0_0_10px_#38bdf8]"></div>
       </div>
-      <div className="flex items-center gap-2 mt-3 text-[10px] text-slate-400">
+      <div className="flex items-center gap-2 mt-3 text-[10px] text-slate-300">
         <CheckCircle size={10} className="text-green-500" /> WCAG 2.1 AA
       </div>
     </div>
@@ -210,7 +214,7 @@ const DesktopScreenLayer2 = () => (
         <div className="h-24 rounded-lg bg-gradient-to-r from-brand-purple/10 via-brand-purple/5 to-transparent border border-brand-purple/20 mb-3"></div>
         <div className="h-2 w-full bg-white/10 rounded mb-2"></div>
         <div className="h-2 w-2/3 bg-white/10 rounded"></div>
-        <button className="mt-4 w-full py-2 bg-brand-purple text-white text-xs font-bold rounded shadow-lg">START</button>
+        <div className="mt-4 w-full py-2 bg-brand-purple text-white text-xs font-bold rounded shadow-lg text-center">START</div>
       </div>
     </div>
   </div>
@@ -360,8 +364,29 @@ export const MonolithSection: React.FC = () => {
 
   const activeLayer = layers[activeLayerIndex];
 
+  const mobileScreenComponents = [
+    <MobileScreenLayer1 key="m1" />,
+    <MobileScreenLayer2 key="m2" />,
+    <MobileScreenLayer3 key="m3" />,
+    <MobileScreenLayer4 key="m4" />
+  ];
+
+  const desktopScreenComponents = [
+    <DesktopScreenLayer1 key="d1" />,
+    <DesktopScreenLayer2 key="d2" />,
+    <DesktopScreenLayer3 key="d3" />,
+    <DesktopScreenLayer4 key="d4" />
+  ];
+
   return (
-    <section className="relative z-20" aria-label="Transformation Process">
+    <section 
+      className="relative z-20" 
+      aria-labelledby="engine-heading"
+    >
+      {/* Screen reader description */}
+      <h2 id="engine-heading" className="sr-only">
+        The Design X Factor Engine - Four Layer Transformation Process
+      </h2>
       
       {/* ============ MOBILE VIEW ============ */}
       <div ref={mobileSectionRef} className="lg:hidden bg-space">
@@ -369,17 +394,28 @@ export const MonolithSection: React.FC = () => {
         {/* Sticky Phone Container */}
         <div className="sticky top-[70px] z-30 bg-gradient-to-b from-space via-space to-transparent pt-6 pb-8">
           <div className="text-center mb-4 px-4">
-            <h2 className="text-2xl font-black text-white mb-1">The Engine</h2>
-            <p className="text-slate-500 text-xs">Scroll to explore each layer</p>
+            <h3 className="text-2xl font-black text-white mb-1">The Engine</h3>
+            <p className="text-slate-400 text-xs">Scroll to explore each layer</p>
           </div>
           
           {/* Mini Phone Device */}
-          <div className="relative mx-auto w-[180px] h-[280px]">
+          <div 
+            className="relative mx-auto w-[180px] h-[280px]"
+            role="img"
+            aria-label={activeLayer.screenDescription}
+          >
             {/* Layer indicator pills */}
-            <div className="absolute -left-2 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-40">
+            <div 
+              className="absolute -left-2 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-40"
+              role="tablist"
+              aria-label="Transformation layers"
+            >
               {layers.map((layer, idx) => (
                 <div 
                   key={layer.id}
+                  role="tab"
+                  aria-selected={activeLayerIndex === idx}
+                  aria-label={`Layer ${idx + 1}: ${layer.heading}`}
                   className={`w-1.5 h-6 rounded-full transition-all duration-300 ${activeLayerIndex === idx ? layer.bg + ' shadow-lg' : 'bg-white/20'}`}
                 />
               ))}
@@ -387,41 +423,40 @@ export const MonolithSection: React.FC = () => {
 
             {/* Phone Frame */}
             <div className="absolute inset-0 bg-[#0c0c12] border-2 border-slate-700 rounded-[28px] shadow-2xl overflow-hidden">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-b-xl z-20"></div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-b-xl z-20" aria-hidden="true"></div>
               
               <div className="absolute inset-1 bg-[#080810] rounded-[24px] overflow-hidden">
                 <div className={`absolute top-5 left-1/2 -translate-x-1/2 z-30 px-2 py-0.5 rounded-full text-[7px] font-bold uppercase tracking-wider ${activeLayer.bg} text-white shadow-lg`}>
                   Layer {activeLayerIndex + 1}
                 </div>
                 
-                <div className={`absolute inset-0 transition-all duration-500 ${activeLayerIndex === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
-                  <MobileScreenLayer1 />
-                </div>
-                <div className={`absolute inset-0 transition-all duration-500 ${activeLayerIndex === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
-                  <MobileScreenLayer2 />
-                </div>
-                <div className={`absolute inset-0 transition-all duration-500 ${activeLayerIndex === 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
-                  <MobileScreenLayer3 />
-                </div>
-                <div className={`absolute inset-0 transition-all duration-500 ${activeLayerIndex === 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
-                  <MobileScreenLayer4 />
-                </div>
+                {layers.map((_, idx) => (
+                  <div 
+                    key={idx}
+                    className={`absolute inset-0 transition-all duration-500 ${activeLayerIndex === idx ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+                    aria-hidden={activeLayerIndex !== idx}
+                  >
+                    {mobileScreenComponents[idx]}
+                  </div>
+                ))}
               </div>
               
-              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/30 rounded-full"></div>
+              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/30 rounded-full" aria-hidden="true"></div>
             </div>
           </div>
         </div>
 
         {/* Scrolling Layer Cards */}
-        <div className="relative z-20 px-4 pb-20 -mt-4">
+        <div className="relative z-20 px-4 pb-20 -mt-4" role="list" aria-label="Layer descriptions">
           {layers.map((layer, idx) => {
             const isActive = activeLayerIndex === idx;
             return (
-              <div 
+              <article 
                 key={layer.id}
                 ref={el => { mobileCardRefs.current[idx] = el; }}
                 className="min-h-[50vh] flex items-center py-8"
+                role="listitem"
+                aria-current={isActive ? 'step' : undefined}
               >
                 <div className={`w-full p-6 rounded-2xl border transition-all duration-500 ${isActive ? layer.border + ' bg-white/5 shadow-xl' : 'border-white/5 bg-transparent opacity-40'}`}>
                   <div className={`flex items-center gap-3 mb-4 ${isActive ? layer.color : 'text-slate-500'}`}>
@@ -430,10 +465,14 @@ export const MonolithSection: React.FC = () => {
                     </span>
                     <span className="text-xs font-bold uppercase tracking-widest opacity-80">{layer.title}</span>
                   </div>
-                  <h3 className={`text-2xl font-black mb-4 transition-colors duration-300 ${isActive ? 'text-white' : 'text-slate-400'}`}>{layer.heading}</h3>
-                  <p className={`text-sm leading-relaxed transition-colors duration-300 ${isActive ? 'text-slate-300' : 'text-slate-500'}`}>{layer.description}</p>
+                  <h4 className={`text-2xl font-black mb-4 transition-colors duration-300 ${isActive ? 'text-white' : 'text-slate-400'}`}>
+                    {layer.heading}
+                  </h4>
+                  <p className={`text-sm leading-relaxed transition-colors duration-300 ${isActive ? 'text-slate-300' : 'text-slate-500'}`}>
+                    {layer.description}
+                  </p>
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>
@@ -445,10 +484,12 @@ export const MonolithSection: React.FC = () => {
           <div 
             className="relative w-[380px] h-[720px] transition-all duration-700 ease-out preserve-3d"
             style={{ transform: `rotateY(${activeLayerIndex % 2 === 0 ? '15deg' : '-15deg'}) rotateX(5deg) translateZ(50px)` }}
+            role="img"
+            aria-label={activeLayer.screenDescription}
           >
             <div className="absolute inset-0 bg-space/90 border border-white/20 rounded-[45px] shadow-[0_20px_60px_rgba(0,0,0,0.9),inset_0_0_40px_rgba(255,255,255,0.05)] backdrop-blur-xl overflow-hidden flex flex-col z-20 ring-1 ring-white/10">
               <div className="flex-1 relative m-3 bg-[#0a0a0f] rounded-[38px] overflow-hidden flex flex-col shadow-inner">
-                <div className="absolute top-0 w-full px-6 py-4 flex justify-between items-center z-30 opacity-70">
+                <div className="absolute top-0 w-full px-6 py-4 flex justify-between items-center z-30 opacity-70" aria-hidden="true">
                   <span className="text-xs font-medium text-white tracking-widest">DXF-OS</span>
                   <div className="flex gap-1.5">
                     <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div>
@@ -456,18 +497,16 @@ export const MonolithSection: React.FC = () => {
                     <div className="w-1.5 h-1.5 rounded-full bg-white/30"></div>
                   </div>
                 </div>
-                <div className={`absolute inset-0 transition-all duration-700 ${activeLayerIndex === 0 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
-                  <DesktopScreenLayer1 />
-                </div>
-                <div className={`absolute inset-0 transition-all duration-700 ${activeLayerIndex === 1 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
-                  <DesktopScreenLayer2 />
-                </div>
-                <div className={`absolute inset-0 transition-all duration-700 ${activeLayerIndex === 2 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
-                  <DesktopScreenLayer3 />
-                </div>
-                <div className={`absolute inset-0 transition-all duration-700 ${activeLayerIndex === 3 ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
-                  <DesktopScreenLayer4 />
-                </div>
+                
+                {layers.map((_, idx) => (
+                  <div 
+                    key={idx}
+                    className={`absolute inset-0 transition-all duration-700 ${activeLayerIndex === idx ? 'opacity-100' : 'opacity-0 scale-90 pointer-events-none'}`}
+                    aria-hidden={activeLayerIndex !== idx}
+                  >
+                    {desktopScreenComponents[idx]}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -480,14 +519,21 @@ export const MonolithSection: React.FC = () => {
               ref={el => { triggerRefs.current[idx] = el; }}
               className={`h-screen flex items-center ${idx % 2 === 0 ? 'justify-start pl-[8%] lg:pl-[12%]' : 'justify-end pr-[8%] lg:pr-[12%]'} pointer-events-auto`}
             >
-              <div className={`max-w-md p-8 rounded-2xl transition-all duration-700 transform ${activeLayerIndex === idx ? 'opacity-100 translate-y-0 blur-0' : 'opacity-20 translate-y-10 blur-sm'}`}>
+              <article 
+                className={`max-w-md p-8 rounded-2xl transition-all duration-700 transform ${activeLayerIndex === idx ? 'opacity-100 translate-y-0 blur-0' : 'opacity-20 translate-y-10 blur-sm'}`}
+                aria-current={activeLayerIndex === idx ? 'step' : undefined}
+              >
                 <div className={`flex items-center gap-3 mb-6 ${layer.color}`}>
                   <span className="p-2 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm">{layer.icon}</span>
                   <span className="text-sm font-bold tracking-[0.2em] uppercase">{layer.title}</span>
                 </div>
-                <h2 className="text-4xl lg:text-6xl font-black text-white mb-6 leading-[0.9] tracking-tight">{layer.heading}</h2>
-                <p className="text-lg text-slate-400 leading-relaxed border-l-2 border-white/10 pl-6">{layer.description}</p>
-              </div>
+                <h3 className="text-4xl lg:text-6xl font-black text-white mb-6 leading-[0.9] tracking-tight">
+                  {layer.heading}
+                </h3>
+                <p className="text-lg text-slate-300 leading-relaxed border-l-2 border-white/10 pl-6">
+                  {layer.description}
+                </p>
+              </article>
             </div>
           ))}
         </div>

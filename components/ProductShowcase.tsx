@@ -207,30 +207,29 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onNavigate }) 
           <p className="text-slate-500 text-sm">Select a product</p>
         </div>
 
-        {/* Segmented Control */}
-        <div className="mb-6">
-          <div className="flex bg-slate-900 border border-white/10 rounded-xl p-1">
-            {products.map((product, idx) => {
-              const isActive = activeId === product.id;
-              return (
-                <button
-                  key={product.id}
-                  onClick={() => handleNavClick(idx)}
-                  className="flex-1 py-2.5 rounded-lg text-xs font-semibold transition-all border-none cursor-pointer flex items-center justify-center gap-1.5"
-                  style={{
-                    backgroundColor: isActive ? product.bgColor : 'transparent',
-                    color: isActive ? 'white' : '#64748b',
-                    boxShadow: isActive ? '0 4px 12px rgba(0,0,0,0.3)' : 'none'
-                  }}
-                >
-                  <img src={product.iconUrl} className="w-4 h-4 object-contain" alt="" />
-                  <span className="hidden sm:inline">{product.shortName}</span>
-                  <span className="sm:hidden">{product.shortName.slice(0, 4)}..</span>
-                </button>
-              );
-            })}
-          </div>
+      {/* Segmented Control - 2x2 Grid for better mobile readability */}
+      <div className="mb-6">
+        <div className="grid grid-cols-2 gap-2 bg-slate-900 border border-white/10 rounded-xl p-2">
+          {products.map((product, idx) => {
+            const isActive = activeId === product.id;
+            return (
+              <button
+                key={product.id}
+                onClick={() => handleNavClick(idx)}
+                className="py-3 px-3 rounded-lg text-xs font-semibold transition-all border-none cursor-pointer flex items-center justify-center gap-2"
+                style={{
+                  backgroundColor: isActive ? product.bgColor : 'rgba(255,255,255,0.05)',
+                  color: isActive ? 'white' : '#64748b',
+                  boxShadow: isActive ? '0 4px 12px rgba(0,0,0,0.3)' : 'none'
+                }}
+              >
+                <img src={product.iconUrl} className="w-5 h-5 object-contain" alt="" />
+                <span>{product.shortName}</span>
+              </button>
+            );
+          })}
         </div>
+      </div>
 
         {/* Product Card */}
         <div className="bg-slate-900/60 border border-white/10 rounded-2xl overflow-hidden">

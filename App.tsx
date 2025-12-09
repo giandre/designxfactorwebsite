@@ -10,6 +10,7 @@ import { Footer } from './components/Footer';
 import { Legal } from './pages/Legal';
 import { ThankYou } from './pages/ThankYou';
 import { LearningTransformer } from './pages/products/LearningTransformer';
+import { ContentDebtAudit } from './pages/tools/ContentDebtAudit';
 import { PageView } from './types';
 
 function App() {
@@ -20,17 +21,26 @@ function App() {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1); // Remove the '#'
       
+      // If no hash or empty hash, go to home
+      if (!hash || hash === '') {
+        setCurrentPage('home');
+        return;
+      }
+      
+      // UPDATED: Added 'audit' to valid pages
       const validPages: PageView[] = [
         'learning-transformer', 
         'thank-you', 
         'terms', 
         'privacy', 
-        'api'
+        'api',
+        'audit'
       ];
 
       if (validPages.includes(hash as PageView)) {
         setCurrentPage(hash as PageView);
       } else {
+        // Invalid hash (could be a section anchor like #contact), stay on home
         setCurrentPage('home');
       }
     };
@@ -67,6 +77,8 @@ function App() {
         );
       case 'learning-transformer':
         return <LearningTransformer onNavigate={handleNavigate} />;
+      case 'audit':
+        return <ContentDebtAudit onNavigate={handleNavigate} />;
       case 'thank-you':
         return <ThankYou onNavigate={handleNavigate} />;
       case 'terms':

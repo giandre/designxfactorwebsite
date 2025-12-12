@@ -11,6 +11,7 @@ import { Legal } from './pages/Legal';
 import { ThankYou } from './pages/ThankYou';
 import { LearningTransformer } from './pages/products/LearningTransformer';
 import { ContentDebtAudit } from './pages/tools/ContentDebtAudit';
+import { TransformationPipeline } from './pages/products/TransformationPipeline';
 import { PageView } from './types';
 
 // SEO Configuration per page
@@ -22,6 +23,10 @@ const seoConfigs: Record<PageView, { title: string; description: string }> = {
   'learning-transformer': {
     title: 'Learning Transformer | Automated LMS Accessibility | Design X Factor',
     description: 'Automatically transform static LMS content into dynamic, accessible learning experiences.',
+  },
+  pipeline: {
+    title: 'Content Transformation Pipeline | Scale & Remediation | Design X Factor',
+    description: 'Migrate legacy content at scale while achieving WCAG 2.1 AA compliance. Keep original formats or transform to mobile-ready HTML.',
   },
   audit: {
     title: 'Content Debt Audit | Calculate ADA Compliance Risk | Design X Factor',
@@ -49,6 +54,7 @@ const seoConfigs: Record<PageView, { title: string; description: string }> = {
 const pageTitles: Record<PageView, string> = {
   home: 'Home',
   'learning-transformer': 'Learning Transformer product',
+  pipeline: 'Content Transformation Pipeline',
   audit: 'Content Debt Audit tool',
   'thank-you': 'Thank you',
   terms: 'Terms of Service',
@@ -77,7 +83,8 @@ function App() {
         'terms', 
         'privacy', 
         'api',
-        'audit'
+        'audit',
+        'pipeline'
       ];
 
       if (validPages.includes(hash as PageView)) {
@@ -142,7 +149,7 @@ function App() {
         return (
           <>
             <Hero />
-            <MonolithSection />
+            <MonolithSection onNavigate={handleNavigate} />
             <ProductShowcase onNavigate={handleNavigate} />
             <WhyUs />
             <Roadmap />
@@ -151,6 +158,8 @@ function App() {
         );
       case 'learning-transformer':
         return <LearningTransformer onNavigate={handleNavigate} />;
+      case 'pipeline':
+        return <TransformationPipeline onNavigate={handleNavigate} />;
       case 'audit':
         return <ContentDebtAudit onNavigate={handleNavigate} />;
       case 'thank-you':

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { ShieldCheck, Layout, Video, BrainCircuit, CheckCircle, FileText, Globe, Bot, Smartphone, Sparkles } from 'lucide-react';
-import { LayerType } from '../types';
+import { ShieldCheck, Layout, Video, BrainCircuit, CheckCircle, FileText, Globe, Bot, Smartphone, Sparkles, ArrowRight } from 'lucide-react';
+import { LayerType, NavProps } from '../types';
 
 const layers = [
   {
@@ -283,7 +283,7 @@ const DesktopScreenLayer4 = () => (
 
 // ============ MAIN COMPONENT ============
 
-export const MonolithSection: React.FC = () => {
+export const MonolithSection: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNavigate }) => {
   const [activeLayerIndex, setActiveLayerIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const triggerRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -470,8 +470,18 @@ export const MonolithSection: React.FC = () => {
                   </h4>
                   <p className={`text-sm leading-relaxed transition-colors duration-300 ${isActive ? 'text-slate-300' : 'text-slate-500'}`}>
                     {layer.description}
+
                   </p>
-                </div>
+                  {/* ADD THIS BUTTON - Only show on first layer (Foundation) */}
+                  {layer.id === 1 && (
+                    <button
+                      onClick={() => onNavigate('pipeline')}
+                      className="mt-6 flex items-center gap-2 px-6 py-3 bg-brand-blue/20 hover:bg-brand-blue text-brand-blue hover:text-white border border-brand-blue/30 rounded-lg font-semibold transition-all"
+                    >
+                      Learn More <ArrowRight size={18} />
+                    </button>
+                  )}
+                  </div>
               </article>
             );
           })}
@@ -533,6 +543,15 @@ export const MonolithSection: React.FC = () => {
                 <p className="text-lg text-slate-300 leading-relaxed border-l-2 border-white/10 pl-6">
                   {layer.description}
                 </p>
+                {/* ADD THIS BUTTON - Only show on first layer (Foundation) */}
+                {layer.id === 1 && (
+                  <button
+                    onClick={() => onNavigate('pipeline')}
+                    className="mt-6 flex items-center gap-2 px-6 py-3 bg-brand-blue/20 hover:bg-brand-blue text-brand-blue hover:text-white border border-brand-blue/30 rounded-lg font-semibold transition-all"
+                  >
+                    Learn More <ArrowRight size={18} />
+                  </button>
+                )}
               </article>
             </div>
           ))}

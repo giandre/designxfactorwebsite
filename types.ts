@@ -27,7 +27,7 @@ export interface LayerContent {
 }
 
 // UPDATED: Added 'audit' to PageView
-export type PageView = 'home' | 'terms' | 'privacy' | 'api' | 'thank-you' | 'learning-transformer' | 'audit';
+export type PageView = 'home' | 'terms' | 'privacy' | 'api' | 'thank-you' | 'learning-transformer' | 'audit' | 'pipeline';
 
 export interface NavProps {
   onNavigate: (page: PageView) => void;

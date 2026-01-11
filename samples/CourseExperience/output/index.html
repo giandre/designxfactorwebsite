@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Excellence in Entrepreneurship - 7-Week Journey</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== CSS CUSTOM PROPERTIES (Design Tokens) ========== */
+    :root {
+      /* Primary Colors - Warm Sunset Theme */
+      --color-bg-primary: #0f172a;
+      --color-bg-secondary: #1e293b;
+      --color-bg-card: #334155;
+
+      /* Accent Colors */
+      --color-accent-teal: #5eead4;
+      --color-accent-teal-dim: rgba(94, 234, 212, 0.2);
+      --color-accent-gold: #fbbf24;
+      --color-accent-gold-dim: rgba(251, 191, 36, 0.2);
+      --color-accent-green: #10b981;
+      --color-accent-green-dim: rgba(16, 185, 129, 0.3);
+      --color-accent-purple: #8b5cf6;
+
+      /* Text Colors */
+      --color-text-primary: #ffffff;
+      --color-text-secondary: rgba(255, 255, 255, 0.8);
+      --color-text-muted: rgba(255, 255, 255, 0.6);
+
+      /* Status Colors */
+      --color-status-complete: #10b981;
+      --color-status-progress: #fbbf24;
+      --color-status-locked: #6b7280;
+
+      /* Spacing Scale */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+
+      /* Border Radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+
+      /* Shadows */
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.4);
+      --shadow-glow-teal: 0 0 20px rgba(94, 234, 212, 0.5);
+      --shadow-glow-gold: 0 0 20px rgba(251, 191, 36, 0.5);
+
+      /* Typography */
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Transitions */
+      --transition-fast: 150ms ease;
+      --transition-normal: 250ms ease;
+      --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Focus styles for accessibility */
+    :focus-visible {
+      outline: 3px solid var(--color-accent-teal);
+      outline-offset: 2px;
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-accent-teal);
+      color: var(--color-bg-primary);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      z-index: 1000;
+      transition: top var(--transition-fast);
+    }
+
+    .skip-link:focus {
+      top: var(--space-md);
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero {
+      position: relative;
+      min-height: 220px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%235eead4;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23fbbf24;stop-opacity:0.05"/></linearGradient></defs><polygon fill="url(%23g)" points="0,100 100,60 100,100"/></svg>');
+      background-size: cover;
+      opacity: 0.6;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: linear-gradient(to top, var(--color-bg-primary), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 220px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--color-accent-teal);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: var(--space-xs);
+    }
+
+    .hero-label::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--color-accent-teal);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+      background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-accent-teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      color: var(--color-text-secondary);
+      font-size: 16px;
+      margin-bottom: var(--space-md);
+      max-width: 500px;
+    }
+
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .progress-bar {
+      width: 200px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: var(--progress, 36%);
+      background: linear-gradient(90deg, var(--color-accent-teal), var(--color-accent-gold));
+      border-radius: var(--radius-full);
+      transition: width var(--transition-slow);
+    }
+
+    .progress-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+    }
+
+    /* ========== MAIN CONTENT ========== */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-lg);
+    }
+
+    /* ========== MAP CONTAINER ========== */
+    .map-wrapper {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--color-bg-secondary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .map-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .map-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ========== MAP TITLE OVERLAY ========== */
+    .map-title-overlay {
+      position: absolute;
+      top: var(--space-lg);
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .map-title {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 4vw, 36px);
+      font-weight: 700;
+      color: #1a1a2e;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+      letter-spacing: 1px;
+    }
+
+    /* ========== HOTSPOT LAYER ========== */
+    .hotspot-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* ========== HOTSPOT BUTTONS ========== */
+    .hotspot {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      padding: 0;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .hotspot-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .hotspot-ring {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-accent-teal-dim);
+      border: 3px solid var(--color-accent-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--color-text-primary);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      box-shadow: var(--shadow-glow-teal);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    .hotspot:hover .hotspot-ring,
+    .hotspot:focus-visible .hotspot-ring {
+      transform: scale(1.15);
+      box-shadow: 0 0 30px rgba(94, 234, 212, 0.8);
+    }
+
+    /* Completed state */
+    .hotspot.completed .hotspot-ring {
+      background: var(--color-accent-green-dim);
+      border-color: var(--color-status-complete);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+    }
+
+    /* In-progress state */
+    .hotspot.in-progress .hotspot-ring {
+      background: var(--color-accent-gold-dim);
+      border-color: var(--color-status-progress);
+      animation: pulse 2s infinite;
+    }
+
+    /* Not Started state */
+    .hotspot.not-started .hotspot-ring {
+      background: rgba(107, 114, 128, 0.3);
+      border-color: var(--color-status-locked);
+      box-shadow: none;
+    }
+
+    .hotspot.not-started:hover .hotspot-ring {
+      background: rgba(107, 114, 128, 0.5);
+      border-color: var(--color-accent-teal);
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.5); }
+      50% { box-shadow: 0 0 35px rgba(251, 191, 36, 0.9); }
+    }
+
+    /* ========== STATION LABELS ========== */
+    .station-label {
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(94, 234, 212, 0.3);
+      white-space: nowrap;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+
+    .station-name {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-accent-teal);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .station-title {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-top: 2px;
+    }
+
+    .hotspot.completed .station-label {
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .hotspot.completed .station-name {
+      color: var(--color-status-complete);
+    }
+
+    .hotspot.in-progress .station-label {
+      border-color: rgba(251, 191, 36, 0.4);
+    }
+
+    .hotspot.in-progress .station-name {
+      color: var(--color-status-progress);
+    }
+
+    /* ========== TOOLTIP ========== */
+    .hotspot-tooltip {
+      position: absolute;
+      bottom: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: var(--space-md);
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px solid rgba(94, 234, 212, 0.4);
+      border-radius: var(--radius-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-fast), visibility var(--transition-fast);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
+      min-width: 180px;
+    }
+
+    .hotspot-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 8px solid transparent;
+      border-top-color: rgba(15, 23, 42, 0.97);
+    }
+
+    .hotspot:hover .hotspot-tooltip,
+    .hotspot:focus-visible .hotspot-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .tooltip-title {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: var(--space-xs);
+    }
+
+    .tooltip-meta {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-sm);
+    }
+
+    .tooltip-status {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .tooltip-status.completed {
+      background: var(--color-status-complete);
+      color: white;
+    }
+
+    .tooltip-status.in-progress {
+      background: var(--color-status-progress);
+      color: var(--color-bg-primary);
+    }
+
+    .tooltip-status.not-started {
+      background: var(--color-status-locked);
+      color: white;
+    }
+
+    /* ========== WEEK DETAIL VIEW ========== */
+    .week-detail {
+      display: none;
+      position: relative;
+      min-height: 500px;
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .week-detail.active {
+      display: block;
+      animation: zoomIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .week-detail.closing {
+      animation: zoomOut 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes zoomIn {
+      0% { opacity: 0; transform: scale(0.85); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes zoomOut {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.85); }
+    }
+
+    .week-detail::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.8));
+      z-index: 1;
+    }
+
+    .week-detail-content {
+      position: relative;
+      z-index: 10;
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-full);
+      color: var(--color-text-primary);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      margin-bottom: var(--space-lg);
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(-4px);
+    }
+
+    .week-header {
+      margin-bottom: var(--space-xl);
+    }
+
+    .week-label {
+      display: inline-block;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--color-accent-teal-dim);
+      border: 1px solid rgba(94, 234, 212, 0.4);
+      border-radius: var(--radius-full);
+      color: var(--color-accent-teal);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: var(--space-md);
+    }
+
+    .week-title {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+    }
+
+    .week-subtitle {
+      font-size: 18px;
+      color: var(--color-text-secondary);
+    }
+
+    /* ========== LESSONS GRID ========== */
+    .lessons-grid {
+      display: grid;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .lesson-card {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-md) var(--space-lg);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .lesson-card:hover {
+      background: rgba(15, 23, 42, 0.95);
+      transform: translateX(8px);
+      border-color: rgba(94, 234, 212, 0.5);
+    }
+
+    .lesson-number {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .lesson-number.done {
+      background: linear-gradient(135deg, var(--color-status-complete), #059669);
+    }
+
+    .lesson-number.current {
+      background: linear-gradient(135deg, var(--color-status-progress), #d97706);
+      animation: pulse 2s infinite;
+    }
+
+    .lesson-number.pending {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--color-text-muted);
+    }
+
+    .lesson-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .lesson-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+      color: var(--color-text-primary);
+    }
+
+    .lesson-card:hover .lesson-title {
+      color: var(--color-accent-teal);
+    }
+
+    .lesson-meta {
+      display: flex;
+      gap: var(--space-md);
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .lesson-arrow {
+      font-size: 20px;
+      color: var(--color-accent-teal);
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all var(--transition-normal);
+    }
+
+    .lesson-card:hover .lesson-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .week-cta {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: var(--space-md) var(--space-xl);
+      background: linear-gradient(135deg, var(--color-accent-teal), #14b8a6);
+      border: none;
+      border-radius: var(--radius-md);
+      color: var(--color-bg-primary);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+    }
+
+    .week-cta:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-glow-teal);
+    }
+
+    /* ========== MAP LEGEND ========== */
+    .map-legend {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      flex-wrap: wrap;
+    }
+
+    .map-legend.hidden {
+      display: none;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid;
+    }
+
+    .legend-dot.completed {
+      background: var(--color-accent-green-dim);
+      border-color: var(--color-status-complete);
+    }
+
+    .legend-dot.in-progress {
+      background: var(--color-accent-gold-dim);
+      border-color: var(--color-status-progress);
+    }
+
+    .legend-dot.not-started {
+      background: rgba(107, 114, 128, 0.3);
+      border-color: var(--color-status-locked);
+    }
+
+    /* ========== LIVE SESSION CARD ========== */
+    .live-session {
+      margin-top: var(--space-lg);
+      padding: var(--space-lg);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .live-icon {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      background: rgba(99, 102, 241, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .live-info {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .live-title {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .live-date {
+      color: var(--color-text-muted);
+      font-size: 14px;
+      margin-top: 2px;
+    }
+
+    .live-btn {
+      padding: var(--space-md) var(--space-lg);
+      background: #6366f1;
+      border: none;
+      border-radius: var(--radius-sm);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .live-btn:hover {
+      background: #818cf8;
+      transform: translateY(-2px);
+    }
+
+    /* ========== FOOTER ========== */
+    .course-footer {
+      margin-top: var(--space-2xl);
+      padding: var(--space-lg);
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: 13px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* ========== RESPONSIVE BREAKPOINTS ========== */
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 180px;
+      }
+
+      .hero-content {
+        padding: var(--space-md);
+        min-height: 180px;
+      }
+
+      .map-title {
+        font-size: 18px;
+      }
+
+      .hotspot-ring {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+        border-width: 2px;
+      }
+
+      .station-label {
+        padding: var(--space-xs) var(--space-sm);
+      }
+
+      .station-name {
+        font-size: 8px;
+      }
+
+      .station-title {
+        font-size: 10px;
+      }
+
+      .hotspot-tooltip {
+        display: none;
+      }
+
+      .week-detail-content {
+        padding: var(--space-md);
+      }
+
+      .live-session {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .live-btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hotspot-ring {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+      }
+
+      .station-label {
+        display: none;
+      }
+
+      .progress-bar {
+        width: 150px;
+      }
+
+      .lesson-card {
+        padding: var(--space-md);
+      }
+
+      .lesson-meta {
+        flex-direction: column;
+        gap: var(--space-xs);
+      }
+    }
+
+    /* ========== PRINT STYLES ========== */
+    @media print {
+      .hero {
+        background: white !important;
+        color: black !important;
+      }
+
+      .map-wrapper {
+        page-break-inside: avoid;
+      }
+
+      .hotspot-tooltip,
+      .live-session {
+        display: none !important;
+      }
+    }
+
+    /* ========== LOCKED MODAL STYLES ========== */
+    .locked-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: var(--space-md);
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .locked-modal-content {
+      background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-primary));
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 100px rgba(251, 191, 36, 0.1);
+      animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .locked-modal-icon {
+      font-size: 64px;
+      margin-bottom: var(--space-md);
+      filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.5));
+    }
+
+    .locked-modal-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-accent-gold);
+      margin-bottom: var(--space-sm);
+    }
+
+    .locked-modal-subtitle {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-md);
+    }
+
+    .locked-modal-message {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: var(--space-lg);
+    }
+
+    .locked-modal-message strong {
+      color: var(--color-accent-teal);
+    }
+
+    .locked-modal-info {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-sm);
+      padding: var(--space-md);
+      margin-bottom: var(--space-lg);
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+    }
+
+    .locked-modal-info p {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+
+    .locked-modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .locked-modal-btn {
+      padding: var(--space-md) var(--space-xl);
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      border: none;
+    }
+
+    .locked-modal-btn.primary {
+      background: linear-gradient(135deg, var(--color-accent-teal), #14b8a6);
+      color: var(--color-bg-primary);
+    }
+
+    .locked-modal-btn.primary:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-glow-teal);
+    }
+
+    .locked-modal-btn.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--color-text-secondary);
+    }
+
+    .locked-modal-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Demo locked hotspot styling */
+    .hotspot.demo-locked .hotspot-ring {
+      font-size: 14px;
+    }
+
+    .tooltip-status.locked {
+      background: rgba(251, 191, 36, 0.2);
+      color: var(--color-accent-gold);
+    }
+
+    /* Demo Banner */
+    .demo-banner {
+      background: linear-gradient(90deg, rgba(251, 191, 36, 0.15), rgba(94, 234, 212, 0.15));
+      border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+      padding: var(--space-sm) var(--space-md);
+      text-align: center;
+      font-size: 13px;
+      color: var(--color-accent-gold);
+    }
+
+    .demo-banner strong {
+      color: var(--color-text-primary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Demo Banner -->
+  <div class="demo-banner" role="status">
+    🎓 <strong>Demo Preview</strong> — Week 1 is fully accessible. Weeks 2-7 are locked in this preview.
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero" role="banner">
+    <div class="hero-content">
+      <p class="hero-label" aria-hidden="true">7-Week Journey</p>
+      <h1 class="hero-title">Excellence in Entrepreneurship</h1>
+      <p class="hero-subtitle">From Idea to Launch: Your entrepreneurial ascent begins here</p>
+      <div class="progress-container" role="group" aria-label="Course progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="0% complete">
+          <div class="progress-fill" style="--progress: 0%"></div>
+        </div>
+        <span class="progress-text">0% complete</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="main-content">
+    <div class="map-wrapper">
+      <!-- Map View -->
+      <div class="map-container" id="mapContainer">
+        <img src="media/journey-map.jpg" alt="Your 7-week entrepreneurship journey map showing stations from Base Camp to Summit" class="map-image">
+
+        <!-- Title Overlay -->
+        <div class="map-title-overlay" aria-hidden="true">
+          <h2 class="map-title">The Entrepreneur's Ascent</h2>
+        </div>
+
+        <!-- Hotspot Layer -->
+        <div class="hotspot-layer" id="hotspotLayer" role="navigation" aria-label="Course modules"></div>
+      </div>
+
+    </div>
+
+    <!-- Map Legend -->
+    <div class="map-legend" id="mapLegend" role="group" aria-label="Map legend">
+      <div class="legend-item">
+        <span class="legend-dot completed" aria-hidden="true"></span>
+        <span>Completed</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot in-progress" aria-hidden="true"></span>
+        <span>In Progress</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot not-started" aria-hidden="true"></span>
+        <span>Not Started</span>
+      </div>
+    </div>
+
+    <!-- Live Session Card -->
+    <div class="live-session" role="complementary" aria-label="Upcoming live session">
+      <div class="live-icon" aria-hidden="true">📅</div>
+      <div class="live-info">
+        <p class="live-title">Week 3 Live Session</p>
+        <p class="live-date">Thursday, Jan 9 at 6:00 PM EST</p>
+      </div>
+      <button class="live-btn">Add to Calendar</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="course-footer" role="contentinfo">
+    <p>Excellence in Entrepreneurship Program &copy; 2025</p>
+  </footer>
+
+  <script>
+    // ========== DEMO MODE - Only Week 1 accessible ==========
+    const IS_DEMO_MODE = true;
+
+    // ========== MODULE DATA ==========
+    // Positions matching original clickable-map-course.html
+    const modules = [
+      {
+        id: 1,
+        title: "Foundation",
+        subtitle: "Entrepreneurial Mindset",
+        stationName: "Week 1",
+        lessons: [
+          { title: "Welcome to the Journey", duration: "15 min" },
+          { title: "The Entrepreneurial Mindset", duration: "20 min" },
+          { title: "Crafting Your Elevator Pitch", duration: "25 min" },
+          { title: "Setting Your Goals", duration: "15 min" }
+        ],
+        status: "in-progress",
+        progress: 0,
+        x: 18, y: 78,  // Lower left - Base Camp
+        bgImage: "media/week-1-camp.jpg",
+        locked: false
+      },
+      {
+        id: 2,
+        title: "Customer Discovery",
+        subtitle: "Know Your Customer",
+        stationName: "Week 2",
+        lessons: [
+          { title: "The Customer Discovery Mindset", duration: "25 min" },
+          { title: "Building Your Customer Hypothesis", duration: "30 min" },
+          { title: "The Art of Customer Interviews", duration: "35 min" },
+          { title: "Capturing and Analyzing Insights", duration: "25 min" }
+        ],
+        status: "not-started",
+        progress: 0,
+        x: 88, y: 58,  // Observation Outpost
+        bgImage: "media/week-2-camp.jpg",
+        locked: true
+      },
+      {
+        id: 3,
+        title: "Product Design",
+        subtitle: "Solution & MVP",
+        stationName: "Week 3",
+        lessons: [
+          { title: "Understanding User Experience", duration: "30 min" },
+          { title: "Root Cause Analysis", duration: "35 min" },
+          { title: "Defining Your MVP", duration: "35 min" },
+          { title: "Building Your Roadmap", duration: "30 min" }
+        ],
+        status: "not-started",
+        progress: 0,
+        x: 67, y: 48,  // Maker Lab
+        bgImage: "media/week-3-camp.jpg",
+        locked: true
+      },
+      {
+        id: 4,
+        title: "Sales Strategy",
+        subtitle: "Psychology & ICP",
+        stationName: "Week 4",
+        lessons: [
+          { title: "Why You Hate Sales (And Why It's Wrong)", duration: "25 min" },
+          { title: "The Triangle Model", duration: "25 min" },
+          { title: "Understanding Why People Buy", duration: "20 min" },
+          { title: "Building Your Ideal Customer Profile", duration: "25 min" }
+        ],
+        status: "not-started",
+        progress: 0,
+        x: 25, y: 42,  // Alpine Lodge
+        bgImage: "media/week-4-camp.jpg",
+        locked: true
+      },
+      {
+        id: 5,
+        title: "Financial Readiness",
+        subtitle: "Revenue & Metrics",
+        stationName: "Week 5",
+        lessons: [
+          { title: "The 6 Revenue Models", duration: "25 min" },
+          { title: "Choosing Your Pricing Strategy", duration: "25 min" },
+          { title: "Financial Readiness Fundamentals", duration: "25 min" },
+          { title: "Market Sizing (TAM/SAM/SOM)", duration: "20 min" }
+        ],
+        status: "not-started",
+        progress: 0,
+        x: 43, y: 30,  // Observation Tower
+        bgImage: "media/week-5-camp.jpg",
+        locked: true
+      },
+      {
+        id: 6,
+        title: "Go-To-Market",
+        subtitle: "Sales Execution",
+        stationName: "Week 6",
+        lessons: [
+          { title: "Building Your Sales Process", duration: "35 min" },
+          { title: "Connectors and Networks", duration: "30 min" },
+          { title: "CRM and Sales Tools", duration: "25 min" },
+          { title: "AI for Sales Acceleration", duration: "30 min" }
+        ],
+        status: "not-started",
+        progress: 0,
+        x: 68, y: 25,  // Communications Station
+        bgImage: "media/week-6-camp.jpg",
+        locked: true
+      },
+      {
+        id: 7,
+        title: "Launch & Graduation",
+        subtitle: "Showcase",
+        stationName: "Week 7",
+        lessons: [
+          { title: "Crafting Your Business Spotlight", duration: "40 min" },
+          { title: "Reflection and Next Steps", duration: "35 min" }
+        ],
+        status: "not-started",
+        progress: 0,
+        x: 90, y: 12,  // Summit Pavilion
+        bgImage: "media/week-7-camp.jpg",
+        locked: true
+      }
+    ];
+
+    // ========== CREATE HOTSPOTS ==========
+    function createHotspots() {
+      const layer = document.getElementById('hotspotLayer');
+
+      layer.innerHTML = modules.map(m => {
+        const totalDuration = m.lessons.reduce((acc, l) => acc + parseInt(l.duration), 0);
+        const isLocked = IS_DEMO_MODE && m.locked;
+        const statusText = isLocked ? 'Locked (Demo)' :
+                          m.status === 'completed' ? 'Completed' :
+                          m.status === 'in-progress' ? 'In Progress' : 'Not Started';
+        const statusClass = isLocked ? 'not-started' : m.status;
+
+        return `
+          <button class="hotspot ${statusClass} ${isLocked ? 'demo-locked' : ''}"
+            style="left: ${m.x}%; top: ${m.y}%"
+            onclick="openWeekDetail(${m.id})"
+            aria-label="${m.stationName}: ${m.title} - ${m.subtitle}. ${statusText}. ${m.lessons.length} lessons, ${totalDuration} minutes.">
+
+            <div class="hotspot-inner">
+              <div class="hotspot-ring">${isLocked ? '🔒' : m.id}</div>
+              <div class="station-label">
+                <div class="station-name">${m.stationName}</div>
+                <div class="station-title">${m.title}</div>
+              </div>
+            </div>
+
+            <div class="hotspot-tooltip" role="tooltip">
+              <div class="tooltip-title">${m.title}</div>
+              <div class="tooltip-meta">📚 ${m.lessons.length} lessons • ${totalDuration} min</div>
+              <span class="tooltip-status ${isLocked ? 'locked' : m.status}">
+                ${isLocked ? '🔒 Demo Preview' : m.status === 'completed' ? '✓ Complete' : m.status === 'in-progress' ? '● Available' : '○ Not Started'}
+              </span>
+            </div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    // ========== LOCKED CONTENT MODAL ==========
+    function showLockedModal(module) {
+      // Create modal overlay
+      const modal = document.createElement('div');
+      modal.id = 'locked-modal';
+      modal.innerHTML = `
+        <div class="locked-modal-overlay" onclick="closeLockedModal()">
+          <div class="locked-modal-content" onclick="event.stopPropagation()">
+            <div class="locked-modal-icon">🔒</div>
+            <h3 class="locked-modal-title">Content Locked</h3>
+            <p class="locked-modal-subtitle">${module.stationName}: ${module.title}</p>
+            <p class="locked-modal-message">
+              This is a <strong>demo preview</strong> of our course experience.
+              Week 1 is fully accessible to explore. Weeks 2-7 are locked in this preview.
+            </p>
+            <div class="locked-modal-info">
+              <p>📚 ${module.lessons.length} lessons</p>
+              <p>⏱️ ${module.lessons.reduce((acc, l) => acc + parseInt(l.duration), 0)} minutes of content</p>
+            </div>
+            <div class="locked-modal-actions">
+              <button class="locked-modal-btn primary" onclick="window.location.href='week-1.html'">
+                Explore Week 1
+              </button>
+              <button class="locked-modal-btn secondary" onclick="closeLockedModal()">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLockedModal() {
+      const modal = document.getElementById('locked-modal');
+      if (modal) {
+        modal.remove();
+        document.body.style.overflow = '';
+      }
+    }
+
+    // ========== OPEN WEEK PAGE ==========
+    function openWeekDetail(id) {
+      const m = modules.find(mod => mod.id === id);
+      if (!m) return;
+
+      // Check if locked in demo mode
+      if (IS_DEMO_MODE && m.locked) {
+        showLockedModal(m);
+        return;
+      }
+
+      // Navigate to the week landing page
+      window.location.href = `week-${id}.html`;
+    }
+
+
+    // ========== INITIALIZE ==========
+    createHotspots();
+
+    // Announce page load to screen readers
+    if ('speechSynthesis' in window === false) {
+      // Create an aria-live region for announcements
+      const announcer = document.createElement('div');
+      announcer.setAttribute('aria-live', 'polite');
+      announcer.setAttribute('aria-atomic', 'true');
+      announcer.className = 'sr-only';
+      announcer.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);';
+      document.body.appendChild(announcer);
+    }
+  </script>
+</body>
+</html>

@@ -1,22 +1,15 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Menu, X, ChevronDown, Calculator, Wrench, Layers } from 'lucide-react';
-import { NavProps } from '../types';
+import { Menu, X, ChevronDown, Calculator, Wrench, BookOpen, Video, Headphones, GraduationCap, Shield, FolderOpen } from 'lucide-react';
+import { NavProps, PageView } from '../types';
 
 export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isToolsOpen, setIsToolsOpen] = useState(false);
-  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const toolsRef = useRef<HTMLDivElement>(null);
-  const solutionsRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
   const toolsButtonRef = useRef<HTMLButtonElement>(null);
-  const solutionsButtonRef = useRef<HTMLButtonElement>(null);
-
-  const productIcons = {
-    learningTransformer: "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/LT-WhiteLine.png",
-    catalystStudio: "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/Catalyst_Studio_logo-whline.png",
-    catalystArchitect: "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/C2Alinewhite2.png",
-    didactaX: "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/Didactaxwhitelines.png",
-  };
+  const servicesButtonRef = useRef<HTMLButtonElement>(null);
 
   // Close dropdowns when clicking outside
   useEffect(() => {
@@ -24,8 +17,8 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
       if (toolsRef.current && !toolsRef.current.contains(event.target as Node)) {
         setIsToolsOpen(false);
       }
-      if (solutionsRef.current && !solutionsRef.current.contains(event.target as Node)) {
-        setIsSolutionsOpen(false);
+      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
+        setIsServicesOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -33,14 +26,14 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
   }, []);
 
   // Handle escape key for dropdowns
-  const handleDropdownKeyDown = useCallback((e: React.KeyboardEvent, type: 'tools' | 'solutions') => {
+  const handleDropdownKeyDown = useCallback((e: React.KeyboardEvent, type: 'tools' | 'services') => {
     if (e.key === 'Escape') {
       if (type === 'tools') {
         setIsToolsOpen(false);
         toolsButtonRef.current?.focus();
       } else {
-        setIsSolutionsOpen(false);
-        solutionsButtonRef.current?.focus();
+        setIsServicesOpen(false);
+        servicesButtonRef.current?.focus();
       }
     }
   }, []);
@@ -70,7 +63,7 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
     }
     setIsMenuOpen(false);
     setIsToolsOpen(false);
-    setIsSolutionsOpen(false);
+    setIsServicesOpen(false);
   };
 
   const handleHomeClick = (e: React.MouseEvent) => {
@@ -87,27 +80,11 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
     setIsToolsOpen(false);
   };
 
-  const handleSolutionClick = (solution: 'learning-transformer') => {
-    onNavigate(solution);
+  const handlePageClick = (page: PageView) => {
+    onNavigate(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setIsMenuOpen(false);
-    setIsSolutionsOpen(false);
-  };
-
-  const handleScrollToSolutions = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (currentPage !== 'home') {
-      onNavigate('home');
-      setTimeout(() => {
-        const el = document.getElementById('solutions');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.getElementById('solutions');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsSolutionsOpen(false);
-    setIsMenuOpen(false);
+    setIsServicesOpen(false);
   };
 
   return (
@@ -131,52 +108,52 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          
-          {/* Solutions Dropdown */}
-          <div className="relative" ref={solutionsRef}>
+
+          {/* Services Dropdown */}
+          <div className="relative" ref={servicesRef}>
             <button
-              ref={solutionsButtonRef}
-              id="solutions-button"
+              ref={servicesButtonRef}
+              id="services-button"
               onClick={() => {
-                setIsSolutionsOpen(!isSolutionsOpen);
+                setIsServicesOpen(!isServicesOpen);
                 setIsToolsOpen(false);
               }}
-              onKeyDown={(e) => handleDropdownKeyDown(e, 'solutions')}
-              aria-expanded={isSolutionsOpen}
+              onKeyDown={(e) => handleDropdownKeyDown(e, 'services')}
+              aria-expanded={isServicesOpen}
               aria-haspopup="true"
-              aria-controls="solutions-menu"
+              aria-controls="services-menu"
               className={`flex items-center gap-1 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded px-2 py-1 ${
-                isSolutionsOpen || currentPage === 'learning-transformer' ? 'text-white' : 'text-slate-300 hover:text-white'
+                isServicesOpen || currentPage === 'services' ? 'text-white' : 'text-slate-300 hover:text-white'
               }`}
             >
-              Solutions
-              <ChevronDown 
-                size={14} 
-                className={`transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`} 
+              Services
+              <ChevronDown
+                size={14}
+                className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}
                 aria-hidden="true"
               />
             </button>
-            
-            {isSolutionsOpen && (
-              <div 
-                id="solutions-menu"
+
+            {isServicesOpen && (
+              <div
+                id="services-menu"
                 role="menu"
-                aria-labelledby="solutions-button"
-                onKeyDown={(e) => handleDropdownKeyDown(e, 'solutions')}
+                aria-labelledby="services-button"
+                onKeyDown={(e) => handleDropdownKeyDown(e, 'services')}
                 className="absolute top-full left-0 mt-2 w-72 bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50"
               >
                 <div className="p-2">
                   <button
                     role="menuitem"
-                    onClick={handleScrollToSolutions}
+                    onClick={() => handlePageClick('services')}
                     className="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors text-left group mb-1"
                   >
-                    <div className="p-2 bg-brand-blue/20 rounded-lg text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors">
-                      <Layers size={18} aria-hidden="true" />
+                    <div className="p-2 bg-brand-red/20 rounded-lg text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors">
+                      <GraduationCap size={18} aria-hidden="true" />
                     </div>
                     <div>
-                      <span className="text-white font-semibold text-sm block">View All Solutions</span>
-                      <span className="text-slate-300 text-xs">See our complete ecosystem</span>
+                      <span className="text-white font-semibold text-sm block">All Services</span>
+                      <span className="text-slate-300 text-xs">View our complete offering</span>
                     </div>
                   </button>
 
@@ -184,52 +161,74 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
 
                   <button
                     role="menuitem"
-                    onClick={() => handleSolutionClick('learning-transformer')}
+                    onClick={() => handlePageClick('services')}
                     className="w-full flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors text-left group"
                   >
-                    <div className="p-2 bg-[#c73e4a]/20 rounded-lg group-hover:bg-[#c73e4a] transition-colors flex items-center justify-center">
-                      <img src={productIcons.learningTransformer} alt="" className="w-5 h-5 object-contain" aria-hidden="true" />
+                    <div className="p-2 bg-brand-blue/20 rounded-lg text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                      <BookOpen size={18} aria-hidden="true" />
                     </div>
                     <div>
-                      <span className="text-white font-semibold text-sm block">Learning Transformer</span>
-                      <span className="text-slate-300 text-xs">Transform LMS content automatically</span>
+                      <span className="text-white font-semibold text-sm block">eBook Creation</span>
+                      <span className="text-slate-300 text-xs">Documents to digital experiences</span>
                     </div>
                   </button>
-                  
-                  {/* Coming Soon Items - not interactive */}
-                  <div className="w-full flex items-start gap-3 p-3 rounded-lg opacity-50" aria-disabled="true">
-                    <div className="p-2 bg-slate-700/50 rounded-lg flex items-center justify-center">
-                      <img src={productIcons.catalystStudio} alt="" className="w-5 h-5 object-contain opacity-50" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <span className="text-slate-500 font-semibold text-sm block">Catalyst Studio</span>
-                      <span className="text-slate-600 text-xs">Coming Soon</span>
-                    </div>
-                  </div>
 
-                  <div className="w-full flex items-start gap-3 p-3 rounded-lg opacity-50" aria-disabled="true">
-                    <div className="p-2 bg-slate-700/50 rounded-lg flex items-center justify-center">
-                      <img src={productIcons.catalystArchitect} alt="" className="w-5 h-5 object-contain opacity-50" aria-hidden="true" />
+                  <button
+                    role="menuitem"
+                    onClick={() => handlePageClick('services')}
+                    className="w-full flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors text-left group"
+                  >
+                    <div className="p-2 bg-brand-purple/20 rounded-lg text-brand-purple group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                      <Video size={18} aria-hidden="true" />
                     </div>
                     <div>
-                      <span className="text-slate-500 font-semibold text-sm block">Catalyst Architect</span>
-                      <span className="text-slate-600 text-xs">Coming Soon</span>
+                      <span className="text-white font-semibold text-sm block">Video Production</span>
+                      <span className="text-slate-300 text-xs">Professional video lessons</span>
                     </div>
-                  </div>
+                  </button>
 
-                  <div className="w-full flex items-start gap-3 p-3 rounded-lg opacity-50" aria-disabled="true">
-                    <div className="p-2 bg-slate-700/50 rounded-lg flex items-center justify-center">
-                      <img src={productIcons.didactaX} alt="" className="w-5 h-5 object-contain opacity-50" aria-hidden="true" />
+                  <button
+                    role="menuitem"
+                    onClick={() => handlePageClick('services')}
+                    className="w-full flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors text-left group"
+                  >
+                    <div className="p-2 bg-brand-gold/20 rounded-lg text-brand-gold group-hover:bg-brand-gold group-hover:text-black transition-colors">
+                      <Headphones size={18} aria-hidden="true" />
                     </div>
                     <div>
-                      <span className="text-slate-500 font-semibold text-sm block">DidactaX</span>
-                      <span className="text-slate-600 text-xs">Coming Soon</span>
+                      <span className="text-white font-semibold text-sm block">Audio & Podcasts</span>
+                      <span className="text-slate-300 text-xs">Learning on the go</span>
                     </div>
-                  </div>
+                  </button>
+
+                  <button
+                    role="menuitem"
+                    onClick={() => handlePageClick('services')}
+                    className="w-full flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors text-left group"
+                  >
+                    <div className="p-2 bg-green-500/20 rounded-lg text-green-500 group-hover:bg-green-500 group-hover:text-white transition-colors">
+                      <Shield size={18} aria-hidden="true" />
+                    </div>
+                    <div>
+                      <span className="text-white font-semibold text-sm block">Accessibility</span>
+                      <span className="text-slate-300 text-xs">WCAG 2.1 AA compliance</span>
+                    </div>
+                  </button>
                 </div>
               </div>
             )}
           </div>
+
+          {/* Portfolio Link */}
+          <button
+            onClick={() => handlePageClick('portfolio')}
+            className={`flex items-center gap-1 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded px-2 py-1 ${
+              currentPage === 'portfolio' ? 'text-white' : 'text-slate-300 hover:text-white'
+            }`}
+          >
+            <FolderOpen size={16} className="mr-1" />
+            Portfolio
+          </button>
 
           {/* Tools Dropdown */}
           <div className="relative" ref={toolsRef}>
@@ -238,7 +237,7 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
               id="tools-button"
               onClick={() => {
                 setIsToolsOpen(!isToolsOpen);
-                setIsSolutionsOpen(false);
+                setIsServicesOpen(false);
               }}
               onKeyDown={(e) => handleDropdownKeyDown(e, 'tools')}
               aria-expanded={isToolsOpen}
@@ -249,15 +248,15 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
               }`}
             >
               Tools
-              <ChevronDown 
-                size={14} 
+              <ChevronDown
+                size={14}
                 className={`transition-transform ${isToolsOpen ? 'rotate-180' : ''}`}
                 aria-hidden="true"
               />
             </button>
-            
+
             {isToolsOpen && (
-              <div 
+              <div
                 id="tools-menu"
                 role="menu"
                 aria-labelledby="tools-button"
@@ -278,7 +277,7 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
                       <span className="text-slate-300 text-xs">Calculate your ADA compliance risk</span>
                     </div>
                   </button>
-                  
+
                   <div className="w-full flex items-start gap-3 p-3 rounded-lg opacity-50" aria-disabled="true">
                     <div className="p-2 bg-slate-700/50 rounded-lg text-slate-500">
                       <Wrench size={18} aria-hidden="true" />
@@ -293,28 +292,20 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
             )}
           </div>
 
-          <a 
+          <a
             href="#comparison"
             onClick={(e) => handleNavClick(e, 'comparison')}
             className="text-slate-300 hover:text-white transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded px-2 py-1"
           >
             Why Us
           </a>
-          
-          <a 
-            href="#roadmap"
-            onClick={(e) => handleNavClick(e, 'roadmap')}
-            className="text-slate-300 hover:text-white transition-colors text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded px-2 py-1"
-          >
-            Roadmap
-          </a>
 
-          <a 
+          <a
             href="#contact"
             onClick={(e) => handleNavClick(e, 'contact')}
             className="bg-brand-red hover:bg-red-500 text-white px-6 py-2 rounded-lg font-semibold text-sm transition-all transform hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-500/50 shadow-lg shadow-brand-red/20"
           >
-            Schedule Meeting
+            Let's Talk
           </a>
         </div>
 
@@ -331,41 +322,39 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div 
+          <div
             id="mobile-menu"
             role="navigation"
             aria-label="Mobile navigation"
             className="absolute top-[70px] left-0 w-full bg-space border-b border-white/10 p-6 flex flex-col gap-6 md:hidden shadow-2xl"
           >
-            {/* Mobile Solutions Section */}
+            {/* Mobile Services Section */}
             <div className="space-y-3">
               <span className="text-slate-400 text-sm font-semibold uppercase tracking-wider">
-                Solutions
+                Services
               </span>
               <button
-                onClick={handleScrollToSolutions}
+                onClick={() => handlePageClick('services')}
                 className="w-full flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10"
               >
-                <Layers size={18} className="text-brand-blue" aria-hidden="true" />
+                <GraduationCap size={18} className="text-brand-red" aria-hidden="true" />
                 <div className="text-left">
-                  <span className="text-white font-medium block">View All Solutions</span>
-                  <span className="text-slate-300 text-xs">See our complete ecosystem</span>
+                  <span className="text-white font-medium block">All Services</span>
+                  <span className="text-slate-300 text-xs">eBooks, Videos, Courses & more</span>
                 </div>
               </button>
               <button
-                onClick={() => handleSolutionClick('learning-transformer')}
+                onClick={() => handlePageClick('portfolio')}
                 className="w-full flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10"
               >
-                <div className="p-1 bg-[#c73e4a]/20 rounded">
-                  <img src={productIcons.learningTransformer} alt="" className="w-5 h-5 object-contain" aria-hidden="true" />
-                </div>
+                <FolderOpen size={18} className="text-brand-purple" aria-hidden="true" />
                 <div className="text-left">
-                  <span className="text-white font-medium block">Learning Transformer</span>
-                  <span className="text-slate-300 text-xs">Transform LMS content</span>
+                  <span className="text-white font-medium block">Portfolio</span>
+                  <span className="text-slate-300 text-xs">See our work</span>
                 </div>
               </button>
             </div>
-            
+
             {/* Mobile Tools Section */}
             <div className="space-y-3">
               <span className="text-slate-400 text-sm font-semibold uppercase tracking-wider">
@@ -375,15 +364,15 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
                 onClick={() => handleToolClick('audit')}
                 className="w-full flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10"
               >
-                <Calculator size={18} className="text-brand-red" aria-hidden="true" />
+                <Calculator size={18} className="text-brand-gold" aria-hidden="true" />
                 <div className="text-left">
                   <span className="text-white font-medium block">Content Debt Audit</span>
                   <span className="text-slate-300 text-xs">Calculate ADA risk</span>
                 </div>
               </button>
             </div>
-            
-            <a 
+
+            <a
               href="#comparison"
               className="text-slate-200 text-lg font-medium"
               onClick={(e) => handleNavClick(e, 'comparison')}
@@ -391,20 +380,12 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
               Why Us
             </a>
 
-            <a 
-              href="#roadmap"
-              className="text-slate-200 text-lg font-medium"
-              onClick={(e) => handleNavClick(e, 'roadmap')}
-            >
-              Roadmap
-            </a>
-            
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="bg-brand-red text-center text-white px-6 py-3 rounded-lg font-bold mt-4"
               onClick={(e) => handleNavClick(e, 'contact')}
             >
-              Schedule Meeting
+              Let's Talk
             </a>
           </div>
         )}

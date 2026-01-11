@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-01-06T00:36:57.311Z",
+  "summary": {
+    "totalScenes": 348,
+    "scenesWithIssues": 2,
+    "errors": 0,
+    "warnings": 2,
+    "infos": 0
+  },
+  "diversityDistribution": {
+    "blackWoman": 37,
+    "blackMan": 33,
+    "whiteWoman": 22,
+    "whiteMan": 31,
+    "hispanicWoman": 31,
+    "hispanicMan": 45,
+    "asianWoman": 83,
+    "asianMan": 51,
+    "southAsianWoman": 27,
+    "southAsianMan": 30,
+    "middleEasternWoman": 13,
+    "middleEasternMan": 10,
+    "unspecified": 2
+  },
+  "issues": [
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-1b",
+      "heading": "Beyond Surface Level",
+      "issue": "Person mentioned without specific demographic",
+      "severity": "warning",
+      "suggestion": "Specify demographic: e.g., \"a Black woman entrepreneur\", \"a South Asian man\""
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-5",
+      "heading": "WHO - Your Ideal Customer",
+      "issue": "Person mentioned without specific demographic",
+      "severity": "warning",
+      "suggestion": "Specify demographic: e.g., \"a Black woman entrepreneur\", \"a South Asian man\""
+    }
+  ]
+}

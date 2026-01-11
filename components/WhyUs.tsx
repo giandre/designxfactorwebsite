@@ -2,16 +2,16 @@ import React from 'react';
 import { Check, X, Minus } from 'lucide-react';
 
 export const WhyUs: React.FC = () => {
-  const features: { name: string; us: boolean | "partial"; notebook: boolean | "partial"; diy: boolean | "partial" }[] = [
-    { name: "Seamless LMS Integration", us: true, notebook: false, diy: false },
-    { name: "Multimodal Content Generation", us: true, notebook: "partial", diy: "partial" },
-    { name: "WCAG 2.1 Level AA Accessible Output", us: true, notebook: false, diy: false },
-    { name: "HTML5 Videos (not MP4)", us: true, notebook: false, diy: false },
-    { name: "Embedded Knowledge Checks", us: true, notebook: false, diy: false },
-    { name: "Comprehensive Analytics & Tracking", us: true, notebook: false, diy: false },
-    { name: "Faculty Can Edit Before Publishing", us: true, notebook: false, diy: "partial" },
-    { name: "One-Click Publishing to LMS", us: true, notebook: false, diy: false },
-    { name: "Spaced Repetition Learning", us: true, notebook: false, diy: false },
+  const features: { name: string; us: boolean | "partial"; traditional: boolean | "partial"; diy: boolean | "partial" }[] = [
+    { name: "Rapid Delivery (weeks, not months)", us: true, traditional: false, diy: "partial" },
+    { name: "Multi-format Output (eBook, Video, Audio)", us: true, traditional: "partial", diy: "partial" },
+    { name: "WCAG 2.1 AA Accessibility Built-in", us: true, traditional: "partial", diy: false },
+    { name: "Enterprise Quality Design", us: true, traditional: true, diy: false },
+    { name: "LMS-Ready Packages", us: true, traditional: true, diy: false },
+    { name: "Interactive Knowledge Checks", us: true, traditional: "partial", diy: false },
+    { name: "AI-Enhanced Production", us: true, traditional: false, diy: "partial" },
+    { name: "Revisions Included", us: true, traditional: "partial", diy: true },
+    { name: "Affordable Pricing", us: true, traditional: false, diy: true },
   ];
 
   const getStatusText = (status: boolean | "partial") => {
@@ -59,10 +59,10 @@ export const WhyUs: React.FC = () => {
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="text-center mb-16">
           <h2 id="comparison-heading" className="text-4xl md:text-5xl font-black text-white mb-6">
-            Why Design X Factor?
+            Why Choose Us?
           </h2>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            A direct comparison of what you actually get with each approach. Stop piecing together fragmented tools.
+            The best of both worlds: enterprise-level quality with startup speed and affordability.
           </p>
         </div>
 
@@ -87,9 +87,9 @@ export const WhyUs: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col items-center gap-2">
-                  <span className="text-[10px] text-slate-300 font-bold uppercase tracking-wider">Notebook</span>
+                  <span className="text-[10px] text-slate-300 font-bold uppercase tracking-wider">Traditional</span>
                   <div className="bg-transparent p-2 rounded-lg w-full flex justify-center">
-                    {renderIcon(feature.notebook, feature.name, "NotebookLM")}
+                    {renderIcon(feature.traditional, feature.name, "Traditional Agency")}
                   </div>
                 </div>
 
@@ -105,21 +105,21 @@ export const WhyUs: React.FC = () => {
           
           {/* Summary Card */}
           <div className="bg-gradient-to-br from-brand-blue/10 to-transparent border border-brand-blue/20 rounded-xl p-5 mt-8">
-            <h3 className="text-brand-blue font-bold mb-4 text-center">Workflow Complexity</h3>
+            <h3 className="text-brand-blue font-bold mb-4 text-center">Delivery Timeline</h3>
             <dl className="space-y-3">
               <div className="flex justify-between items-center text-sm">
                 <dt className="text-slate-200">Design X Factor</dt>
-                <dd className="text-white font-bold">Simple & Automated</dd>
+                <dd className="text-white font-bold">2-4 Weeks</dd>
               </div>
               <div className="w-full h-px bg-white/10" role="separator"></div>
               <div className="flex justify-between items-center text-sm">
-                <dt className="text-slate-300">NotebookLM</dt>
-                <dd className="text-slate-300">Manual Copy-Paste</dd>
+                <dt className="text-slate-300">Traditional Agency</dt>
+                <dd className="text-slate-300">3-6 Months</dd>
               </div>
               <div className="w-full h-px bg-white/10" role="separator"></div>
               <div className="flex justify-between items-center text-sm">
                 <dt className="text-slate-300">DIY Tools</dt>
-                <dd className="text-slate-300">Highly Fragmented</dd>
+                <dd className="text-slate-300">Varies (Often Incomplete)</dd>
               </div>
             </dl>
           </div>
@@ -127,12 +127,12 @@ export const WhyUs: React.FC = () => {
 
         {/* --- Desktop View (Accessible Table) --- */}
         <div className="hidden lg:block overflow-x-auto rounded-2xl border border-white/10 shadow-2xl bg-space/50 backdrop-blur-sm">
-          <table 
+          <table
             className="w-full text-left border-collapse min-w-[800px]"
-            aria-label="Feature comparison between Design X Factor, NotebookLM, and DIY tools"
+            aria-label="Feature comparison between Design X Factor, Traditional Agencies, and DIY tools"
           >
             <caption className="sr-only">
-              Comparison of features across Design X Factor, NotebookLM, and DIY (ChatGPT + Tools) approaches
+              Comparison of features across Design X Factor, Traditional Agencies, and DIY (ChatGPT + Tools) approaches
             </caption>
             <thead>
               <tr className="bg-white/5 border-b border-white/10">
@@ -143,7 +143,7 @@ export const WhyUs: React.FC = () => {
                   Design X Factor
                 </th>
                 <th scope="col" className="p-6 text-center text-sm font-bold text-slate-300 w-1/5">
-                  NotebookLM
+                  Traditional Agency
                 </th>
                 <th scope="col" className="p-6 text-center text-sm font-bold text-slate-300 w-1/5">
                   DIY (ChatGPT + Tools)
@@ -160,7 +160,7 @@ export const WhyUs: React.FC = () => {
                     {renderIcon(feature.us, feature.name, "Design X Factor")}
                   </td>
                   <td className="p-6">
-                    {renderIcon(feature.notebook, feature.name, "NotebookLM")}
+                    {renderIcon(feature.traditional, feature.name, "Traditional Agency")}
                   </td>
                   <td className="p-6">
                     {renderIcon(feature.diy, feature.name, "DIY Tools")}
@@ -168,10 +168,10 @@ export const WhyUs: React.FC = () => {
                 </tr>
               ))}
               <tr className="bg-white/5 font-bold">
-                <th scope="row" className="p-6 text-white text-left">Workflow Complexity</th>
-                <td className="p-6 text-center text-brand-blue border-x border-white/10">Simple & Automated</td>
-                <td className="p-6 text-center text-slate-300">Manual Copy-Paste</td>
-                <td className="p-6 text-center text-slate-300">Highly Fragmented</td>
+                <th scope="row" className="p-6 text-white text-left">Delivery Timeline</th>
+                <td className="p-6 text-center text-brand-blue border-x border-white/10">2-4 Weeks</td>
+                <td className="p-6 text-center text-slate-300">3-6 Months</td>
+                <td className="p-6 text-center text-slate-300">Varies</td>
               </tr>
             </tbody>
           </table>

@@ -1,0 +1,297 @@
+{
+  "generatedAt": "2026-01-06T01:47:00.859Z",
+  "totalImages": 2,
+  "generated": 2,
+  "skipped": 0,
+  "failed": 0,
+  "images": [
+    {
+      "imageId": "3-1-insight-wall",
+      "lessonId": "lesson-3-1",
+      "filename": "3-1-insight-wall.jpg",
+      "altText": "Entrepreneur organizing customer insights on a glowing wall",
+      "longDescription": "A Hispanic woman entrepreneur stands before a large glowing wall covered with sticky notes and customer quotes at a modern glass maker lab perched on a cliff. The notes are organized into clusters showing emerging patterns. Golden sunset light streams through the glass walls, illuminating the colorful notes. The scene represents the process of organizing customer discovery findings into actionable insights.",
+      "placement": "After \"Organizing Your Discoveries\" section"
+    },
+    {
+      "imageId": "3-1-persona-sketch",
+      "lessonId": "lesson-3-1",
+      "filename": "3-1-persona-sketch.jpg",
+      "altText": "Entrepreneur creating a detailed customer persona",
+      "longDescription": "A Black man entrepreneur uses a stylus to sketch a detailed customer persona on a holographic whiteboard. The persona emerges in glowing teal lines, showing demographic details, pain points, and goals. The glass-walled maker lab overlooks mountain peaks at sunset. The image represents the process of synthesizing customer research into a concrete persona.",
+      "placement": "After \"Creating Customer Personas\" section"
+    },
+    {
+      "imageId": "3-2-pain-matrix",
+      "lessonId": "lesson-3-2",
+      "filename": "3-2-pain-matrix.jpg",
+      "altText": "Pain point prioritization matrix with highlighted priorities",
+      "longDescription": "An Asian woman entrepreneur examines a floating holographic grid that displays customer pain points. The matrix organizes issues by frequency (horizontal axis) and severity (vertical axis). High-priority pain points in the upper-right quadrant glow bright teal. The maker lab setting features mountain views through glass walls at golden hour.",
+      "placement": "After \"Prioritizing Pain Points\" section"
+    },
+    {
+      "imageId": "3-2-root-cause",
+      "lessonId": "lesson-3-2",
+      "filename": "3-2-root-cause.jpg",
+      "altText": "Visual metaphor of the 5 Whys root cause analysis",
+      "longDescription": "A South Asian man entrepreneur descends a glowing teal pathway that spirals down into a mountain cavern. Five distinct levels are marked along the path, each revealing deeper insights. At the bottom, a glowing crystal represents the root cause. The visualization represents the 5 Whys technique for uncovering the true source of customer problems.",
+      "placement": "After \"5 Whys Technique\" section"
+    },
+    {
+      "imageId": "3-3-feature-matrix",
+      "lessonId": "lesson-3-3",
+      "filename": "3-3-feature-matrix.jpg",
+      "altText": "MVP feature prioritization as essential climbing gear",
+      "longDescription": "A Middle Eastern woman entrepreneur sorts climbing gear on a wooden table at a mountain base camp. Essential must-have items (rope, harness, carabiners) glow with teal light on the left. Optional nice-to-have items sit dimmer on the right. The visual metaphor represents prioritizing MVP features - taking only what is essential for the climb.",
+      "placement": "After \"Feature Prioritization\" section"
+    },
+    {
+      "imageId": "3-3-mvp-evolution",
+      "lessonId": "lesson-3-3",
+      "filename": "3-3-mvp-evolution.jpg",
+      "altText": "Product evolution from sketch to functional MVP",
+      "longDescription": "A White man entrepreneur stands before three glowing pedestals in the maker lab, each displaying a stage of product evolution. The first shows a rough pencil sketch, the second a basic wireframe prototype, and the third a polished functional MVP. Golden light from the sunset illuminates each stage progressively brighter, showing the journey from concept to reality.",
+      "placement": "After \"Building Your MVP\" section"
+    },
+    {
+      "imageId": "3-4-feedback-loop",
+      "lessonId": "lesson-3-4",
+      "filename": "3-4-feedback-loop.jpg",
+      "altText": "Iterative feedback loop for prototype development",
+      "longDescription": "A circular glowing teal pathway winds through the mountain landscape, connecting four stations: Prototype (maker lab), Test (observation post), Learn (study area), and Iterate (workshop). A Black woman works at the prototype station while an Asian man analyzes results at the learn station. The visualization represents the continuous cycle of product iteration.",
+      "placement": "After \"Iterative Development\" section"
+    },
+    {
+      "imageId": "3-4-validation",
+      "lessonId": "lesson-3-4",
+      "filename": "3-4-validation.jpg",
+      "altText": "Entrepreneur receiving positive customer validation",
+      "longDescription": "A Hispanic man entrepreneur demonstrates a glowing prototype to a South Asian woman potential customer at the maker lab. The customer leans forward with an engaged, positive expression, her face illuminated by the prototype light. The moment captures the validation of customer interest - a key milestone in the entrepreneurial journey.",
+      "placement": "After \"Testing with Customers\" section"
+    },
+    {
+      "imageId": "4-1-trust-bridge",
+      "lessonId": "lesson-4-1",
+      "filename": "4-1-trust-bridge.jpg",
+      "altText": "Visual metaphor of building trust as a bridge",
+      "longDescription": "A Black woman entrepreneur stands on one side of a mountain chasm while a White man potential customer stands on the other. Between them, a glowing teal bridge materializes, built from strands of light representing trust, understanding, and connection. The alpine lodge is visible in the background, warm light spilling from its windows.",
+      "placement": "After \"Building Trust\" section"
+    },
+    {
+      "imageId": "4-1-listening",
+      "lessonId": "lesson-4-1",
+      "filename": "4-1-listening.jpg",
+      "altText": "Active listening visualization with understanding flowing",
+      "longDescription": "An Asian man entrepreneur sits in a comfortable chair at the alpine lodge, leaning forward in an attentive listening posture. Across from him, a customer speaks, with glowing particles of understanding flowing from their words to the entrepreneur. The warm lodge interior with string lights creates an intimate, trusting atmosphere.",
+      "placement": "After \"The Power of Listening\" section"
+    },
+    {
+      "imageId": "4-2-triangle",
+      "lessonId": "lesson-4-2",
+      "filename": "4-2-triangle.jpg",
+      "altText": "The Triangle Model showing YOU, THEM, and IT relationship",
+      "longDescription": "Three glowing beacons form a perfect triangle in the mountain landscape. At the apex, labeled YOU, stands a South Asian woman entrepreneur. At the base corners are THEM (represented by customer figures) and IT (represented by a glowing product). Teal energy lines connect all three points, showing the dynamic relationships. The alpine lodge sits in the background.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "4-2-balance",
+      "lessonId": "lesson-4-2",
+      "filename": "4-2-balance.jpg",
+      "altText": "Comparison of balanced vs unbalanced sales triangle",
+      "longDescription": "A split-view image shows two versions of the Triangle Model. On the left, a balanced triangle glows evenly with stable connections. On the right, an unbalanced triangle tilts dangerously with the YOU point oversized and glowing too bright, representing common mistakes like talking too much or focusing too much on yourself. The visual teaches the importance of balance.",
+      "placement": "After \"Common Imbalances\" section"
+    },
+    {
+      "imageId": "4-3-closer-path",
+      "lessonId": "lesson-4-3",
+      "filename": "4-3-closer-path.jpg",
+      "altText": "CLOSER framework as stepping stones to success",
+      "longDescription": "A Middle Eastern man entrepreneur crosses a mountain stream on six glowing stepping stones, each carved with a letter: C-L-O-S-E-R. The warm alpine lodge with string lights waits on the far bank, representing the successful close. Each stone glows brighter as the entrepreneur steps on it, showing progression through the framework.",
+      "placement": "Main framework illustration"
+    },
+    {
+      "imageId": "4-3-objection",
+      "lessonId": "lesson-4-3",
+      "filename": "4-3-objection.jpg",
+      "altText": "Navigating objections as finding path through storm",
+      "longDescription": "A Hispanic woman entrepreneur walks confidently along a mountain path as storm clouds swirl around her. She remains calm, her path illuminated by teal light that cuts through the grey clouds. The storm represents customer objections, while her steady progress shows the skill of addressing concerns without losing momentum.",
+      "placement": "After \"Handling Objections\" section"
+    },
+    {
+      "imageId": "4-4-icp-portrait",
+      "lessonId": "lesson-4-4",
+      "filename": "4-4-icp-portrait.jpg",
+      "altText": "Creating an Ideal Customer Profile portrait",
+      "longDescription": "A White woman entrepreneur paints a detailed portrait on a canvas in the warm alpine lodge. The portrait shows an Ideal Customer Profile emerging - not just a face, but floating annotations showing demographics, pain points, goals, and buying triggers. The portrait glows with teal highlights as it comes to life, representing a deeply understood customer.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "4-4-targeting",
+      "lessonId": "lesson-4-4",
+      "filename": "4-4-targeting.jpg",
+      "altText": "Precision targeting your ideal customer",
+      "longDescription": "A Black man entrepreneur stands as an archer on a mountain overlook, bow drawn. Below in the valley are many target figures, but only one glows bright teal - the Ideal Customer. His arrow points directly at this target, ignoring the others. The image represents the power of focusing on your specific ICP rather than trying to appeal to everyone.",
+      "placement": "After \"Narrowing Your Focus\" section"
+    },
+    {
+      "imageId": "5-1-revenue-streams",
+      "lessonId": "lesson-5-1",
+      "filename": "5-1-revenue-streams.jpg",
+      "altText": "Multiple revenue streams flowing down the mountain",
+      "longDescription": "An Asian woman entrepreneur stands at the observation tower viewing platform, looking down at the mountain where multiple glowing rivers flow downward. Each river represents a different revenue model: subscription (steady blue flow), transaction (pulsing green), product sales (golden streams), services (purple). The rivers converge at the base, representing total revenue.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "5-1-subscription",
+      "lessonId": "lesson-5-1",
+      "filename": "5-1-subscription.jpg",
+      "altText": "Subscription revenue as steady flowing stream",
+      "longDescription": "A South Asian man entrepreneur monitors a holographic display at the observation tower showing a steady stream of glowing teal energy flowing in regular, predictable pulses. Each pulse represents a recurring payment. The steady rhythm contrasts with erratic one-time payments, visualizing the power of subscription-based revenue.",
+      "placement": "After \"Subscription Revenue\" section"
+    },
+    {
+      "imageId": "5-2-value-scale",
+      "lessonId": "lesson-5-2",
+      "filename": "5-2-value-scale.jpg",
+      "altText": "Balancing value and price on a golden scale",
+      "longDescription": "A Middle Eastern woman entrepreneur carefully adjusts a large golden scale at the observation tower. On one side, glowing representations of value (customer outcomes, benefits) balance against price tags on the other. When balanced, the scale glows teal, representing the sweet spot where customers feel they receive more value than they pay.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "5-2-pricing-tiers",
+      "lessonId": "lesson-5-2",
+      "filename": "5-2-pricing-tiers.jpg",
+      "altText": "Tiered pricing as ascending mountain camps",
+      "longDescription": "Three distinct camps ascend the mountain, each representing a pricing tier. At the base, a Basic camp with simple tents serves budget-conscious customers. Mid-mountain, a Professional lodge offers more amenities. At the top, an Enterprise summit pavilion provides premium features. Different customer figures occupy each level, showing market segmentation.",
+      "placement": "After \"Tiered Pricing\" section"
+    },
+    {
+      "imageId": "5-3-forecast",
+      "lessonId": "lesson-5-3",
+      "filename": "5-3-forecast.jpg",
+      "altText": "Forecasting future milestones with telescope vision",
+      "longDescription": "A Hispanic man entrepreneur peers through a large telescope at the observation tower. Through the lens, future milestones appear as glowing waypoints along the mountain path: 6-month revenue target, 1-year goal, 3-year vision. The telescope represents financial projection tools that help entrepreneurs see potential futures clearly.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "5-3-runway",
+      "lessonId": "lesson-5-3",
+      "filename": "5-3-runway.jpg",
+      "altText": "Financial runway as illuminated path ahead",
+      "longDescription": "A Black woman entrepreneur stands at the start of an illuminated mountain path. The path glows brightly at her feet but gradually fades into darkness at a specific point ahead - her financial runway. A marker shows \"12 months\" where the light ends. The visualization represents understanding how far current resources will take the business.",
+      "placement": "After \"Calculating Runway\" section"
+    },
+    {
+      "imageId": "5-4-tam-sam-som",
+      "lessonId": "lesson-5-4",
+      "filename": "5-4-tam-sam-som.jpg",
+      "altText": "Market sizing as concentric circles in the valley",
+      "longDescription": "A White man entrepreneur looks down from the observation tower at concentric circles glowing in the valley below. The largest outer ring (TAM - Total Addressable Market) covers the entire valley floor. Within it, a smaller ring (SAM - Serviceable Addressable Market) focuses on reachable areas. The smallest, brightest ring (SOM - Serviceable Obtainable Market) represents realistic first-year targets.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "5-4-market-slice",
+      "lessonId": "lesson-5-4",
+      "filename": "5-4-market-slice.jpg",
+      "altText": "Selecting your market niche from the larger pie",
+      "longDescription": "An Asian man entrepreneur stands before a large glowing circular market visualization. Using a beam of light like a knife, he carves out a specific slice that glows brighter teal - his target niche. The rest of the pie dims, showing the focus required for startup success. The image teaches that owning a slice is better than competing for the whole pie.",
+      "placement": "After \"Finding Your Niche\" section"
+    },
+    {
+      "imageId": "6-1-launch-control",
+      "lessonId": "lesson-6-1",
+      "filename": "6-1-launch-control.jpg",
+      "altText": "Go-to-market launch control center",
+      "longDescription": "A diverse team of entrepreneurs works at a high-tech mission control center inside the communications station. Multiple screens display different market channels, customer segments, and campaign metrics. A central countdown timer shows launch approaching. The atmosphere is focused but exciting, capturing the energy of taking a product to market.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "6-1-channels",
+      "lessonId": "lesson-6-1",
+      "filename": "6-1-channels.jpg",
+      "altText": "Marketing channels radiating to different audiences",
+      "longDescription": "A South Asian woman entrepreneur stands at the communications station controls as glowing signal paths radiate outward from the antenna array. Each path leads to a different destination: social media (clustered villages), email (individual houses), content marketing (library buildings), paid ads (billboards). The visualization shows multi-channel go-to-market strategy.",
+      "placement": "After \"Channel Strategy\" section"
+    },
+    {
+      "imageId": "6-2-pipeline",
+      "lessonId": "lesson-6-2",
+      "filename": "6-2-pipeline.jpg",
+      "altText": "Sales pipeline transforming leads to customers",
+      "longDescription": "A Hispanic woman entrepreneur monitors a glowing pipeline that winds through the mountain terrain. Raw leads enter at one end as dim particles. As they flow through illuminated stages (Qualify, Propose, Negotiate), they transform, emerging at the far end as bright glowing customer orbs. The visualization represents the systematic sales process.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "6-2-stages",
+      "lessonId": "lesson-6-2",
+      "filename": "6-2-stages.jpg",
+      "altText": "Five stages of the sales pipeline as waypoints",
+      "longDescription": "Five distinct waypoint stations line the mountain path, each glowing with different activity. Stage 1 (Lead): figures entering. Stage 2 (Qualified): figures being assessed. Stage 3 (Proposal): presentations happening. Stage 4 (Negotiation): discussions. Stage 5 (Closed Won): celebrations. Different entrepreneurs work at each stage, showing the full pipeline in action.",
+      "placement": "After \"Pipeline Stages\" section"
+    },
+    {
+      "imageId": "6-3-dashboard",
+      "lessonId": "lesson-6-3",
+      "filename": "6-3-dashboard.jpg",
+      "altText": "CRM dashboard with customer relationship data",
+      "longDescription": "A Middle Eastern man entrepreneur operates a sophisticated holographic console at the communications station. Floating around him are customer contact cards, deal stage visualizations, activity timelines, and relationship maps. Each element glows and can be manipulated. The scene shows CRM as a powerful tool for managing customer relationships at scale.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "6-3-automation",
+      "lessonId": "lesson-6-3",
+      "filename": "6-3-automation.jpg",
+      "altText": "Automation handling tasks while human builds relationships",
+      "longDescription": "A Black man entrepreneur sits in a comfortable meeting area, engaged in genuine conversation with a customer. Behind him, a friendly robotic assistant handles routine tasks: sending follow-up emails, updating records, scheduling meetings. The split focus shows how automation handles repetitive work while humans focus on relationship-building.",
+      "placement": "After \"Automation Benefits\" section"
+    },
+    {
+      "imageId": "6-4-ai-assistant",
+      "lessonId": "lesson-6-4",
+      "filename": "6-4-ai-assistant.jpg",
+      "altText": "AI assistant providing sales insights",
+      "longDescription": "A White woman entrepreneur works at the communications station with a glowing AI companion floating beside her. The AI manifests as a friendly translucent figure made of light patterns, pointing to insights on screens, suggesting next actions, and highlighting opportunities. The partnership represents AI augmenting human sales capabilities.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "6-4-intelligence",
+      "lessonId": "lesson-6-4",
+      "filename": "6-4-intelligence.jpg",
+      "altText": "AI transforming data into sales insights",
+      "longDescription": "An Asian woman entrepreneur watches as swirling raw data transforms before her eyes. An AI system processes the patterns, causing hidden opportunities to glow and emerge: warm leads turning hot, optimal contact times appearing, winning message patterns highlighting. The visualization shows AI surfacing insights humans might miss.",
+      "placement": "After \"AI Use Cases\" section"
+    },
+    {
+      "imageId": "7-1-rehearsal",
+      "lessonId": "lesson-7-1",
+      "filename": "7-1-rehearsal.jpg",
+      "altText": "Entrepreneur rehearsing showcase presentation",
+      "longDescription": "A Hispanic man entrepreneur stands alone on the stage inside the glass pyramid summit pavilion, practicing his showcase presentation. Holographic slides float around him as he gestures confidently. Through the glass walls, the sun sets behind mountain peaks. The scene captures the focused preparation before a major milestone.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "7-1-storytelling",
+      "lessonId": "lesson-7-1",
+      "filename": "7-1-storytelling.jpg",
+      "altText": "Pitch structure as narrative story arc",
+      "longDescription": "A South Asian woman entrepreneur designs her pitch structure visualized as a glowing story arc in the air. The arc rises from Hook (attention-grabbing opening) through Problem and Solution (rising action) to Proof (climax) and finally Ask (resolution). The visualization teaches pitch structure as storytelling, with emotional peaks and valleys.",
+      "placement": "After \"Crafting Your Story\" section"
+    },
+    {
+      "imageId": "7-2-summit-celebration",
+      "lessonId": "lesson-7-2",
+      "filename": "7-2-summit-celebration.jpg",
+      "altText": "Entrepreneurs celebrating at summit graduation",
+      "longDescription": "A diverse group of entrepreneurs celebrates inside the glass pyramid summit pavilion. Fireworks burst in the sunset sky behind them. The group includes a Black man, Asian woman, Hispanic woman, and White man - all raising hands in victory, hugging, and cheering. Graduation certificates glow in their hands. The scene captures the joy of completing the entrepreneurial journey together.",
+      "placement": "Main concept illustration"
+    },
+    {
+      "imageId": "7-2-new-paths",
+      "lessonId": "lesson-7-2",
+      "filename": "7-2-new-paths.jpg",
+      "altText": "New paths extending from the summit to future goals",
+      "longDescription": "A Black woman entrepreneur stands at the summit peak where the glass pyramid pavilion marks the end of the program. Before her, multiple glowing paths extend outward toward different destinations: Growth (higher peaks), Funding (glowing city), Partnership (connected paths), Scale (expanding network). The image represents the many possible journeys that begin after graduation.",
+      "placement": "After \"What's Next\" section"
+    }
+  ]
+}

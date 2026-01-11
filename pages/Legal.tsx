@@ -71,38 +71,23 @@ export const Legal: React.FC<LegalProps> = ({ page }) => {
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-white mb-4">4. Pilot Program Terms</h3>
-                <div className="bg-white/5 p-6 rounded-xl border border-white/10">
-                   <h4 className="text-lg font-bold text-white mb-2">4.1 Free Pilot Program</h4>
-                   <p>Our free pilot program is offered to select educational institutions:</p>
-                   <ul className="list-disc pl-6 mt-2 space-y-1 text-sm">
-                     <li><strong>Duration:</strong> Typically 30-90 days, as agreed upon</li>
-                     <li><strong>Scope:</strong> Limited number of courses or content modules</li>
-                     <li><strong>Purpose:</strong> Evaluate platform functionality and educational outcomes</li>
-                     <li><strong>Data Collection:</strong> We may collect usage data and feedback for improvement</li>
-                   </ul>
-                </div>
-                <p className="mt-4">We make no guarantee of service availability or uptime during the pilot phase. At the end of the pilot, you may choose to convert to a paid subscription or export your data.</p>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-4">5. Intellectual Property Rights</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">4. Intellectual Property Rights</h3>
                 <p>Design X Factor retains all rights to the platform software, AI models, and technology. You retain all rights to the educational content you upload. By using our services, you grant us a limited license to process and transform your content using AI.</p>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-white mb-4">6. Data Privacy and Security</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">5. Data Privacy and Security</h3>
                 <p>Our collection, use, and protection of your data is governed by our Privacy Policy. We comply with FERPA and act as a "school official" with legitimate educational interests when processing student data.</p>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-white mb-4">7. Limitation of Liability</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">6. Limitation of Liability</h3>
                 <p className="uppercase text-sm font-bold tracking-wide">OUR SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.</p>
                 <p className="mt-2">TO THE MAXIMUM EXTENT PERMITTED BY LAW, DESIGN X FACTOR SHALL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES.</p>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-white mb-4">8. Contact Information</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">7. Contact Information</h3>
                 <div className="bg-gradient-to-br from-[#111118] to-[#0a0a0f] p-8 rounded-xl border border-white/10 text-center">
                   <h4 className="text-xl font-bold text-white mb-4">Questions About These Terms?</h4>
                   <p><strong>Email:</strong> <a href="mailto:legal@designxfactor.com" className="text-brand-red hover:underline">legal@designxfactor.com</a></p>

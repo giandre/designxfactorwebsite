@@ -127,8 +127,10 @@ export const Hero: React.FC = () => {
   }, [prefersReducedMotion]);
 
   const scrollThreshold = 900;
-  const progress = Math.min(Math.max(scrollY / scrollThreshold, 0), 1);
+  // Only apply effects when scrolling down, ensure clean reset at top
+  const progress = scrollY <= 10 ? 0 : Math.min(Math.max(scrollY / scrollThreshold, 0), 1);
   const heroOpacity = 1 - Math.pow(progress, 2);
+  const heroBlur = progress * 10;
 
   const getStyle = (type: string) => {
     const styles: Record<string, { color: string; icon: any; iconColor: string; label: string }> = {
@@ -240,36 +242,37 @@ export const Hero: React.FC = () => {
         )}
 
         {/* Central Text Content */}
-        <div 
-          className="relative z-20 text-center max-w-4xl px-6 pt-16 transition-all duration-300"
-          style={{ 
+        <div
+          className="relative z-20 text-center max-w-4xl px-6 pt-16"
+          style={{
             opacity: heroOpacity,
-            transform: prefersReducedMotion ? 'none' : `scale(${1 + progress * 0.2})`, 
-            filter: prefersReducedMotion ? 'none' : `blur(${progress * 10}px)` 
+            transform: prefersReducedMotion ? 'none' : `scale(${1 + progress * 0.2})`,
+            filter: prefersReducedMotion || heroBlur === 0 ? 'none' : `blur(${heroBlur}px)`,
+            transition: 'opacity 0.15s ease-out, transform 0.15s ease-out, filter 0.15s ease-out'
           }}
         >
-          <div 
+          <div
             className="absolute inset-0 bg-brand-blue/5 blur-[60px] -z-10 rounded-full"
             aria-hidden="true"
           />
 
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter mb-6 drop-shadow-2xl">
-            Transforming Your{' '}
+            We Design{' '}
             <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-white to-brand-purple">
-              Content Experience
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-brand-purple to-brand-red">
+              Learning Experiences
             </span>
           </h1>
-          
+
           <p className="text-lg md:text-xl text-slate-300 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
-            Turn your static documents into an intelligent, accessible, and interactive ecosystem.
+            From PDF to podcast. From manual to masterclass. We transform your content into engaging, accessible experiences — in weeks, not months.
           </p>
 
-          <button 
+          <button
             onClick={scrollToNext}
-            className="px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white font-medium transition-all backdrop-blur-sm mb-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-space"
+            className="px-8 py-3 bg-brand-red hover:bg-brand-red/90 rounded-full text-white font-semibold transition-all shadow-[0_0_30px_rgba(255,77,109,0.3)] hover:shadow-[0_0_40px_rgba(255,77,109,0.5)] mb-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-space"
           >
-            Get Started
+            Explore Our Services
           </button>
 
           <div 

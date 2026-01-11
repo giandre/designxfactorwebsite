@@ -1,0 +1,237 @@
+{
+  "projectId": "eie-2025",
+  "description": "Image manifest for Excellence in Entrepreneurship course",
+  "generatedAt": "2026-01-05",
+  "imageCategories": {
+    "journeyMap": {
+      "description": "Main course navigation map",
+      "images": [
+        {
+          "id": "journey-map",
+          "filename": "journey-map.jpg",
+          "dimensions": "1920x1080",
+          "aspectRatio": "16:9",
+          "status": "complete",
+          "prompt": "Panoramic mountain landscape at sunset with glowing teal path connecting 7 stations from base to summit"
+        }
+      ]
+    },
+    "weekBackgrounds": {
+      "description": "Background images for week landing pages and detail views",
+      "images": [
+        {
+          "id": "week-1-camp",
+          "filename": "week-1-camp.jpg",
+          "weekId": 1,
+          "title": "Base Camp - Foundation",
+          "dimensions": "1280x720",
+          "aspectRatio": "16:9",
+          "status": "complete",
+          "visualElements": "Geodesic domes, solar panels, campfire, welcome arch, diverse entrepreneurs"
+        },
+        {
+          "id": "week-2-camp",
+          "filename": "week-2-camp.jpg",
+          "weekId": 2,
+          "title": "Observation Outpost - Customer Discovery",
+          "dimensions": "1280x720",
+          "aspectRatio": "16:9",
+          "status": "complete",
+          "visualElements": "Satellite dishes, binoculars, data monitors, drone, mountain views"
+        },
+        {
+          "id": "week-3-camp",
+          "filename": "week-3-camp.jpg",
+          "weekId": 3,
+          "title": "Maker Lab - Product Design",
+          "dimensions": "1280x720",
+          "aspectRatio": "16:9",
+          "status": "complete",
+          "visualElements": "Glass-walled cliff building, 3D printers, whiteboards, diverse entrepreneurs collaborating"
+        },
+        {
+          "id": "week-4-camp",
+          "filename": "week-4-camp.jpg",
+          "weekId": 4,
+          "title": "Alpine Lodge - Sales Strategy",
+          "dimensions": "1280x720",
+          "aspectRatio": "16:9",
+          "status": "complete",
+          "visualElements": "Warm wooden lodge, string lights, porch conversations, cozy atmosphere"
+        },
+        {
+          "id": "week-5-camp",
+          "filename": "week-5-camp.jpg",
+          "weekId": 5,
+          "title": "Observation Tower - Financial Readiness",
+          "dimensions": "1280x720",
+          "aspectRatio": "16:9",
+          "status": "complete",
+          "visualElements": "Multi-level glass tower, charts, telescope, panoramic views, entrepreneurs analyzing data"
+        },
+        {
+          "id": "week-6-camp",
+          "filename": "week-6-camp.jpg",
+          "weekId": 6,
+          "title": "Communications Station - Go-To-Market",
+          "dimensions": "1280x720",
+          "aspectRatio": "16:9",
+          "status": "complete",
+          "visualElements": "Radio towers, satellite dishes, helipad, command center, entrepreneurs coordinating"
+        },
+        {
+          "id": "week-7-camp",
+          "filename": "week-7-camp.jpg",
+          "weekId": 7,
+          "title": "Summit Pavilion - Launch & Graduation",
+          "dimensions": "1280x720",
+          "aspectRatio": "16:9",
+          "status": "complete",
+          "visualElements": "Glass pyramid, fireworks, celebration, diverse entrepreneurs celebrating"
+        }
+      ]
+    },
+    "lessonHeaders": {
+      "description": "Wide banner images for individual lesson pages",
+      "dimensions": "1600x500",
+      "aspectRatio": "16:5",
+      "images": [
+        {
+          "id": "lesson-1-1-header",
+          "filename": "lesson-1-1-header.jpg",
+          "lessonId": "lesson-1-1",
+          "title": "Welcome to the Journey",
+          "status": "complete",
+          "prompt": "Wide banner illustration showing diverse entrepreneurs at base camp starting their journey, warm sunrise colors, mountain path ahead, excitement and anticipation mood"
+        },
+        {
+          "id": "lesson-1-2-header",
+          "filename": "lesson-1-2-header.jpg",
+          "lessonId": "lesson-1-2",
+          "title": "The Entrepreneurial Mindset",
+          "status": "complete",
+          "prompt": "Wide banner illustration of entrepreneur silhouette looking at mountain, brain visualization with growth mindset concepts, warm teal and gold accents"
+        },
+        {
+          "id": "lesson-1-3-header",
+          "filename": "lesson-1-3-header.jpg",
+          "lessonId": "lesson-1-3",
+          "title": "Crafting Your Elevator Pitch",
+          "status": "complete",
+          "prompt": "Wide banner illustration of entrepreneur presenting to a small group at camp, speech bubbles, confident posture, warm campfire lighting"
+        },
+        {
+          "id": "lesson-1-4-header",
+          "filename": "lesson-1-4-header.jpg",
+          "lessonId": "lesson-1-4",
+          "title": "Setting Your Goals",
+          "status": "complete",
+          "prompt": "Wide banner illustration of mountain climber plotting route on map, target markers on peaks, compass, golden hour lighting"
+        },
+        {
+          "id": "lesson-2-1-header",
+          "filename": "lesson-2-1-header.jpg",
+          "lessonId": "lesson-2-1",
+          "title": "The Customer Discovery Mindset",
+          "status": "complete",
+          "prompt": "Wide banner illustration at observation post, binoculars, radar screens showing customer data, curious explorers, sunset colors"
+        },
+        {
+          "id": "lesson-2-2-header",
+          "filename": "lesson-2-2-header.jpg",
+          "lessonId": "lesson-2-2",
+          "title": "Building Your Customer Hypothesis",
+          "status": "complete",
+          "prompt": "Wide banner illustration of whiteboard with customer persona sketches, sticky notes, entrepreneurs discussing hypotheses"
+        },
+        {
+          "id": "lesson-2-3-header",
+          "filename": "lesson-2-3-header.jpg",
+          "lessonId": "lesson-2-3",
+          "title": "The Art of Customer Interviews",
+          "status": "complete",
+          "prompt": "Wide banner illustration of two people in conversation at observation deck, listening posture, notepad, warm atmosphere"
+        },
+        {
+          "id": "lesson-2-4-header",
+          "filename": "lesson-2-4-header.jpg",
+          "lessonId": "lesson-2-4",
+          "title": "Capturing and Analyzing Insights",
+          "status": "complete",
+          "prompt": "Wide banner illustration of data visualization screens, pattern recognition, insights emerging from data, teal glow accents"
+        }
+      ]
+    }
+  },
+  "styleGuide": {
+    "artStyle": {
+      "type": "Stylized digital painting with AAA video game concept art aesthetic",
+      "rendering": "NOT photorealistic - warm painterly textures with visible brushstrokes",
+      "engine": "Unreal Engine 5 stylized render aesthetic"
+    },
+    "colorPalette": {
+      "primary": [
+        "#0f172a",
+        "#1e293b",
+        "#334155"
+      ],
+      "accent": [
+        "#5eead4",
+        "#fbbf24",
+        "#f97316"
+      ],
+      "status": [
+        "#10b981",
+        "#fbbf24",
+        "#6b7280"
+      ],
+      "lighting": "Golden hour warm tones (amber, orange, gold)",
+      "glowAccent": "#5eead4 (teal) for paths and highlights"
+    },
+    "atmosphere": {
+      "fog": "Atmospheric fog and haze in mountain valleys",
+      "lighting": "Volumetric god rays, warm rim lighting",
+      "mood": "Inspiring, aspirational, adventure journey"
+    },
+    "visualMetaphor": {
+      "theme": "Mountain expedition - entrepreneurs as explorers climbing toward summit",
+      "elements": [
+        "Geodesic dome camps",
+        "Glowing teal pathways",
+        "Campfires",
+        "Expedition equipment"
+      ],
+      "personas": {
+        "digital": "Teal accents, tablets/laptops",
+        "expert": "Purple accents, compasses/guidance tools",
+        "maker": "Orange accents, crafted products/prototypes"
+      }
+    },
+    "imageGeneration": {
+      "provider": "comfyui-zimage",
+      "stylePrefix": "stylized digital painting, AAA video game concept art style, warm painterly textures with visible brushstrokes, golden hour lighting, teal and amber color grading, atmospheric fog and haze, adventure expedition aesthetic, cinematic composition, Unreal Engine 5 stylized render, 8K resolution, highly detailed",
+      "negativePrompt": "text, words, letters, numbers, logo, watermark, signature, photorealistic, photograph, photo, realistic skin texture, camera, DSLR, stock photo, blurry, low quality, amateur"
+    },
+    "diversityRequirement": {
+      "mandatory": true,
+      "description": "MANDATORY: Apply before ANY image prompt with people",
+      "rule": "All images featuring people must include diverse representation of ethnicities and genders",
+      "demographics": [
+        "African American / Black (men and women)",
+        "Hispanic / Latino/Latina",
+        "Asian (East Asian, South Asian, Southeast Asian)",
+        "Middle Eastern / Arab",
+        "White / Caucasian",
+        "Multiracial"
+      ],
+      "promptRules": [
+        "ALWAYS specify explicit ethnicity in prompts (e.g., 'Black woman', 'Hispanic man')",
+        "Never use vague terms like 'diverse' alone - be explicit",
+        "Gender balance: ~50/50 men and women across course",
+        "Rotate demographics across scenes - no clustering",
+        "Avoid stereotyping demographics with specific roles"
+      ],
+      "promptFormat": "Place ethnicity+gender at START of person description: 'a Black woman entrepreneur' not 'an entrepreneur (diverse)'"
+    }
+  }
+}

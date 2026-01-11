@@ -1,0 +1,607 @@
+/**
+ * SlideshowPlayer Styles
+ *
+ * Includes:
+ * - Base player styles
+ * - Control bar
+ * - Slide templates (intro, split, stats, quote, comparison, etc.)
+ * - Ken Burns animation
+ * - Responsive design
+ */
+
+/* ============================================================================
+   Base Player Styles
+   ============================================================================ */
+
+.slideshow-player {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  aspect-ratio: 16/9;
+  margin: 0 auto;
+  background: #0f172a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.slideshow-player.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  border-radius: 0;
+}
+
+/* ============================================================================
+   Slides Container
+   ============================================================================ */
+
+.slideshow-slides {
+  position: absolute;
+  inset: 0;
+}
+
+.slideshow-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.slideshow-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ken Burns Animation */
+@keyframes ken-burns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.slideshow-slide.active .animate-ken-burns {
+  animation: ken-burns 15s ease-out forwards;
+}
+
+/* ============================================================================
+   Control Bar
+   ============================================================================ */
+
+.slideshow-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.slideshow-player:not(:hover) .slideshow-controls {
+  opacity: 0.3;
+}
+
+.slideshow-player:hover .slideshow-controls {
+  opacity: 1;
+}
+
+.slideshow-controls__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Progress Bar */
+.slideshow-progress {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.slideshow-progress__fill {
+  height: 100%;
+  background: linear-gradient(to right, #f59e0b, #fbbf24);
+  border-radius: 3px;
+  transition: width 0.1s linear;
+}
+
+/* Buttons */
+.slideshow-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.slideshow-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+.slideshow-btn.active {
+  background: rgba(251, 191, 36, 0.4);
+  color: #fbbf24;
+}
+
+.slideshow-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Time Display */
+.slideshow-time {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  font-family: system-ui, sans-serif;
+  min-width: 90px;
+  text-align: center;
+}
+
+/* Volume */
+.slideshow-volume {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slideshow-volume__slider {
+  width: 80px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.slideshow-volume__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #fbbf24;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Captions */
+.slideshow-caption {
+  position: absolute;
+  bottom: 80px;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  z-index: 90;
+  pointer-events: none;
+}
+
+.slideshow-caption__text {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 100%;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.slideshow-caption.hidden {
+  display: none;
+}
+
+/* ============================================================================
+   Slide Template Animations
+   ============================================================================ */
+
+@keyframes text-enter {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes block-rise {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes grow-width {
+  0% { width: 0%; }
+  100% { width: var(--target-width, 100%); }
+}
+
+@keyframes slide-in-left {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  0% { opacity: 0; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(251, 191, 36, 0.5); }
+  50% { box-shadow: 0 0 15px rgba(251, 191, 36, 0.8); }
+}
+
+.slideshow-slide.active .animate-text-enter {
+  animation: text-enter 0.6s ease-out forwards;
+}
+
+.slideshow-slide.active .animate-block-rise {
+  animation: block-rise 0.5s ease-out forwards;
+}
+
+.slideshow-slide.active .animate-grow-width {
+  animation: grow-width 1s ease-out forwards;
+}
+
+.slideshow-slide.active .animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out forwards;
+}
+
+.slideshow-slide.active .animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out forwards;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* ============================================================================
+   Template: Intro - Bold cinematic title
+   ============================================================================ */
+
+.video-slide-intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-slide-intro .intro-title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding: 2rem;
+}
+
+.video-slide-intro .intro-accent {
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  margin: 1.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* ============================================================================
+   Template: Split (Left/Right)
+   ============================================================================ */
+
+.video-slide-split,
+.video-slide-split-left {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.video-slide-split .split-image,
+.video-slide-split-left .split-image {
+  flex: 0 0 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-slide-split .split-content,
+.video-slide-split-left .split-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+}
+
+.split-heading {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.split-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   Template: Stats - Progress bars and numbers
+   ============================================================================ */
+
+.video-slide-stats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+.video-slide-stats .stats-heading {
+  flex: 0 0 50%;
+  padding: 2rem 3rem;
+}
+
+.video-slide-stats .stats-bars {
+  flex: 1;
+  padding: 2rem 3rem;
+}
+
+.stats-bar {
+  margin-bottom: 1.5rem;
+}
+
+.stats-bar-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+}
+
+.stats-bar-track {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.stats-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(to right, #f59e0b, #fbbf24);
+}
+
+.stats-bar-fill.indigo {
+  background: #6366f1;
+}
+
+/* ============================================================================
+   Template: Comparison - Before/After split
+   ============================================================================ */
+
+.video-slide-comparison {
+  display: flex;
+  height: 100%;
+}
+
+.video-slide-comparison .comparison-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.video-slide-comparison .comparison-side--before {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.video-slide-comparison .comparison-side--after {
+  background: rgba(79, 70, 229, 0.6);
+}
+
+.video-slide-comparison .comparison-heading {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.video-slide-comparison .comparison-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.video-slide-comparison .comparison-list li {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.video-slide-comparison .comparison-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+}
+
+.video-slide-comparison .comparison-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: white;
+  font-size: 1rem;
+  box-shadow: 0 10px 40px rgba(245, 158, 11, 0.4);
+  z-index: 10;
+}
+
+/* ============================================================================
+   Template: Quote
+   ============================================================================ */
+
+.video-slide-quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.video-slide-quote .quote-card {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  max-width: 700px;
+}
+
+.video-slide-quote .quote-mark {
+  font-size: 4rem;
+  color: #f59e0b;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+
+.video-slide-quote .quote-text {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  color: #ffffff;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+/* ============================================================================
+   Template: Outro - Conclusion/CTA
+   ============================================================================ */
+
+.video-slide-outro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.video-slide-outro .outro-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.video-slide-outro .outro-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  box-shadow: 0 20px 50px rgba(245, 158, 11, 0.3);
+}
+
+.video-slide-outro .outro-icon svg {
+  width: 40px;
+  height: 40px;
+  color: white;
+}
+
+.video-slide-outro .outro-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.video-slide-outro .outro-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================================================
+   Utility Classes
+   ============================================================================ */
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================================================
+   Responsive
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .slideshow-controls__row--buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .slideshow-volume__slider {
+    display: none;
+  }
+
+  .slideshow-time {
+    font-size: 11px;
+    min-width: 70px;
+  }
+
+  .video-slide-split,
+  .video-slide-split-left {
+    flex-direction: column;
+  }
+
+  .video-slide-split .split-image,
+  .video-slide-split-left .split-image {
+    flex: 0 0 40%;
+  }
+
+  .video-slide-split .split-content,
+  .video-slide-split-left .split-content {
+    padding: 1.5rem;
+  }
+
+  .video-slide-stats {
+    flex-direction: column;
+  }
+
+  .video-slide-comparison {
+    flex-direction: column;
+  }
+}

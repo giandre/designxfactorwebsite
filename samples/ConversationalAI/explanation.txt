@@ -1,0 +1,6 @@
+So the ability to create podcasts is now available everywhere. Everybody can do it using, you know, notebook, a lamb or many, many tools. What this one example specifically highlights is kind of like a Co partnership of creating an AI interviewer. Solution where you have AI on the family live doing the interview these. Example has. Not been edited at all. So it actually shows it pauses and it shows sometimes the delay and that is OK. It's kind of meant to kind of showcase. The type of experiences and solutions that we can come U with as part of audio goes.
+
+I also want you to use this example from this page.. this page has an embedded spotify.. that I developed so please implement it as another example.
+
+https://learningxperience.tech/podcast-transforming-higher-education-with-ai-ready-content/
+

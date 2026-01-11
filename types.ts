@@ -26,8 +26,8 @@ export interface LayerContent {
   hex: string;
 }
 
-// UPDATED: Added 'audit' to PageView
-export type PageView = 'home' | 'terms' | 'privacy' | 'api' | 'thank-you' | 'learning-transformer' | 'audit' | 'pipeline';
+// UPDATED: Added services and portfolio pages
+export type PageView = 'home' | 'terms' | 'privacy' | 'api' | 'thank-you' | 'learning-transformer' | 'audit' | 'pipeline' | 'services' | 'portfolio';
 
 export interface NavProps {
   onNavigate: (page: PageView) => void;

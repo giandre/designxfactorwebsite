@@ -1,0 +1,184 @@
+{
+  "generatedAt": "2026-01-05T04:15:05.897Z",
+  "summary": {
+    "total": 21,
+    "successful": 21,
+    "failed": 0,
+    "needsReview": 0
+  },
+  "results": [
+    {
+      "sceneId": "video-1-1-intro-scene-1",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-1-intro-mountain-sunrise.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2352440
+    },
+    {
+      "sceneId": "video-1-1-intro-scene-2",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-1-intro-journey-map.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2228503
+    },
+    {
+      "sceneId": "video-1-1-intro-scene-3",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-1-intro-three-personas.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2572191
+    },
+    {
+      "sceneId": "video-1-1-intro-scene-4",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-1-intro-community.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2541076
+    },
+    {
+      "sceneId": "video-1-2-mindset-scene-1",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-2-mindset-brain.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2265862
+    },
+    {
+      "sceneId": "video-1-2-mindset-scene-2",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-2-mindset-fixed-vs-growth.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2487213
+    },
+    {
+      "sceneId": "video-1-2-mindset-scene-3",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-2-mindset-five-frameworks.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2166049
+    },
+    {
+      "sceneId": "video-1-2-mindset-scene-4",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-2-mindset-failure-data.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2363065
+    },
+    {
+      "sceneId": "video-2-1-discovery-scene-1",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\2-1-discovery-rocket-fail.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2134186
+    },
+    {
+      "sceneId": "video-2-1-discovery-scene-2",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\2-1-discovery-42-percent.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2317510
+    },
+    {
+      "sceneId": "video-2-1-discovery-scene-3",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\2-1-discovery-build-vs-talk.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2368064
+    },
+    {
+      "sceneId": "video-2-1-discovery-scene-4",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\2-1-discovery-loop.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2558053
+    },
+    {
+      "sceneId": "video-2-1-discovery-scene-5",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\2-1-discovery-tools.jpg",
+      "status": "success",
+      "issues": [
+        "Skipped - already exists"
+      ],
+      "fileSize": 2222569
+    },
+    {
+      "sceneId": "video-1-3-pitch-scene-1",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-3-pitch-why-matters.jpg",
+      "status": "success",
+      "issues": [],
+      "fileSize": 2374928
+    },
+    {
+      "sceneId": "video-1-3-pitch-scene-2",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-3-pitch-formula.jpg",
+      "status": "success",
+      "issues": [],
+      "fileSize": 2208943
+    },
+    {
+      "sceneId": "video-1-3-pitch-scene-3",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-3-pitch-examples.jpg",
+      "status": "success",
+      "issues": [],
+      "fileSize": 2520635
+    },
+    {
+      "sceneId": "video-1-3-pitch-scene-4",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-3-pitch-practice.jpg",
+      "status": "success",
+      "issues": [],
+      "fileSize": 2100325
+    },
+    {
+      "sceneId": "video-1-4-goals-scene-1",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-4-goals-summit.jpg",
+      "status": "success",
+      "issues": [],
+      "fileSize": 2320181
+    },
+    {
+      "sceneId": "video-1-4-goals-scene-2",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-4-goals-smart.jpg",
+      "status": "success",
+      "issues": [],
+      "fileSize": 2392131
+    },
+    {
+      "sceneId": "video-1-4-goals-scene-3",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-4-goals-weekly.jpg",
+      "status": "success",
+      "issues": [],
+      "fileSize": 2350891
+    },
+    {
+      "sceneId": "video-1-4-goals-scene-4",
+      "imagePath": "G:\\z-CUSTOM_DEV\\CourseFuture\\clients\\EIE\\output\\videos\\images\\1-4-goals-commit.jpg",
+      "status": "success",
+      "issues": [],
+      "fileSize": 2239079
+    }
+  ]
+}

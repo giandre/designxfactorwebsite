@@ -17,7 +17,7 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer 
+    <footer
       className="relative z-30 border-t border-white/10 bg-space pt-20 pb-8 px-6"
       role="contentinfo"
     >
@@ -25,100 +25,103 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
         {/* Brand Column */}
         <div className="md:col-span-1">
           <div className="flex items-center gap-2 mb-6">
-            <img 
-              src="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/DXF_logo-white.png" 
-              alt="Design X Factor" 
-              className="h-8 w-auto" 
+            <img
+              src="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/DXF_logo-white.png"
+              alt="Design X Factor"
+              className="h-8 w-auto"
             />
           </div>
-          <p className="text-slate-300 text-sm leading-relaxed">
-            Transforming learning experiences through AI-powered solutions built on Universal Design principles.
+          <p className="text-slate-300 text-sm leading-relaxed mb-4">
+            We design learning experiences. Transform your content into engaging eBooks, videos, podcasts, and courses.
+          </p>
+          <p className="text-slate-500 text-xs">
+            Powered by our proprietary transformation technology.
           </p>
         </div>
 
-        {/* Solutions Navigation */}
-        <nav aria-labelledby="footer-solutions-heading">
-          <h4 
-            id="footer-solutions-heading" 
+        {/* Services Navigation */}
+        <nav aria-labelledby="footer-services-heading">
+          <h4
+            id="footer-services-heading"
             className="font-bold text-white mb-6 uppercase tracking-wider text-sm"
           >
-            Solutions
+            Services
           </h4>
           <ul className="space-y-4 text-slate-300 text-sm">
             <li>
-              <button 
-                onClick={() => handleLink('solutions')} 
+              <button
+                onClick={() => handleLink('services', true)}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
-                Learning Transformer
+                All Services
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => handleLink('solutions')} 
+              <button
+                onClick={() => handleLink('services', true)}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
-                Catalyst Studio
+                eBook Creation
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => handleLink('solutions')} 
+              <button
+                onClick={() => handleLink('services', true)}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
-                Catalyst Course
+                Video Production
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => handleLink('roadmap')} 
+              <button
+                onClick={() => handleLink('services', true)}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
-                Dynamic Platform
+                Course Development
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleLink('services', true)}
+                className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
+              >
+                Accessibility
               </button>
             </li>
           </ul>
         </nav>
 
-        {/* Platform Navigation */}
-        <nav aria-labelledby="footer-platform-heading">
-          <h4 
-            id="footer-platform-heading" 
+        {/* Resources Navigation */}
+        <nav aria-labelledby="footer-resources-heading">
+          <h4
+            id="footer-resources-heading"
             className="font-bold text-white mb-6 uppercase tracking-wider text-sm"
           >
-            Platform
+            Resources
           </h4>
           <ul className="space-y-4 text-slate-300 text-sm">
             <li>
-              <button 
-                onClick={() => handleLink('comparison')} 
+              <button
+                onClick={() => handleLink('portfolio', true)}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
-                Why Design X Factor
+                Portfolio
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => handleLink('solutions')} 
+              <button
+                onClick={() => handleLink('comparison')}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
-                Features
+                Why Choose Us
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => handleLink('roadmap')} 
+              <button
+                onClick={() => handleLink('audit', true)}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
-                Roadmap
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => handleLink('api', true)} 
-                className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
-              >
-                API Documentation
+                Content Debt Audit
               </button>
             </li>
           </ul>
@@ -126,40 +129,32 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
 
         {/* Company Navigation */}
         <nav aria-labelledby="footer-company-heading">
-          <h4 
-            id="footer-company-heading" 
+          <h4
+            id="footer-company-heading"
             className="font-bold text-white mb-6 uppercase tracking-wider text-sm"
           >
             Company
           </h4>
           <ul className="space-y-4 text-slate-300 text-sm">
             <li>
-              <button 
-                onClick={() => handleLink('home', true)} 
+              <button
+                onClick={() => handleLink('contact')}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
-                About Us
+                Contact Us
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => handleLink('contact')} 
-                className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
-              >
-                Contact
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => handleLink('privacy', true)} 
+              <button
+                onClick={() => handleLink('privacy', true)}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
                 Privacy Policy
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => handleLink('terms', true)} 
+              <button
+                onClick={() => handleLink('terms', true)}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
                 Terms of Service
@@ -172,7 +167,7 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto pt-8 border-t border-white/5 text-center text-slate-400 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
         <p>© {new Date().getFullYear()} Design X Factor. All rights reserved.</p>
-        <p>Built with accessibility and Universal Design at its core.</p>
+        <p>Bueno. Bonito. Barato. — Quality, Beauty, Affordability.</p>
       </div>
     </footer>
   );

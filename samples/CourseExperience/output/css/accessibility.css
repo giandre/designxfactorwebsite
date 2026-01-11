@@ -1,0 +1,242 @@
+/**
+ * Accessibility Components CSS
+ *
+ * Styles for accessible image descriptions and other accessibility features.
+ * Include this in all generated courses for WCAG 2.1 AA compliance.
+ */
+
+/* ============================================================================
+   Accessible Image Component
+   ============================================================================ */
+
+.accessible-image {
+  position: relative;
+  margin: 1.5rem 0;
+  border-radius: var(--cf-border-radius-lg, 12px);
+  overflow: hidden;
+}
+
+.accessible-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.accessible-image__info-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: rgba(245, 158, 11, 0.9);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.accessible-image__info-btn:hover {
+  background: #f59e0b;
+  transform: scale(1.1);
+}
+
+.accessible-image__info-btn:focus {
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+.accessible-image__info-btn.active {
+  background: #f59e0b;
+}
+
+.accessible-image__description {
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 2px solid #f59e0b;
+  padding: 12px 16px;
+}
+
+.accessible-image__description.hidden {
+  display: none;
+}
+
+.accessible-image__label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #f59e0b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.accessible-image__label::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #f59e0b;
+  border-radius: 50%;
+}
+
+.accessible-image__description p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.accessible-image figcaption {
+  font-size: 0.875rem;
+  color: var(--cf-color-text-muted, #8b949e);
+  padding: 0.75rem 1rem;
+  background: var(--cf-color-surface, #1c2128);
+  text-align: center;
+}
+
+/* ============================================================================
+   Video Player Info Panel (Image Description)
+   ============================================================================ */
+
+.video-player__info-panel {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 2px solid #f59e0b;
+  padding: 12px 16px;
+  z-index: 95;
+  transition: opacity 0.3s ease;
+}
+
+.video-player__info-panel.hidden {
+  display: none;
+}
+
+.video-player__info-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #f59e0b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.video-player__info-label::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #f59e0b;
+  border-radius: 50%;
+}
+
+.video-player__info-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.video-player__btn--info.active {
+  background: rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+}
+
+/* ============================================================================
+   Mobile Responsive - Accessible Image
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .accessible-image__info-btn {
+    width: 28px;
+    height: 28px;
+    bottom: 8px;
+    right: 8px;
+  }
+
+  .accessible-image__info-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .accessible-image__description {
+    padding: 10px 12px;
+  }
+
+  .accessible-image__label {
+    font-size: 10px;
+  }
+
+  .accessible-image__description p {
+    font-size: 12px;
+  }
+
+  /* Video player info panel */
+  .video-player__info-panel {
+    bottom: 45px;
+    padding: 8px 12px;
+  }
+
+  .video-player__info-label {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+
+  .video-player__info-text {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .accessible-image__info-btn {
+    width: 24px;
+    height: 24px;
+    bottom: 6px;
+    right: 6px;
+  }
+
+  .accessible-image__info-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .accessible-image__description {
+    padding: 8px 10px;
+  }
+
+  .accessible-image__label {
+    font-size: 9px;
+  }
+
+  .accessible-image__description p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  /* Video player info panel */
+  .video-player__info-panel {
+    bottom: 38px;
+    padding: 6px 10px;
+  }
+
+  .video-player__info-label {
+    font-size: 9px;
+  }
+
+  .video-player__info-text {
+    font-size: 10px;
+  }
+}

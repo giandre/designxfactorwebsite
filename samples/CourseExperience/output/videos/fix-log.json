@@ -1,0 +1,2658 @@
+{
+  "generatedAt": "2026-01-06T00:34:22.490Z",
+  "totalScenes": 348,
+  "totalFixed": 311,
+  "fixes": [
+    {
+      "videoId": "video-1-1",
+      "sceneId": "scene-2",
+      "heading": "Your 7-Week Journey",
+      "changes": [
+        "Added demographic: Black woman",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-1-1",
+      "sceneId": "scene-4",
+      "heading": "Three Paths, One Journey",
+      "changes": [
+        "Added demographic: Hispanic man"
+      ]
+    },
+    {
+      "videoId": "video-1-1",
+      "sceneId": "scene-5",
+      "heading": "You're Not Climbing Alone",
+      "changes": [
+        "Added demographic: Asian woman"
+      ]
+    },
+    {
+      "videoId": "video-1-2",
+      "sceneId": "scene-1",
+      "heading": "The Mind of an Entrepreneur",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-1-2",
+      "sceneId": "scene-2",
+      "heading": "Mindset is a Skill",
+      "changes": [
+        "Replaced \"form\" with \"ancient expedition journal\"",
+        "Added demographic: White man",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-1-2",
+      "sceneId": "scene-3",
+      "heading": "Fixed vs. Growth Mindset",
+      "changes": [
+        "Added demographic: South Asian woman",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-1-2",
+      "sceneId": "scene-4",
+      "heading": "Growth Mindset",
+      "changes": [
+        "Replaced \"form\" with \"ancient expedition journal\"",
+        "Added demographic: Middle Eastern man",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-1-2",
+      "sceneId": "scene-5",
+      "heading": "5 Mental Frameworks",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-1-2",
+      "sceneId": "scene-6",
+      "heading": "Frameworks 4 & 5",
+      "changes": [
+        "Added demographic: White woman",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-1-2",
+      "sceneId": "scene-8",
+      "heading": "Fail Fast, Learn Faster",
+      "changes": [
+        "Added demographic: Black man",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-1-3",
+      "sceneId": "scene-3",
+      "heading": "The Pitch Formula",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-1-3",
+      "sceneId": "scene-4",
+      "heading": "Five Key Elements",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-1-3",
+      "sceneId": "scene-5",
+      "heading": "Proof and Ask",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-1-3",
+      "sceneId": "scene-6",
+      "heading": "Pitch in Action",
+      "changes": [
+        "Added demographic: Hispanic woman"
+      ]
+    },
+    {
+      "videoId": "video-1-3",
+      "sceneId": "scene-7",
+      "heading": "Digital Builder Pitch",
+      "changes": [
+        "Added demographic: Asian man"
+      ]
+    },
+    {
+      "videoId": "video-1-3",
+      "sceneId": "scene-8",
+      "heading": "Expert Pitch",
+      "changes": [
+        "Added demographic: South Asian man"
+      ]
+    },
+    {
+      "videoId": "video-1-3",
+      "sceneId": "scene-9",
+      "heading": "Maker Pitch",
+      "changes": [
+        "Added demographic: Middle Eastern woman"
+      ]
+    },
+    {
+      "videoId": "video-1-3",
+      "sceneId": "scene-10",
+      "heading": "Practice Makes Progress",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-1-3",
+      "sceneId": "scene-11",
+      "heading": "Refine Your Pitch",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-1-3",
+      "sceneId": "scene-12",
+      "heading": "Start Messy, Get Better",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-1",
+      "sceneId": "scene-1-1",
+      "heading": "Going to the Moon Without a Rocket",
+      "changes": [
+        "Added demographic: Black woman",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-1",
+      "sceneId": "scene-1-2",
+      "heading": "The Absurd Reality",
+      "changes": [
+        "Added demographic: Hispanic man",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-1",
+      "sceneId": "scene-5-1",
+      "heading": "Your Discovery Toolkit",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-1",
+      "sceneId": "scene-5-2",
+      "heading": "The Four Tools",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-1",
+      "sceneId": "scene-5-3",
+      "heading": "Let's Begin",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-1-1",
+      "heading": "Building Your Customer Hypothesis",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-1-2",
+      "heading": "The Specificity Problem",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-1-3",
+      "heading": "Be Specific and Wrong",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-2-1",
+      "heading": "The Four-Part Hypothesis",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-2-2",
+      "heading": "Questions 1 & 2",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-2-3",
+      "heading": "Questions 3 & 4",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-3-1",
+      "heading": "Real Example: B2B SaaS",
+      "changes": [
+        "Replaced \"document\" with \"expedition map with glowing trail markers\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-3-2",
+      "heading": "WHO: HR Directors",
+      "changes": [
+        "Replaced \"document\" with \"expedition map with glowing trail markers\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-3-3",
+      "heading": "WHAT: The Problem",
+      "changes": [
+        "Replaced \"document\" with \"expedition map with glowing trail markers\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-3-4",
+      "heading": "HOW & WHY",
+      "changes": [
+        "Replaced \"document\" with \"expedition map with glowing trail markers\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-5-1",
+      "heading": "Your Assignment",
+      "changes": [
+        "Replaced \"template\" with \"carved mountain stone marker\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-5-2",
+      "heading": "Be Specific",
+      "changes": [
+        "Replaced \"template\" with \"carved mountain stone marker\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-2",
+      "sceneId": "scene-5-3",
+      "heading": "What's Next",
+      "changes": [
+        "Replaced \"template\" with \"carved mountain stone marker\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-1a",
+      "heading": "Building the House",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-1b",
+      "heading": "Foundation First",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-1c",
+      "heading": "Don't Rush",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-2a",
+      "heading": "The Seven Deadly Sins",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-2b",
+      "heading": "Don't Pitch or Lead",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-2c",
+      "heading": "Listen and Dig Deeper",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-4a",
+      "heading": "Walls: Explore Their World",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-4b",
+      "heading": "Ask About Experiences",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-4c",
+      "heading": "Understand the Process",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-5a",
+      "heading": "Roof: Test Your Hypothesis",
+      "changes": [
+        "Added demographic: Asian woman",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-5b",
+      "heading": "What Would Make Them Switch?",
+      "changes": [
+        "Added demographic: White man",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-3",
+      "sceneId": "scene-5c",
+      "heading": "Value and Price",
+      "changes": [
+        "Added demographic: South Asian woman",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-1a",
+      "heading": "From Interviews to Insights",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added demographic: Middle Eastern man",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-1b",
+      "heading": "Systematic Capture",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added demographic: White woman",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-1c",
+      "heading": "Build Your Database",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added demographic: Black man",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-2a",
+      "heading": "Four Categories",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-2b",
+      "heading": "Basic Info & Problem Data",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-2c",
+      "heading": "Solution & Meta Insights",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-3a",
+      "heading": "Finding Patterns",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-3b",
+      "heading": "The Rule of Three",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-3c",
+      "heading": "Validation Signals",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-3d",
+      "heading": "Strongest Signal",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-4a",
+      "heading": "Pivot Triggers",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-4b",
+      "heading": "Warning Signs",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-4c",
+      "heading": "More Red Flags",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-5a",
+      "heading": "Your Mission",
+      "changes": [
+        "Added demographic: Hispanic woman",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-5b",
+      "heading": "Five Interviews",
+      "changes": [
+        "Added demographic: Asian man",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-2-4",
+      "sceneId": "scene-5c",
+      "heading": "Be Willing to Be Wrong",
+      "changes": [
+        "Added demographic: South Asian man",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-1a",
+      "heading": "Start with the End in Mind",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-1b",
+      "heading": "The Gap Between Want and Need",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-2a",
+      "heading": "Pain Point Sources",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-2b",
+      "heading": "The Four Sources",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-3a",
+      "heading": "Stated vs Unstated Needs",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-3b",
+      "heading": "The Faster Horse",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-3c",
+      "heading": "The Key Question",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-4a",
+      "heading": "The Menu Button Story",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Replaced \"button\" with \"glowing control crystal\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-4b",
+      "heading": "The Real Problem",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Replaced \"button\" with \"glowing control crystal\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-4c",
+      "heading": "The Simple Fix",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Replaced \"button\" with \"glowing control crystal\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-5a",
+      "heading": "Document Your Pain Points",
+      "changes": [
+        "Replaced \"template\" with \"carved mountain stone marker\"",
+        "Added demographic: Middle Eastern woman",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-1",
+      "sceneId": "scene-5b",
+      "heading": "Complete Analysis",
+      "changes": [
+        "Replaced \"template\" with \"carved mountain stone marker\"",
+        "Added demographic: Black woman",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-1a",
+      "heading": "Finding the Real Problem",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-1b",
+      "heading": "Dig Beneath the Surface",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-2a",
+      "heading": "The 5 Whys Technique",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-2b",
+      "heading": "Five Levels Deep",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-2c",
+      "heading": "Finding Root Causes",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-3a",
+      "heading": "Fishbone Diagrams",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-3b",
+      "heading": "Four Standard Categories",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-4a",
+      "heading": "Case Study: HomeHero",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-4b",
+      "heading": "Three Root Causes",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-4c",
+      "heading": "Results",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-5a",
+      "heading": "Prioritize Root Causes",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added demographic: Hispanic man",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-2",
+      "sceneId": "scene-5b",
+      "heading": "Prioritization Criteria",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added demographic: Asian woman",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-1a",
+      "heading": "The Fine Line",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-1b",
+      "heading": "Gold-Plating Trap",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-1c",
+      "heading": "Untested Hypotheses",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-2a",
+      "heading": "Principle 1: Solve One Problem",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-2b",
+      "heading": "Principle 2: Manual Before Automated",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-2c",
+      "heading": "Principle 3: Fake the Back End",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-2d",
+      "heading": "Principle 4: Set a Time Box",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-3a",
+      "heading": "Feature Decision Matrix",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-3b",
+      "heading": "The 2x2 Matrix",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-3c",
+      "heading": "Apply the Matrix",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-4a",
+      "heading": "What is COTS?",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-4b",
+      "heading": "Ready-Made Tools",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-4c",
+      "heading": "Build Only What Differentiates",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-5a",
+      "heading": "Be Ruthless",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-3",
+      "sceneId": "scene-5b",
+      "heading": "Build to Learn",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-1",
+      "heading": "From MVP to Full Vision",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-2",
+      "heading": "Stay Flexible",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-3",
+      "heading": "Version 1.0: Your MVP",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-4",
+      "heading": "Version 1.5: Improvements",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-5",
+      "heading": "Version 2.0: Expansion",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-6",
+      "heading": "Version 2.0 Warning",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-7",
+      "heading": "The Now/Next/Later Framework",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-8",
+      "heading": "NOW: 4-8 Weeks",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-9",
+      "heading": "NEXT: 2-3 Months",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-10",
+      "heading": "LATER: 3+ Months",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-11",
+      "heading": "Requirements Tracker",
+      "changes": [
+        "Replaced \"template\" with \"carved mountain stone marker\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-12",
+      "heading": "Requirements Template",
+      "changes": [
+        "Replaced \"template\" with \"carved mountain stone marker\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-13",
+      "heading": "Week 3 Complete!",
+      "changes": [
+        "Added demographic: White man",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-3-4",
+      "sceneId": "scene-14",
+      "heading": "Coming Next: Week 4",
+      "changes": [
+        "Added demographic: South Asian woman",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-1a",
+      "heading": "The Murder House Problem",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-1b",
+      "heading": "But That's Not Reality",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-2a",
+      "heading": "What You Think Sales Is",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-2b",
+      "heading": "The Wrong Archetype",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-3a",
+      "heading": "What Sales Actually Is",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-3b",
+      "heading": "Solution Matching",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-3c",
+      "heading": "Trust & Value",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-4a",
+      "heading": "The 3 C's to Avoid",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-4b",
+      "heading": "Never Co-opt",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-4c",
+      "heading": "Never Compel",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-5a",
+      "heading": "Sales as Service",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-1",
+      "sceneId": "scene-5b",
+      "heading": "Service, Not Manipulation",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-1a",
+      "heading": "The Triangle Model",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-1b",
+      "heading": "The Three Points",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-2a",
+      "heading": "YOU - The Seller",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-2b",
+      "heading": "THEM - The Buyer",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-2c",
+      "heading": "IT - The Solution",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-3a",
+      "heading": "Connection: YOU to THEM",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-3b",
+      "heading": "Connection: THEM to IT",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-3c",
+      "heading": "Connection: YOU to IT",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-4a",
+      "heading": "Problem: The Me Monster",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-4b",
+      "heading": "Problem: The Feature Dump",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-4c",
+      "heading": "Problem: The Invisible Expert",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-5a",
+      "heading": "Building the Perfect Triangle",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-5b",
+      "heading": "Complete the Triangle",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-2",
+      "sceneId": "scene-5c",
+      "heading": "When All Three Connect",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-1a",
+      "heading": "People Buy for Their Reasons",
+      "changes": [
+        "Added demographic: Middle Eastern man",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-1b",
+      "heading": "Their Goals, Their Aspirations",
+      "changes": [
+        "Added demographic: White woman",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-2a",
+      "heading": "The Friedman Model",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-2b",
+      "heading": "Spending Your Own Money",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-2c",
+      "heading": "Spending Others' Money",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-3a",
+      "heading": "B2C: Business to Consumer",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-3b",
+      "heading": "B2B: Business to Business",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-3c",
+      "heading": "B2G: Business to Government",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-4a",
+      "heading": "The Buyer's Journey",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-4b",
+      "heading": "Awareness & Consideration",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-4c",
+      "heading": "Decision & Action",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-5a",
+      "heading": "Know Your Buyer",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-3",
+      "sceneId": "scene-5b",
+      "heading": "Meet Them Where They Are",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-1a",
+      "heading": "Know Your Customer Deeply",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-1b",
+      "heading": "Beyond Surface Level",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-1c",
+      "heading": "Your ICP Purpose",
+      "changes": [
+        "Added demographic: Hispanic woman",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-2a",
+      "heading": "ICP Components",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-2b",
+      "heading": "Demographics & Psychographics",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-2c",
+      "heading": "Behaviors & Buying Triggers",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-3a",
+      "heading": "Case Study: Meet Rachel",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-3b",
+      "heading": "Rachel's Psychographics",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-3c",
+      "heading": "Rachel's Buying Triggers",
+      "changes": [
+        "Replaced \"spreadsheet\" with \"array of glowing expedition markers\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-4a",
+      "heading": "Crafting Your Hooks",
+      "changes": [
+        "Replaced \"form\" with \"ancient expedition journal\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-4b",
+      "heading": "Online Hook Formula",
+      "changes": [
+        "Replaced \"form\" with \"ancient expedition journal\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-4c",
+      "heading": "Face-to-Face Hook",
+      "changes": [
+        "Added demographic: Asian man",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-5a",
+      "heading": "Always Have a B-Side",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-5b",
+      "heading": "Why Have a B-Side?",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-4-4",
+      "sceneId": "scene-5c",
+      "heading": "ICP as Hypothesis",
+      "changes": [
+        "Added demographic: South Asian man",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-1a",
+      "heading": "How Businesses Generate Income",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-1b",
+      "heading": "What Revenue Model Determines",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-1c",
+      "heading": "Building Your Business Foundation",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-2a",
+      "heading": "The Six Fundamental Models",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-2b",
+      "heading": "Models 1-3",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-2c",
+      "heading": "Models 4-6",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-2d",
+      "heading": "Primary + Supporting Models",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-3a",
+      "heading": "Subscriptions: The Holy Grail",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-3b",
+      "heading": "Why Investors Love Subscriptions",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-3c",
+      "heading": "Subscription Benefits",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-4a",
+      "heading": "Hybrid Revenue Models",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-4b",
+      "heading": "Amazon's Five Models",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-4c",
+      "heading": "Start Simple, Add Later",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-5a",
+      "heading": "The Invisible Revenue Model",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-5b",
+      "heading": "Match Customer Expectations",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-1",
+      "sceneId": "scene-5c",
+      "heading": "Key Questions to Ask",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-1a",
+      "heading": "Pricing as Signal",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-1b",
+      "heading": "More Than a Number",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-1c",
+      "heading": "Price Sends Messages",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-2a",
+      "heading": "Six Pricing Strategies",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-2b",
+      "heading": "Cost-Based Strategies",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-2c",
+      "heading": "Growth Strategies",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-2d",
+      "heading": "Value-Based & Freemium",
+      "changes": [
+        "Replaced \"matrix\" with \"constellation of glowing waypoints\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-3a",
+      "heading": "The Critical Difference",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-3b",
+      "heading": "The Cost-Plus Trap",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-3c",
+      "heading": "The Value Perspective",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-3d",
+      "heading": "10x the Revenue",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-4a",
+      "heading": "Imposter Syndrome Pricing",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-4b",
+      "heading": "One-Size-Fits-All",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-4c",
+      "heading": "Never Raising Prices",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-5a",
+      "heading": "Your Price Is a Message",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-5b",
+      "heading": "What Matters",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-2",
+      "sceneId": "scene-5c",
+      "heading": "Price Accordingly",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-3",
+      "sceneId": "scene-1a",
+      "heading": "The Numbers That Matter",
+      "changes": [
+        "Replaced \"spreadsheet\" with \"array of glowing expedition markers\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-3",
+      "sceneId": "scene-1b",
+      "heading": "Three Core Metrics",
+      "changes": [
+        "Replaced \"spreadsheet\" with \"array of glowing expedition markers\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-3",
+      "sceneId": "scene-2a",
+      "heading": "Gross Margin Formula",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-3",
+      "sceneId": "scene-2b",
+      "heading": "Margin Benchmarks",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-3",
+      "sceneId": "scene-3a",
+      "heading": "What is Burn Rate?",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-3",
+      "sceneId": "scene-3b",
+      "heading": "Gross vs Net Burn",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-3",
+      "sceneId": "scene-4a",
+      "heading": "What is Runway?",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-3",
+      "sceneId": "scene-4b",
+      "heading": "Runway Benchmarks",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-3",
+      "sceneId": "scene-5a",
+      "heading": "What Investors Expect",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-3",
+      "sceneId": "scene-5b",
+      "heading": "Know Your Numbers Cold",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-1a",
+      "heading": "How Big Is Your Opportunity?",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-1b",
+      "heading": "Market Size Matters",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-2a",
+      "heading": "The Three Market Circles",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-2b",
+      "heading": "SAM: Your Fishing Ground",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-2c",
+      "heading": "SOM: Your Realistic Catch",
+      "changes": [
+        "Replaced \"labeled\" with \"marked with glowing symbols\"",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-3a",
+      "heading": "Top-Down Sizing",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-3b",
+      "heading": "Bottom-Up Sizing",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-3c",
+      "heading": "Best Practice: Use Both",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-4a",
+      "heading": "Real Example: Pet Food",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Added demographic: Middle Eastern woman",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-4b",
+      "heading": "Narrowing to SAM",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Added demographic: Black woman",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-4c",
+      "heading": "Realistic SOM Target",
+      "changes": [
+        "Replaced \"table\" with \"stone tablets with glowing inscriptions\"",
+        "Added demographic: Hispanic man",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-5a",
+      "heading": "The 1% Fallacy",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-5-4",
+      "sceneId": "scene-5b",
+      "heading": "Be Credible",
+      "changes": [
+        "Replaced \"chart\" with \"glowing holographic orbs\"",
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-1a",
+      "heading": "The Buyer's Journey",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-1b",
+      "heading": "Understanding the Journey",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-2a",
+      "heading": "The Four Stages",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-2b",
+      "heading": "Decision & Action",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-3a",
+      "heading": "The Marketing Inflection Point",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-3b",
+      "heading": "Timing the Handoff",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-3c",
+      "heading": "Watch for Intent Signals",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-4a",
+      "heading": "Awareness Stage Actions",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-4b",
+      "heading": "Consideration Stage Actions",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-4c",
+      "heading": "Decision Stage Actions",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-5a",
+      "heading": "Be a Guide, Not a Closer",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-1",
+      "sceneId": "scene-5b",
+      "heading": "Meet Them Where They Are",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-1",
+      "heading": "The 7-Second Rule",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-2",
+      "heading": "Your First Impression",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-3",
+      "heading": "The Goal",
+      "changes": [
+        "Added demographic: Asian woman",
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-4",
+      "heading": "The Online Hook Formula",
+      "changes": [
+        "Replaced \"form\" with \"ancient expedition journal\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-5",
+      "heading": "WHO - Your Ideal Customer",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-6",
+      "heading": "WHAT - The Transformation",
+      "changes": [
+        "Replaced \"form\" with \"ancient expedition journal\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-7",
+      "heading": "WHY - The Deeper Benefit",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-8",
+      "heading": "The Complete Online Hook",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-9",
+      "heading": "Face-to-Face Hooks",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-10",
+      "heading": "The Problem-Solution Formula",
+      "changes": [
+        "Replaced \"form\" with \"ancient expedition journal\""
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-11",
+      "heading": "Face-to-Face Example",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-12",
+      "heading": "Why This Works",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-13",
+      "heading": "Common Hook Mistakes",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-14",
+      "heading": "Mistake #1: The Feature Dump",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-15",
+      "heading": "Mistake #2: The Jargon Wall",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-16",
+      "heading": "Mistake #3: The Everyone Trap",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-17",
+      "heading": "Testing Your Hooks",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-18",
+      "heading": "Watch for Success Signals",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-2",
+      "sceneId": "scene-19",
+      "heading": "Clarity Converts",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-1a",
+      "heading": "Sales Is Process, Not Magic",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-1b",
+      "heading": "They Track Everything",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-1c",
+      "heading": "Build Your System",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-2a",
+      "heading": "The Shocking Truth",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-2b",
+      "heading": "Only 10% Persist",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-2c",
+      "heading": "80% After 5th Touch",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-2d",
+      "heading": "Beat 90% of Competition",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-3a",
+      "heading": "Trust Accumulation Model",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-3b",
+      "heading": "Touches 1-2: Awareness",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-3c",
+      "heading": "Touches 3-4: Interest",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-3d",
+      "heading": "Touches 5-7: Decision",
+      "changes": [
+        "Replaced \"graph\" with \"glowing teal energy streams\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-4a",
+      "heading": "Your Sales Pipeline",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-4b",
+      "heading": "Stage 1: Lead",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-4c",
+      "heading": "Stage 2: Qualified",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-4d",
+      "heading": "Stage 3-4: Proposal to Close",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-5a",
+      "heading": "Follow-Up Systems",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-5b",
+      "heading": "Silence Is Abandonment",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-3",
+      "sceneId": "scene-5c",
+      "heading": "Build Your System",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-4",
+      "sceneId": "scene-1a",
+      "heading": "Your Sales Tech Stack",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-4",
+      "sceneId": "scene-1b",
+      "heading": "Three Force Multipliers",
+      "changes": [
+        "Replaced \"diagram\" with \"visual metaphor with glowing pathways\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-4",
+      "sceneId": "scene-2a",
+      "heading": "The Power of Connectors",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-4",
+      "sceneId": "scene-2b",
+      "heading": "Connector Strategy",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-4",
+      "sceneId": "scene-3a",
+      "heading": "CRM: Your Sales Headquarters",
+      "changes": [
+        "Replaced \"interface\" with \"holographic expedition console\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-4",
+      "sceneId": "scene-3b",
+      "heading": "CRM Options Compared",
+      "changes": [
+        "Replaced \"interface\" with \"holographic expedition console\"",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-6-4",
+      "sceneId": "scene-4a",
+      "heading": "AI for Sales",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-4",
+      "sceneId": "scene-4b",
+      "heading": "AI Warning",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-4",
+      "sceneId": "scene-5a",
+      "heading": "The Complete System",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-6-4",
+      "sceneId": "scene-5b",
+      "heading": "Build Your Machine",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-7-1",
+      "sceneId": "scene-1a",
+      "heading": "The 6-Minute Format",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-1",
+      "sceneId": "scene-1b",
+      "heading": "Every Second Counts",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-1",
+      "sceneId": "scene-2a",
+      "heading": "Presentation Structure",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-7-1",
+      "sceneId": "scene-2b",
+      "heading": "Key Learnings",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-7-1",
+      "sceneId": "scene-2c",
+      "heading": "Next Steps & Q&A",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-7-1",
+      "sceneId": "scene-3a",
+      "heading": "Your Refined Pitch",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-7-1",
+      "sceneId": "scene-3b",
+      "heading": "Pitch Components",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-7-1",
+      "sceneId": "scene-5a",
+      "heading": "Slides: Less is More",
+      "changes": [
+        "Replaced \"slide\" with \"illuminated mountain stone panel\"",
+        "Added demographic: Hispanic woman",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-1",
+      "sceneId": "scene-5b",
+      "heading": "Practice First",
+      "changes": [
+        "Replaced \"slide\" with \"illuminated mountain stone panel\"",
+        "Added demographic: Asian man",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-1a",
+      "heading": "Looking Back, Moving Forward",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-1b",
+      "heading": "Your Progress",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-1c",
+      "heading": "Time to Synthesize",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-2a",
+      "heading": "Seven Weeks of Growth",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-2b",
+      "heading": "Building Your Toolkit",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-2c",
+      "heading": "Your Complete Toolkit",
+      "changes": [
+        "Added mountain expedition theme"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-3a",
+      "heading": "30-90 Day Action Plan",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-3b",
+      "heading": "Days 1-30: Validate & Build",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-3c",
+      "heading": "Days 31-60: Launch & Iterate",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-3d",
+      "heading": "Days 61-90: Scale & Systematize",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-4a",
+      "heading": "Continuing Resources",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-4b",
+      "heading": "Support Networks",
+      "changes": [
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-5a",
+      "heading": "Congratulations, Graduate!",
+      "changes": [
+        "Added demographic: South Asian man",
+        "Added style keywords"
+      ]
+    },
+    {
+      "videoId": "video-7-2",
+      "sceneId": "scene-5b",
+      "heading": "See You at the Summit",
+      "changes": [
+        "Added demographic: Middle Eastern woman",
+        "Added style keywords"
+      ]
+    }
+  ]
+}

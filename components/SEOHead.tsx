@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { PageView } from '../types';
 
 interface SEOConfig {
@@ -39,6 +39,20 @@ const seoConfigs: Record<PageView, SEOConfig> = {
   api: {
     title: 'API Documentation | Design X Factor',
     description: 'API documentation for integrating Design X Factor into your learning management system.',
+  },
+  pipeline: {
+    title: 'Transformation Pipeline | Design X Factor',
+    description: 'See how we transform your content through our AI-powered production pipeline.',
+  },
+  services: {
+    title: 'Services | Design X Factor',
+    description: 'Explore our content transformation services: eBooks, videos, podcasts, courses, and accessibility remediation.',
+    keywords: 'ebook creation, video production, podcast production, course development, accessibility remediation',
+  },
+  portfolio: {
+    title: 'Portfolio | Design X Factor',
+    description: 'View our portfolio of transformed learning content including interactive videos, eBooks, and full courses.',
+    keywords: 'learning portfolio, content samples, course examples, ebook samples',
   },
 };
 

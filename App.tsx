@@ -2,13 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { MonolithSection } from './components/MonolithSection';
-import { ProductShowcase } from './components/ProductShowcase';
+import { Process } from './components/Process';
 import { WhyUs } from './components/WhyUs';
-import { Roadmap } from './components/Roadmap';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Legal } from './pages/Legal';
 import { ThankYou } from './pages/ThankYou';
+import { Services } from './pages/Services';
+import { Portfolio } from './pages/Portfolio';
 import { LearningTransformer } from './pages/products/LearningTransformer';
 import { ContentDebtAudit } from './pages/tools/ContentDebtAudit';
 import { TransformationPipeline } from './pages/products/TransformationPipeline';
@@ -17,8 +18,16 @@ import { PageView } from './types';
 // SEO Configuration per page
 const seoConfigs: Record<PageView, { title: string; description: string }> = {
   home: {
-    title: 'Design X Factor | AI-Powered Learning Transformation Platform',
-    description: 'Transform static LMS content into accessible, WCAG 2.1 AA compliant learning experiences.',
+    title: 'Design X Factor | Learning Experience Design Services',
+    description: 'We design learning experiences. Transform your content into engaging eBooks, videos, podcasts, and courses — in weeks, not months.',
+  },
+  services: {
+    title: 'Services | eBooks, Videos, Courses & More | Design X Factor',
+    description: 'Full-service learning experience design: eBook creation, video production, audio/podcasts, course development, and accessibility remediation.',
+  },
+  portfolio: {
+    title: 'Portfolio | Our Work | Design X Factor',
+    description: 'See how we transform content into engaging learning experiences. Browse our portfolio of eBooks, videos, and courses.',
   },
   'learning-transformer': {
     title: 'Learning Transformer | Automated LMS Accessibility | Design X Factor',
@@ -38,7 +47,7 @@ const seoConfigs: Record<PageView, { title: string; description: string }> = {
   },
   terms: {
     title: 'Terms of Service | Design X Factor',
-    description: 'Terms of Service for Design X Factor AI-powered learning platform.',
+    description: 'Terms of Service for Design X Factor learning experience design services.',
   },
   privacy: {
     title: 'Privacy Policy | Design X Factor',
@@ -53,6 +62,8 @@ const seoConfigs: Record<PageView, { title: string; description: string }> = {
 // Page titles for screen reader announcements
 const pageTitles: Record<PageView, string> = {
   home: 'Home',
+  services: 'Our Services',
+  portfolio: 'Our Portfolio',
   'learning-transformer': 'Learning Transformer product',
   pipeline: 'Content Transformation Pipeline',
   audit: 'Content Debt Audit tool',
@@ -78,10 +89,12 @@ function App() {
       }
       
       const validPages: PageView[] = [
-        'learning-transformer', 
-        'thank-you', 
-        'terms', 
-        'privacy', 
+        'services',
+        'portfolio',
+        'learning-transformer',
+        'thank-you',
+        'terms',
+        'privacy',
         'api',
         'audit',
         'pipeline'
@@ -150,12 +163,15 @@ function App() {
           <>
             <Hero />
             <MonolithSection onNavigate={handleNavigate} />
-            <ProductShowcase onNavigate={handleNavigate} />
+            <Process />
             <WhyUs />
-            <Roadmap />
             <Contact onNavigate={handleNavigate} />
           </>
         );
+      case 'services':
+        return <Services onNavigate={handleNavigate} />;
+      case 'portfolio':
+        return <Portfolio onNavigate={handleNavigate} />;
       case 'learning-transformer':
         return <LearningTransformer onNavigate={handleNavigate} />;
       case 'pipeline':

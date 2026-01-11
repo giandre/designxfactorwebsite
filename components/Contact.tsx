@@ -6,10 +6,11 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    institution: '',
+    company: '',
+    organizationType: '',
     role: '',
-    message: '',
-    pilot: false
+    service: '',
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -32,10 +33,11 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
           access_key: 'd5ec859f-b3b7-49b9-830b-36b8a09c12ee',
           name: formData.name,
           email: formData.email,
-          institution: formData.institution || 'Not provided',
+          company: formData.company || 'Not provided',
+          organization_type: formData.organizationType || 'Not provided',
           role: formData.role || 'Not provided',
+          service_interested_in: formData.service || 'Not provided',
           message: formData.message,
-          pilot_program_interest: formData.pilot ? 'Yes' : 'No',
           subject: 'New Contact Form Submission - Design X Factor',
           from_name: 'Design X Factor Website'
         })
@@ -49,10 +51,11 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
         setFormData({
           name: '',
           email: '',
-          institution: '',
+          company: '',
+          organizationType: '',
           role: '',
-          message: '',
-          pilot: false
+          service: '',
+          message: ''
         });
         // Navigate to thank you page after a brief delay
         setTimeout(() => {
@@ -76,9 +79,6 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData(prev => ({ ...prev, pilot: e.target.checked }));
-  };
 
   return (
     <section id="contact" className="py-24 bg-slate-50 relative z-30 scroll-mt-24">
@@ -144,21 +144,43 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div className="space-y-2">
-              <label htmlFor="institution" className="text-sm font-bold text-slate-900 uppercase tracking-wider">Institution</label>
-              <input 
-                type="text" 
-                id="institution" 
-                name="institution"
-                value={formData.institution}
+              <label htmlFor="company" className="text-sm font-bold text-slate-900 uppercase tracking-wider">Company</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                value={formData.company}
                 onChange={handleChange}
                 disabled={isSubmitting}
                 className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
             <div className="space-y-2">
+              <label htmlFor="organizationType" className="text-sm font-bold text-slate-900 uppercase tracking-wider">Organization Type</label>
+              <select
+                id="organizationType"
+                name="organizationType"
+                value={formData.organizationType}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <option value="">Select organization type...</option>
+                <option value="Higher Education">Higher Education</option>
+                <option value="K-12">K-12</option>
+                <option value="Corporate Training">Corporate Training</option>
+                <option value="Government">Government</option>
+                <option value="Non-Profit">Non-Profit</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="space-y-2">
               <label htmlFor="role" className="text-sm font-bold text-slate-900 uppercase tracking-wider">Your Role</label>
-              <select 
-                id="role" 
+              <select
+                id="role"
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
@@ -166,12 +188,32 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
                 className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <option value="">Select your role...</option>
-                <option value="Dean">Dean</option>
-                <option value="Director of Instructional Design">Director of Instructional Design</option>
-                <option value="Faculty Member">Faculty Member</option>
+                <option value="Executive/Director">Executive/Director</option>
+                <option value="Manager">Manager</option>
                 <option value="Instructional Designer">Instructional Designer</option>
+                <option value="Faculty Member">Faculty Member</option>
+                <option value="L&D Professional">L&D Professional</option>
                 <option value="IT Administrator">IT Administrator</option>
                 <option value="Other">Other</option>
+              </select>
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="service" className="text-sm font-bold text-slate-900 uppercase tracking-wider">Service Interested In</label>
+              <select
+                id="service"
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <option value="">Select a service...</option>
+                <option value="eBook Creation">eBook Creation</option>
+                <option value="Video Production">Video Production</option>
+                <option value="Audio & Podcasts">Audio & Podcasts</option>
+                <option value="Full Course Development">Full Course Development</option>
+                <option value="Accessibility Remediation">Accessibility Remediation</option>
+                <option value="Other">Other (describe in message)</option>
               </select>
             </div>
           </div>
@@ -191,21 +233,6 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
             ></textarea>
           </div>
 
-          <div className="flex items-center gap-3 mb-8 p-4 bg-brand-blue/5 rounded-lg border border-brand-blue/10">
-            <input 
-              type="checkbox" 
-              id="pilot" 
-              name="pilot"
-              checked={formData.pilot}
-              onChange={handleCheckbox}
-              disabled={isSubmitting}
-              className="w-5 h-5 text-brand-blue rounded focus:ring-brand-blue border-slate-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-            />
-            <label htmlFor="pilot" className="text-sm text-slate-700 cursor-pointer select-none">
-              I'm interested in the <span className="text-brand-blue font-bold">free pilot program</span>
-            </label>
-          </div>
-
           <button 
             type="submit" 
             disabled={isSubmitting || submitStatus === 'success'}
@@ -219,10 +246,6 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
               <><Send size={20} /> Request Consultation</>
             )}
           </button>
-          
-          <p className="mt-6 text-center text-sm text-slate-500">
-            We're currently offering free pilot programs for select institutions. Limited spots available.
-          </p>
         </form>
       </div>
     </section>

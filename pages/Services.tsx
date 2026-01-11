@@ -41,7 +41,7 @@ const services = [
     sampleType: 'ebook' as const,
     sampleTitle: 'Interactive Anatomy eBook',
     sampleDescription: 'Split-screen experience combining custom interactive learning on the left with the original source PDF on the right.',
-    thumbnail: '/samples/thumbnails/interactiveanatomyebook.jpg',
+    thumbnail: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/thumbnails/interactiveanatomyebook.jpg',
     sampleContent: {
       type: 'ebook',
       src: '/samples/Ebook Explainer/1_6_anatomical_terminology___anatomy_and_physiology_2e_contextualize.html'
@@ -64,7 +64,7 @@ const services = [
     sampleType: 'video' as const,
     sampleTitle: 'Interactive Math Videos',
     sampleDescription: 'OpenStax textbook content transformed into engaging video lessons with extracted source images.',
-    thumbnail: '/samples/thumbnails/interactive-math-video.jpg',
+    thumbnail: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/thumbnails/interactive-math-video.jpg',
     sampleContent: {
       type: 'video',
       src: '/samples/Add & Substract Integers/Add and Subtract Integers -Regular Video.html'
@@ -143,7 +143,7 @@ const services = [
     sampleType: 'course' as const,
     sampleTitle: '7-Week Entrepreneurship Course',
     sampleDescription: 'Our baseline course tier: AI-generated audio, responsive design, and full accessibility.',
-    thumbnail: '/samples/thumbnails/enterprenurshipcourse.jpg',
+    thumbnail: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/thumbnails/enterprenurshipcourse.jpg',
     sampleContent: {
       type: 'course',
       basePath: '/samples/CourseExperience/output',

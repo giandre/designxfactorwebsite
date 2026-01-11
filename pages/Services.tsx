@@ -44,7 +44,7 @@ const services = [
     thumbnail: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/thumbnails/interactiveanatomyebook.jpg',
     sampleContent: {
       type: 'ebook',
-      src: '/samples/Ebook Explainer/1_6_anatomical_terminology___anatomy_and_physiology_2e_contextualize.html'
+      src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/ebook/anatomical-terminology-ebook.html'
     }
   },
   {
@@ -67,7 +67,7 @@ const services = [
     thumbnail: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/thumbnails/interactive-math-video.jpg',
     sampleContent: {
       type: 'video',
-      src: '/samples/Add & Substract Integers/Add and Subtract Integers -Regular Video.html'
+      src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/videos/Add-and-Subtract-Integers-Regular-Video.html'
     }
   },
   {
@@ -95,7 +95,7 @@ const services = [
           id: 'ai-interview',
           title: 'Live AI Interview',
           description: 'Unedited real-time AI interview demonstrating conversational AI capabilities.',
-          src: '/samples/ConversationalAI/AIInterview.wav',
+          src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/ConversationalAI/AIInterview.wav',
           duration: '~5 min',
           captions: [
             { start: 0, end: 9.22, text: "Welcome to the show, folks. I'm your host, Alexa, bringing you the latest and greatest" },
@@ -146,17 +146,17 @@ const services = [
     thumbnail: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/thumbnails/enterprenurshipcourse.jpg',
     sampleContent: {
       type: 'course',
-      basePath: '/samples/CourseExperience/output',
+      basePath: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course',
       weeks: [
         {
           number: 1,
           title: 'Foundation & Vision',
           locked: false,
           lessons: [
-            { id: '1-1', title: 'Lesson 1.1', src: '/samples/CourseExperience/output/lessons/lesson-1-1.html' },
-            { id: '1-2', title: 'Lesson 1.2', src: '/samples/CourseExperience/output/lessons/lesson-1-2.html' },
-            { id: '1-3', title: 'Lesson 1.3', src: '/samples/CourseExperience/output/lessons/lesson-1-3.html' },
-            { id: '1-4', title: 'Lesson 1.4', src: '/samples/CourseExperience/output/lessons/lesson-1-4.html' }
+            { id: '1-1', title: 'Lesson 1.1', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-1-1.html' },
+            { id: '1-2', title: 'Lesson 1.2', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-1-2.html' },
+            { id: '1-3', title: 'Lesson 1.3', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-1-3.html' },
+            { id: '1-4', title: 'Lesson 1.4', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-1-4.html' }
           ]
         },
         {
@@ -164,8 +164,8 @@ const services = [
           title: 'Market Research',
           locked: true,
           lessons: [
-            { id: '2-1', title: 'Lesson 2.1', src: '/samples/CourseExperience/output/lessons/lesson-2-1.html' },
-            { id: '2-2', title: 'Lesson 2.2', src: '/samples/CourseExperience/output/lessons/lesson-2-2.html' }
+            { id: '2-1', title: 'Lesson 2.1', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-2-1.html' },
+            { id: '2-2', title: 'Lesson 2.2', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-2-2.html' }
           ]
         },
         {
@@ -173,7 +173,7 @@ const services = [
           title: 'Business Model',
           locked: true,
           lessons: [
-            { id: '3-1', title: 'Lesson 3.1', src: '/samples/CourseExperience/output/lessons/lesson-3-1.html' }
+            { id: '3-1', title: 'Lesson 3.1', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-3-1.html' }
           ]
         }
       ]

@@ -10,19 +10,19 @@ interface SEOConfig {
 
 const seoConfigs: Record<PageView, SEOConfig> = {
   home: {
-    title: 'Design X Factor | AI-Powered Learning Transformation Platform',
-    description: 'Transform static LMS content into accessible, WCAG 2.1 AA compliant learning experiences. AI-powered content transformation for higher education.',
-    keywords: 'LMS accessibility, WCAG compliance, AI learning, content transformation, ADA compliance',
+    title: 'Design X Factor | Premium Learning Content Creation',
+    description: 'We create engaging eBooks, videos, podcasts, and full courses that captivate learners. Professional content production for education and corporate training.',
+    keywords: 'ebook creation, video production, course development, podcast production, learning content, corporate training, educational videos, accessible content',
   },
   'learning-transformer': {
-    title: 'Learning Transformer | Automated LMS Accessibility | Design X Factor',
-    description: 'Automatically transform static LMS content into dynamic, accessible learning experiences. WCAG 2.1 AA compliant output with video, audio, and interactive elements.',
-    keywords: 'LMS transformation, accessible learning, Canvas accessibility, Blackboard WCAG',
+    title: 'Learning Transformer | Content Transformation | Design X Factor',
+    description: 'Transform your existing content into engaging, accessible learning experiences. We convert documents, presentations, and text into videos, eBooks, and interactive courses.',
+    keywords: 'content transformation, document conversion, learning content, accessible learning',
   },
   audit: {
-    title: 'Content Debt Audit | Calculate ADA Compliance Risk | Design X Factor',
-    description: 'Free tool to calculate your institution\'s content accessibility debt. Estimate remediation costs and discover AI-powered solutions.',
-    keywords: 'ADA compliance calculator, WCAG audit, accessibility cost, content debt',
+    title: 'Content Audit | Assess Your Learning Materials | Design X Factor',
+    description: 'Free tool to assess your learning content and discover opportunities for improvement. Get a roadmap for creating more engaging, accessible materials.',
+    keywords: 'content audit, learning assessment, content improvement, accessibility review',
   },
   'thank-you': {
     title: 'Thank You | Design X Factor',
@@ -45,14 +45,14 @@ const seoConfigs: Record<PageView, SEOConfig> = {
     description: 'See how we transform your content through our AI-powered production pipeline.',
   },
   services: {
-    title: 'Services | Design X Factor',
-    description: 'Explore our content transformation services: eBooks, videos, podcasts, courses, and accessibility remediation.',
-    keywords: 'ebook creation, video production, podcast production, course development, accessibility remediation',
+    title: 'Services | Premium Learning Content Creation | Design X Factor',
+    description: 'Professional content creation services: engaging eBooks, captivating videos, immersive podcasts, and complete course development. See what we can create for you.',
+    keywords: 'ebook creation, video production, podcast production, course development, learning content services',
   },
   portfolio: {
-    title: 'Portfolio | Design X Factor',
-    description: 'View our portfolio of transformed learning content including interactive videos, eBooks, and full courses.',
-    keywords: 'learning portfolio, content samples, course examples, ebook samples',
+    title: 'Portfolio | Our Work | Design X Factor',
+    description: 'Explore our portfolio of learning content: interactive videos, engaging eBooks, immersive audio experiences, and complete courses. See the quality we deliver.',
+    keywords: 'learning portfolio, content samples, course examples, ebook samples, video examples',
   },
 };
 

@@ -53,7 +53,7 @@ const portfolioItems: PortfolioItem[] = [
     sampleType: 'video',
     sampleContent: {
       type: 'video',
-      src: '/samples/Add & Substract Integers/Add and Subtract Integers -Regular Video.html'
+      src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/videos/Add-and-Subtract-Integers-Regular-Video.html'
     }
   },
   {
@@ -70,7 +70,7 @@ const portfolioItems: PortfolioItem[] = [
     sampleType: 'video',
     sampleContent: {
       type: 'video',
-      src: '/samples/Add & Substract Integers/Multiply And Divide integers - Video Game Persona.html'
+      src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/videos/Multiply-And-Divide-Integers-Video-Game-Persona.html'
     }
   },
   {
@@ -86,7 +86,7 @@ const portfolioItems: PortfolioItem[] = [
     sampleType: 'ebook',
     sampleContent: {
       type: 'ebook',
-      src: '/samples/Ebook Explainer/1_6_anatomical_terminology___anatomy_and_physiology_2e_contextualize.html'
+      src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/ebook/anatomical-terminology-ebook.html'
     }
   },
   {
@@ -106,22 +106,22 @@ const portfolioItems: PortfolioItem[] = [
         {
           title: 'Tiny Monsters Devotional',
           language: 'English',
-          src: '/samples/Devotional Example/Tiny_MonstersDevotional.pdf'
+          src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/pdfs/Tiny_MonstersDevotional.pdf'
         },
         {
           title: 'Pequeños Monstros Devocional',
           language: 'Spanish',
-          src: '/samples/Devotional Example/PequenosMonstros-Devocional.pdf'
+          src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/pdfs/PequenosMonstros-Devocional.pdf'
         },
         {
           title: 'Intrepid Animals',
           language: 'English',
-          src: '/samples/Devotional Example/Intrepid_Animals.pdf'
+          src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/pdfs/Intrepid_Animals.pdf'
         },
         {
           title: 'Dinosaurios KDP',
           language: 'Spanish',
-          src: '/samples/Devotional Example/Dinosaurios-KDP-Print.pdf'
+          src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/pdfs/Dinosaurios-KDP-Print.pdf'
         }
       ]
     }
@@ -141,17 +141,17 @@ const portfolioItems: PortfolioItem[] = [
     sampleType: 'course',
     sampleContent: {
       type: 'course',
-      basePath: '/samples/CourseExperience/output',
+      basePath: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course',
       weeks: [
         {
           number: 1,
           title: 'Foundation & Vision',
           locked: false,
           lessons: [
-            { id: '1-1', title: 'Lesson 1.1', src: '/samples/CourseExperience/output/lessons/lesson-1-1.html' },
-            { id: '1-2', title: 'Lesson 1.2', src: '/samples/CourseExperience/output/lessons/lesson-1-2.html' },
-            { id: '1-3', title: 'Lesson 1.3', src: '/samples/CourseExperience/output/lessons/lesson-1-3.html' },
-            { id: '1-4', title: 'Lesson 1.4', src: '/samples/CourseExperience/output/lessons/lesson-1-4.html' }
+            { id: '1-1', title: 'Lesson 1.1', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-1-1.html' },
+            { id: '1-2', title: 'Lesson 1.2', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-1-2.html' },
+            { id: '1-3', title: 'Lesson 1.3', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-1-3.html' },
+            { id: '1-4', title: 'Lesson 1.4', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-1-4.html' }
           ]
         },
         {
@@ -159,10 +159,10 @@ const portfolioItems: PortfolioItem[] = [
           title: 'Market Research',
           locked: true,
           lessons: [
-            { id: '2-1', title: 'Lesson 2.1', src: '/samples/CourseExperience/output/lessons/lesson-2-1.html' },
-            { id: '2-2', title: 'Lesson 2.2', src: '/samples/CourseExperience/output/lessons/lesson-2-2.html' },
-            { id: '2-3', title: 'Lesson 2.3', src: '/samples/CourseExperience/output/lessons/lesson-2-3.html' },
-            { id: '2-4', title: 'Lesson 2.4', src: '/samples/CourseExperience/output/lessons/lesson-2-4.html' }
+            { id: '2-1', title: 'Lesson 2.1', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-2-1.html' },
+            { id: '2-2', title: 'Lesson 2.2', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-2-2.html' },
+            { id: '2-3', title: 'Lesson 2.3', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-2-3.html' },
+            { id: '2-4', title: 'Lesson 2.4', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-2-4.html' }
           ]
         },
         {
@@ -170,10 +170,10 @@ const portfolioItems: PortfolioItem[] = [
           title: 'Business Model',
           locked: true,
           lessons: [
-            { id: '3-1', title: 'Lesson 3.1', src: '/samples/CourseExperience/output/lessons/lesson-3-1.html' },
-            { id: '3-2', title: 'Lesson 3.2', src: '/samples/CourseExperience/output/lessons/lesson-3-2.html' },
-            { id: '3-3', title: 'Lesson 3.3', src: '/samples/CourseExperience/output/lessons/lesson-3-3.html' },
-            { id: '3-4', title: 'Lesson 3.4', src: '/samples/CourseExperience/output/lessons/lesson-3-4.html' }
+            { id: '3-1', title: 'Lesson 3.1', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-3-1.html' },
+            { id: '3-2', title: 'Lesson 3.2', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-3-2.html' },
+            { id: '3-3', title: 'Lesson 3.3', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-3-3.html' },
+            { id: '3-4', title: 'Lesson 3.4', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-3-4.html' }
           ]
         },
         {
@@ -181,10 +181,10 @@ const portfolioItems: PortfolioItem[] = [
           title: 'Product Development',
           locked: true,
           lessons: [
-            { id: '4-1', title: 'Lesson 4.1', src: '/samples/CourseExperience/output/lessons/lesson-4-1.html' },
-            { id: '4-2', title: 'Lesson 4.2', src: '/samples/CourseExperience/output/lessons/lesson-4-2.html' },
-            { id: '4-3', title: 'Lesson 4.3', src: '/samples/CourseExperience/output/lessons/lesson-4-3.html' },
-            { id: '4-4', title: 'Lesson 4.4', src: '/samples/CourseExperience/output/lessons/lesson-4-4.html' }
+            { id: '4-1', title: 'Lesson 4.1', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-4-1.html' },
+            { id: '4-2', title: 'Lesson 4.2', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-4-2.html' },
+            { id: '4-3', title: 'Lesson 4.3', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-4-3.html' },
+            { id: '4-4', title: 'Lesson 4.4', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-4-4.html' }
           ]
         },
         {
@@ -192,10 +192,10 @@ const portfolioItems: PortfolioItem[] = [
           title: 'Marketing Strategy',
           locked: true,
           lessons: [
-            { id: '5-1', title: 'Lesson 5.1', src: '/samples/CourseExperience/output/lessons/lesson-5-1.html' },
-            { id: '5-2', title: 'Lesson 5.2', src: '/samples/CourseExperience/output/lessons/lesson-5-2.html' },
-            { id: '5-3', title: 'Lesson 5.3', src: '/samples/CourseExperience/output/lessons/lesson-5-3.html' },
-            { id: '5-4', title: 'Lesson 5.4', src: '/samples/CourseExperience/output/lessons/lesson-5-4.html' }
+            { id: '5-1', title: 'Lesson 5.1', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-5-1.html' },
+            { id: '5-2', title: 'Lesson 5.2', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-5-2.html' },
+            { id: '5-3', title: 'Lesson 5.3', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-5-3.html' },
+            { id: '5-4', title: 'Lesson 5.4', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-5-4.html' }
           ]
         },
         {
@@ -203,10 +203,10 @@ const portfolioItems: PortfolioItem[] = [
           title: 'Finance & Funding',
           locked: true,
           lessons: [
-            { id: '6-1', title: 'Lesson 6.1', src: '/samples/CourseExperience/output/lessons/lesson-6-1.html' },
-            { id: '6-2', title: 'Lesson 6.2', src: '/samples/CourseExperience/output/lessons/lesson-6-2.html' },
-            { id: '6-3', title: 'Lesson 6.3', src: '/samples/CourseExperience/output/lessons/lesson-6-3.html' },
-            { id: '6-4', title: 'Lesson 6.4', src: '/samples/CourseExperience/output/lessons/lesson-6-4.html' }
+            { id: '6-1', title: 'Lesson 6.1', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-6-1.html' },
+            { id: '6-2', title: 'Lesson 6.2', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-6-2.html' },
+            { id: '6-3', title: 'Lesson 6.3', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-6-3.html' },
+            { id: '6-4', title: 'Lesson 6.4', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-6-4.html' }
           ]
         },
         {
@@ -214,8 +214,8 @@ const portfolioItems: PortfolioItem[] = [
           title: 'Launch & Scale',
           locked: true,
           lessons: [
-            { id: '7-1', title: 'Lesson 7.1', src: '/samples/CourseExperience/output/lessons/lesson-7-1.html' },
-            { id: '7-2', title: 'Lesson 7.2', src: '/samples/CourseExperience/output/lessons/lesson-7-2.html' }
+            { id: '7-1', title: 'Lesson 7.1', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-7-1.html' },
+            { id: '7-2', title: 'Lesson 7.2', src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/course/lessons/lesson-7-2.html' }
           ]
         }
       ]
@@ -240,7 +240,7 @@ const portfolioItems: PortfolioItem[] = [
           id: 'ai-interview',
           title: 'Live AI Interview',
           description: 'Unedited real-time AI interview demonstrating conversational AI capabilities. Pauses and delays showcase the authentic live experience.',
-          src: '/samples/ConversationalAI/AIInterview.wav',
+          src: 'https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/samples/ConversationalAI/AIInterview.wav',
           duration: '~5 min',
           captions: [
             { start: 0, end: 9.22, text: "Welcome to the show, folks. I'm your host, Alexa, bringing you the latest and greatest" },

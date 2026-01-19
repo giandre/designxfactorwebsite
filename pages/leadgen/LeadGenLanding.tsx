@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Play, ArrowRight, Clock, Shield, Sparkles } from 'lucide-react';
 import { PageView } from '../../types';
+import { AccessibleVideoPlayer } from '../../components/AccessibleVideoPlayer';
 
 interface LeadGenLandingProps {
   onNavigate: (page: PageView) => void;
@@ -88,20 +89,13 @@ export const LeadGenLanding: React.FC<LeadGenLandingProps> = ({ onNavigate, onSt
                     </button>
                   </>
                 ) : (
-                  <video
-                    className="absolute inset-0 w-full h-full"
+                  <AccessibleVideoPlayer
                     src="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/dxf-start.mp4"
-                    controls
+                    title="Design X Factor Introduction"
+                    description="Learn how we transform your content into engaging learning experiences. We obsess over the experience—because learning isn't just about delivering content, it's about creating journeys that feel personal to each learner."
                     autoPlay
-                    aria-label="Design X Factor Introduction Video - Learn how we transform your content into engaging learning experiences"
-                  >
-                    <track
-                      kind="captions"
-                      srcLang="en"
-                      label="English"
-                    />
-                    Your browser does not support the video tag.
-                  </video>
+                    className="absolute inset-0"
+                  />
                 )}
               </div>
             </div>

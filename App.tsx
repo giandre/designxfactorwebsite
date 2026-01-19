@@ -13,6 +13,7 @@ import { Portfolio } from './pages/Portfolio';
 import { LearningTransformer } from './pages/products/LearningTransformer';
 import { ContentDebtAudit } from './pages/tools/ContentDebtAudit';
 import { TransformationPipeline } from './pages/products/TransformationPipeline';
+import { LeadGen } from './pages/leadgen/LeadGen';
 import { PageView } from './types';
 
 // SEO Configuration per page
@@ -57,6 +58,10 @@ const seoConfigs: Record<PageView, { title: string; description: string }> = {
     title: 'API Documentation | Design X Factor',
     description: 'API documentation for integrating Design X Factor.',
   },
+  start: {
+    title: 'Discover What We Can Create for You | Design X Factor',
+    description: 'Interactive discovery experience - find out exactly what we can create for your organization in 2 minutes.',
+  },
 };
 
 // Page titles for screen reader announcements
@@ -71,6 +76,7 @@ const pageTitles: Record<PageView, string> = {
   terms: 'Terms of Service',
   privacy: 'Privacy Policy',
   api: 'API Documentation',
+  start: 'Project Discovery',
 };
 
 function App() {
@@ -97,7 +103,8 @@ function App() {
         'privacy',
         'api',
         'audit',
-        'pipeline'
+        'pipeline',
+        'start'
       ];
 
       if (validPages.includes(hash as PageView)) {
@@ -178,6 +185,8 @@ function App() {
         return <TransformationPipeline onNavigate={handleNavigate} />;
       case 'audit':
         return <ContentDebtAudit onNavigate={handleNavigate} />;
+      case 'start':
+        return <LeadGen onNavigate={handleNavigate} />;
       case 'thank-you':
         return <ThankYou onNavigate={handleNavigate} />;
       case 'terms':

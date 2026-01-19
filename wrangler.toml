@@ -1,0 +1,14 @@
+name = "dxf-lead-gen"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist"
+
+[vars]
+RESEND_API_KEY = "re_5uJZEjZU_1MxfE4Mb5KqDHt5crxVW4iPS"
+RESEND_FROM_EMAIL = "gio@learningxperience.tech"
+NOTIFICATION_EMAIL = "gio@designxfactor.com"
+WEBSITE_URL = "https://designxfactor.com"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "dxf-leads"
+database_id = "774b5258-b6da-45ba-a3b0-9372c96cbc0c"

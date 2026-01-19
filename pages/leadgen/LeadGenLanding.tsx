@@ -88,21 +88,20 @@ export const LeadGenLanding: React.FC<LeadGenLandingProps> = ({ onNavigate, onSt
                     </button>
                   </>
                 ) : (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/80 p-8">
-                    <div className="text-center space-y-4">
-                      <div className="w-20 h-20 border-4 border-brand-red border-t-transparent rounded-full animate-spin mx-auto" />
-                      <p className="text-white text-lg">Video player coming soon...</p>
-                      <p className="text-slate-400 text-sm max-w-lg">
-                        <strong>Script:</strong> "You've got the expertise. You've got the content. But turning that into actual training? That's a whole different challenge. Traditional training focuses on delivering information. We don't do that. At Design X Factor, we obsess over the experience—because learning isn't just about delivering content, it's about creating journeys that feel personal to each learner. We use UX design, instructional strategy, and AI to craft training that adapts, engages, and actually sticks. Design X Factor. Where your content becomes their experience."
-                      </p>
-                      <button
-                        onClick={() => setShowVideo(false)}
-                        className="mt-4 px-6 py-2 bg-white/10 border border-white/20 text-white rounded-lg hover:bg-white/20 transition-all"
-                      >
-                        Close Preview
-                      </button>
-                    </div>
-                  </div>
+                  <video
+                    className="absolute inset-0 w-full h-full"
+                    src="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/dxf-start.mp4"
+                    controls
+                    autoPlay
+                    aria-label="Design X Factor Introduction Video - Learn how we transform your content into engaging learning experiences"
+                  >
+                    <track
+                      kind="captions"
+                      srcLang="en"
+                      label="English"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
                 )}
               </div>
             </div>

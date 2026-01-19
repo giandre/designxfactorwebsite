@@ -339,7 +339,7 @@ async function sendUserConfirmation(env: Env, data: LeadGenData) {
         </p>
 
         <p style="color: #0F172A; font-size: 16px; font-weight: 600; margin-bottom: 5px;">
-          Gio Daniele
+          Gio Duarte
         </p>
         <p style="color: #64748B; font-size: 14px; margin: 0;">
           Founder, Design X Factor<br>

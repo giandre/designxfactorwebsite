@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize, Minimize, Info } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize, Minimize } from 'lucide-react';
 
 interface AccessibleVideoPlayerProps {
   src: string;
@@ -21,10 +21,10 @@ export const AccessibleVideoPlayer: React.FC<AccessibleVideoPlayerProps> = ({
   className = ''
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const trackRef = useRef<HTMLTrackElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [showInfo, setShowInfo] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [showCaptions, setShowCaptions] = useState(false);
@@ -42,6 +42,12 @@ export const AccessibleVideoPlayer: React.FC<AccessibleVideoPlayerProps> = ({
     video.addEventListener('durationchange', handleDurationChange);
     video.addEventListener('play', handlePlay);
     video.addEventListener('pause', handlePause);
+
+    // Ensure captions are loaded
+    if (video.textTracks.length > 0) {
+      const track = video.textTracks[0];
+      track.mode = 'hidden'; // Start hidden
+    }
 
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate);
@@ -89,16 +95,18 @@ export const AccessibleVideoPlayer: React.FC<AccessibleVideoPlayerProps> = ({
 
   const toggleCaptions = () => {
     const video = videoRef.current;
-    if (!video || !video.textTracks.length) return;
+    if (!video || !video.textTracks || video.textTracks.length === 0) {
+      console.warn('No text tracks available');
+      return;
+    }
 
     const track = video.textTracks[0];
-    if (showCaptions) {
-      track.mode = 'hidden';
-      setShowCaptions(false);
-    } else {
-      track.mode = 'showing';
-      setShowCaptions(true);
-    }
+    const newShowState = !showCaptions;
+
+    track.mode = newShowState ? 'showing' : 'hidden';
+    setShowCaptions(newShowState);
+
+    console.log('Captions toggled:', newShowState, 'Track mode:', track.mode);
   };
 
   const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -248,19 +256,6 @@ export const AccessibleVideoPlayer: React.FC<AccessibleVideoPlayerProps> = ({
             </button>
           )}
 
-          {description && (
-            <button
-              onClick={() => setShowInfo(!showInfo)}
-              className={`p-2 hover:bg-white/20 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
-                showInfo ? 'bg-white/20' : ''
-              }`}
-              aria-label="Toggle video description"
-              aria-expanded={showInfo}
-            >
-              <Info size={20} />
-            </button>
-          )}
-
           <button
             onClick={toggleFullscreen}
             className="p-2 hover:bg-white/20 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
@@ -270,14 +265,6 @@ export const AccessibleVideoPlayer: React.FC<AccessibleVideoPlayerProps> = ({
           </button>
         </div>
       </div>
-
-      {/* Info Panel */}
-      {showInfo && description && (
-        <div className="absolute top-4 left-4 right-4 bg-black/90 p-4 rounded-lg text-white">
-          <div className="text-xs font-bold text-brand-red mb-2">VIDEO DESCRIPTION</div>
-          <p className="text-sm">{description}</p>
-        </div>
-      )}
 
       {/* Keyboard shortcuts hint */}
       <div className="sr-only" aria-live="polite" role="status">

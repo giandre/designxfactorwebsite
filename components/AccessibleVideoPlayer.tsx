@@ -167,21 +167,25 @@ export const AccessibleVideoPlayer: React.FC<AccessibleVideoPlayerProps> = ({
     >
       <video
         ref={videoRef}
-        className="w-full h-full"
+        className="w-full h-full object-cover"
         src={src}
         poster={poster}
         autoPlay={autoPlay}
         playsInline
+        preload="metadata"
+        disablePictureInPicture
+        disableRemotePlayback
+        crossOrigin="anonymous"
         aria-label={title}
         aria-describedby={description ? 'video-description' : undefined}
       >
         {captionsUrl && (
           <track
-            kind="captions"
+            ref={trackRef}
+            kind="subtitles"
             src={captionsUrl}
             srcLang="en"
             label="English"
-            default
           />
         )}
         Your browser does not support the video tag.

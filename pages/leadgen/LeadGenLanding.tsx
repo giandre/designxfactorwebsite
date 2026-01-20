@@ -91,6 +91,7 @@ export const LeadGenLanding: React.FC<LeadGenLandingProps> = ({ onNavigate, onSt
                 ) : (
                   <AccessibleVideoPlayer
                     src="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/dxf-start.mp4"
+                    poster="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/dxf-start-poster.jpg"
                     title="Design X Factor Introduction"
                     description="Learn how we transform your content into engaging learning experiences. We obsess over the experience—because learning isn't just about delivering content, it's about creating journeys that feel personal to each learner."
                     captionsUrl="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/dxf-start.vtt"

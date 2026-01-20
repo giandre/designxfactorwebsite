@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Play, ArrowRight, Clock, Shield, Sparkles } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Clock, Shield, Sparkles } from 'lucide-react';
 import { PageView } from '../../types';
 import { AccessibleVideoPlayer } from '../../components/AccessibleVideoPlayer';
 
@@ -9,7 +9,6 @@ interface LeadGenLandingProps {
 }
 
 export const LeadGenLanding: React.FC<LeadGenLandingProps> = ({ onNavigate, onStartJourney }) => {
-  const [showVideo, setShowVideo] = useState(false);
 
   const handleStartClick = () => {
     onStartJourney();
@@ -55,50 +54,15 @@ export const LeadGenLanding: React.FC<LeadGenLandingProps> = ({ onNavigate, onSt
 
             {/* Video Section */}
             <div className="max-w-4xl mx-auto mb-12">
-              <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-white/10 bg-gradient-to-br from-brand-red/20 via-brand-purple/20 to-brand-blue/20 group shadow-2xl">
-                {!showVideo ? (
-                  <>
-                    {/* Video Placeholder */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
-                      <div className="text-center space-y-6">
-                        <div
-                          className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto transition-all group-hover:scale-110 group-hover:bg-white/20 cursor-pointer border-2 border-white/20"
-                          onClick={() => setShowVideo(true)}
-                        >
-                          <Play size={48} className="text-white ml-2" />
-                        </div>
-                        <div>
-                          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                            Your Content. Their Experience.
-                          </h2>
-                          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-                            Watch how we transform training from information delivery to engaging experiences
-                          </p>
-                          <p className="text-slate-400 text-sm mt-4">
-                            ⏱️ 60 seconds
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => setShowVideo(true)}
-                      className="absolute inset-0 w-full h-full cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-space"
-                      aria-label="Play video"
-                    >
-                      <span className="sr-only">Play introduction video</span>
-                    </button>
-                  </>
-                ) : (
-                  <AccessibleVideoPlayer
-                    src="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/dxf-start.mp4"
-                    poster="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/dxf-start-poster.jpg"
-                    title="Design X Factor Introduction"
-                    description="Learn how we transform your content into engaging learning experiences. We obsess over the experience—because learning isn't just about delivering content, it's about creating journeys that feel personal to each learner."
-                    captionsUrl="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/dxf-start.vtt"
-                    autoPlay
-                    className="absolute inset-0"
-                  />
-                )}
+              <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl">
+                <AccessibleVideoPlayer
+                  src="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/video/dxf-start.mp4"
+                  poster="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/video/dxf-start-poster.jpg"
+                  title="Design X Factor Introduction"
+                  description="Learn how we transform your content into engaging learning experiences. We obsess over the experience—because learning isn't just about delivering content, it's about creating journeys that feel personal to each learner."
+                  captionsUrl="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/video/dxf-start.vtt"
+                  className="absolute inset-0"
+                />
               </div>
             </div>
 

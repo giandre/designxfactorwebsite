@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize, Minimize } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize, Minimize, PlayCircle } from 'lucide-react';
 
 interface AccessibleVideoPlayerProps {
   src: string;
@@ -165,6 +165,14 @@ export const AccessibleVideoPlayer: React.FC<AccessibleVideoPlayerProps> = ({
       role="region"
       aria-label={`Video player: ${title}`}
     >
+      <style>{`
+        video::-webkit-media-text-track-display {
+          padding-bottom: 70px;
+        }
+        video::cue {
+          line-height: 1.4;
+        }
+      `}</style>
       <video
         ref={videoRef}
         className="w-full h-full object-cover"
@@ -194,6 +202,19 @@ export const AccessibleVideoPlayer: React.FC<AccessibleVideoPlayerProps> = ({
       {description && (
         <div id="video-description" className="sr-only">
           {description}
+        </div>
+      )}
+
+      {/* Play Button Overlay - Shows when video is not playing */}
+      {!isPlaying && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity hover:bg-black/30">
+          <button
+            onClick={togglePlay}
+            className="w-20 h-20 rounded-full bg-white/90 hover:bg-white flex items-center justify-center transition-all hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-white shadow-2xl"
+            aria-label="Play video"
+          >
+            <Play size={40} className="text-black ml-1" fill="black" />
+          </button>
         </div>
       )}
 

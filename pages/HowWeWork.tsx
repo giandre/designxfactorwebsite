@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, ArrowRight, Check, User, FileText, Sparkles, Rocket, ChevronRight, Calendar } from 'lucide-react';
+import { Play, ArrowRight, ArrowLeft, Check, User, FileText, Sparkles, Rocket, ChevronRight, Calendar } from 'lucide-react';
 import { PageView } from '../types';
 
 interface HowWeWorkProps {
@@ -82,7 +82,7 @@ const IntroScreen: React.FC<{ onStart: () => void }> = ({ onStart }) => {
 };
 
 // Discovery Phase with progressive reveals
-const DiscoveryPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
+const DiscoveryPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ onNext, onBack }) => {
   const [answered, setAnswered] = useState<number[]>([]);
   const [showInsight, setShowInsight] = useState(false);
 
@@ -176,12 +176,20 @@ const DiscoveryPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
                 Now that we understand your goals, let's meet the people who will actually use your training.
               </p>
             </div>
-            <button
-              onClick={onNext}
-              className="inline-flex items-center gap-3 bg-brand-blue hover:bg-brand-blue/90 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-brand-blue/30"
-            >
-              Continue to Personas <ChevronRight size={24} />
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={onBack}
+                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40"
+              >
+                <ArrowLeft size={24} /> Back
+              </button>
+              <button
+                onClick={onNext}
+                className="inline-flex items-center gap-3 bg-brand-blue hover:bg-brand-blue/90 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-brand-blue/30"
+              >
+                Continue to Personas <ChevronRight size={24} />
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -190,7 +198,7 @@ const DiscoveryPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
 };
 
 // Personas Phase with flip card animations
-const PersonasPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
+const PersonasPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ onNext, onBack }) => {
   const [revealed, setRevealed] = useState<number[]>([]);
   const [allRevealed, setAllRevealed] = useState(false);
 
@@ -307,12 +315,20 @@ const PersonasPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
                 not assumptions about your audience."
               </p>
             </div>
-            <button
-              onClick={onNext}
-              className="inline-flex items-center gap-3 bg-brand-purple hover:bg-brand-purple/90 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-brand-purple/30"
-            >
-              See Design Validation <ChevronRight size={24} />
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={onBack}
+                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40"
+              >
+                <ArrowLeft size={24} /> Back
+              </button>
+              <button
+                onClick={onNext}
+                className="inline-flex items-center gap-3 bg-brand-purple hover:bg-brand-purple/90 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-brand-purple/30"
+              >
+                See Design Validation <ChevronRight size={24} />
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -321,7 +337,7 @@ const PersonasPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
 };
 
 // Validation Phase with interactive choice
-const ValidationPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
+const ValidationPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ onNext, onBack }) => {
   const [selected, setSelected] = useState<'A' | 'B' | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const feedbackRef = useRef<HTMLDivElement>(null);
@@ -449,12 +465,20 @@ const ValidationPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
                 </>
               )}
             </div>
-            <button
-              onClick={onNext}
-              className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-400 text-black px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg"
-            >
-              Review Content <ChevronRight size={24} />
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={onBack}
+                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40"
+              >
+                <ArrowLeft size={24} /> Back
+              </button>
+              <button
+                onClick={onNext}
+                className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-400 text-black px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg"
+              >
+                Review Content <ChevronRight size={24} />
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -463,7 +487,7 @@ const ValidationPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
 };
 
 // Review Phase with document approval
-const ReviewPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
+const ReviewPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ onNext, onBack }) => {
   const [approved, setApproved] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -624,12 +648,20 @@ const ReviewPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
                   <span className="text-white font-semibold"> You know exactly what you're getting.</span>
                 </p>
               </div>
-              <button
-                onClick={onNext}
-                className="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-emerald-500/30"
-              >
-                See Your Delivery <ChevronRight size={24} />
-              </button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button
+                  onClick={onBack}
+                  className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40"
+                >
+                  <ArrowLeft size={24} /> Back
+                </button>
+                <button
+                  onClick={onNext}
+                  className="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-emerald-500/30"
+                >
+                  See Your Delivery <ChevronRight size={24} />
+                </button>
+              </div>
             </div>
           )}
         </div>
@@ -639,7 +671,7 @@ const ReviewPhase: React.FC<{ onNext: () => void }> = ({ onNext }) => {
 };
 
 // Delivery Phase with celebration
-const DeliveryPhase: React.FC<{ onRestart: () => void; onNavigate: (page: PageView) => void }> = ({ onRestart, onNavigate }) => {
+const DeliveryPhase: React.FC<{ onRestart: () => void; onNavigate: (page: PageView) => void; onBack: () => void }> = ({ onRestart, onNavigate, onBack }) => {
   const [showCelebration, setShowCelebration] = useState(false);
 
   useEffect(() => {
@@ -748,7 +780,7 @@ const DeliveryPhase: React.FC<{ onRestart: () => void; onNavigate: (page: PageVi
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
             <button
               onClick={() => onNavigate('start')}
               className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-red to-orange-500 hover:from-brand-red/90 hover:to-orange-500/90 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-brand-red/30"
@@ -762,6 +794,14 @@ const DeliveryPhase: React.FC<{ onRestart: () => void; onNavigate: (page: PageVi
               className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-10 py-6 rounded-2xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40"
             >
               Experience Again
+            </button>
+          </div>
+          <div className="flex justify-center">
+            <button
+              onClick={onBack}
+              className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white px-6 py-3 rounded-xl font-medium text-sm transition-all border border-white/10 hover:border-white/20"
+            >
+              <ArrowLeft size={20} /> Back to Review
             </button>
           </div>
         </div>
@@ -811,6 +851,13 @@ export const HowWeWork: React.FC<HowWeWorkProps> = ({ onNavigate }) => {
     }
   };
 
+  const previousPhase = () => {
+    if (currentPhase > 0) {
+      setCurrentPhase(currentPhase - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const restart = () => {
     setCurrentPhase(0);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -821,15 +868,15 @@ export const HowWeWork: React.FC<HowWeWorkProps> = ({ onNavigate }) => {
       case 'intro':
         return <IntroScreen onStart={nextPhase} />;
       case 'discovery':
-        return <DiscoveryPhase onNext={nextPhase} />;
+        return <DiscoveryPhase onNext={nextPhase} onBack={previousPhase} />;
       case 'personas':
-        return <PersonasPhase onNext={nextPhase} />;
+        return <PersonasPhase onNext={nextPhase} onBack={previousPhase} />;
       case 'validation':
-        return <ValidationPhase onNext={nextPhase} />;
+        return <ValidationPhase onNext={nextPhase} onBack={previousPhase} />;
       case 'review':
-        return <ReviewPhase onNext={nextPhase} />;
+        return <ReviewPhase onNext={nextPhase} onBack={previousPhase} />;
       case 'delivery':
-        return <DeliveryPhase onRestart={restart} onNavigate={onNavigate} />;
+        return <DeliveryPhase onRestart={restart} onNavigate={onNavigate} onBack={previousPhase} />;
       default:
         return null;
     }

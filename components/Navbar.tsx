@@ -219,6 +219,17 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
             )}
           </div>
 
+          {/* How We Work Link */}
+          <button
+            onClick={() => handlePageClick('how-we-work')}
+            className={`flex items-center gap-1 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded px-2 py-1 ${
+              currentPage === 'how-we-work' ? 'text-white' : 'text-slate-300 hover:text-white'
+            }`}
+          >
+            <Wrench size={16} className="mr-1" />
+            How We Work
+          </button>
+
           {/* Portfolio Link */}
           <button
             onClick={() => handlePageClick('portfolio')}
@@ -343,6 +354,19 @@ export const Navbar: React.FC<NavProps> = ({ onNavigate, currentPage }) => {
                   <span className="text-slate-300 text-xs">eBooks, Videos, Courses & more</span>
                 </div>
               </button>
+              <button
+                onClick={() => handlePageClick('how-we-work')}
+                className="w-full flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10"
+              >
+                <Wrench size={18} className="text-brand-red" aria-hidden="true" />
+                <div className="text-left">
+                  <span className="text-white font-medium block">How We Work</span>
+                  <span className="text-slate-300 text-xs">Experience our process</span>
+                </div>
+              </button>
+            </div>
+
+            <div>
               <button
                 onClick={() => handlePageClick('portfolio')}
                 className="w-full flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10"

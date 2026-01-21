@@ -14,6 +14,7 @@ import { LearningTransformer } from './pages/products/LearningTransformer';
 import { ContentDebtAudit } from './pages/tools/ContentDebtAudit';
 import { TransformationPipeline } from './pages/products/TransformationPipeline';
 import { LeadGen } from './pages/leadgen/LeadGen';
+import { HowWeWork } from './pages/HowWeWork';
 import { PageView } from './types';
 
 // SEO Configuration per page
@@ -62,6 +63,10 @@ const seoConfigs: Record<PageView, { title: string; description: string }> = {
     title: 'Discover What We Can Create for You | Design X Factor',
     description: 'Interactive discovery experience - find out exactly what we can create for your organization in 2 minutes.',
   },
+  'how-we-work': {
+    title: 'How We Work | Interactive Process Experience | Design X Factor',
+    description: 'Experience our 9-phase methodology firsthand. Step into the role of a client and see how we transform content into engaging learning experiences.',
+  },
 };
 
 // Page titles for screen reader announcements
@@ -77,6 +82,7 @@ const pageTitles: Record<PageView, string> = {
   privacy: 'Privacy Policy',
   api: 'API Documentation',
   start: 'Project Discovery',
+  'how-we-work': 'How We Work Process Experience',
 };
 
 function App() {
@@ -104,7 +110,8 @@ function App() {
         'api',
         'audit',
         'pipeline',
-        'start'
+        'start',
+        'how-we-work'
       ];
 
       if (validPages.includes(hash as PageView)) {
@@ -187,6 +194,8 @@ function App() {
         return <ContentDebtAudit onNavigate={handleNavigate} />;
       case 'start':
         return <LeadGen onNavigate={handleNavigate} />;
+      case 'how-we-work':
+        return <HowWeWork onNavigate={handleNavigate} />;
       case 'thank-you':
         return <ThankYou onNavigate={handleNavigate} />;
       case 'terms':

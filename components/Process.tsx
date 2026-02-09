@@ -64,7 +64,7 @@ export const Process: React.FC<{ onNavigate: (page: PageView) => void }> = ({ on
   const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
   const [headerVisible, setHeaderVisible] = useState(false);
   const [ctaVisible, setCtaVisible] = useState(false);
-  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
@@ -90,7 +90,10 @@ export const Process: React.FC<{ onNavigate: (page: PageView) => void }> = ({ on
       { threshold: 0.2 }
     );
 
-    stepRefs.current.forEach(ref => { if (ref) observer.observe(ref); });
+    // Query all visible step elements in the DOM (avoids desktop/mobile ref collision)
+    if (sectionRef.current) {
+      sectionRef.current.querySelectorAll('[data-step]').forEach(el => observer.observe(el));
+    }
     if (headerRef.current) observer.observe(headerRef.current);
     if (ctaRef.current) observer.observe(ctaRef.current);
     return () => observer.disconnect();
@@ -98,6 +101,7 @@ export const Process: React.FC<{ onNavigate: (page: PageView) => void }> = ({ on
 
   return (
     <section
+      ref={sectionRef}
       className="py-24 bg-gradient-to-b from-transparent via-white/[0.01] to-transparent relative overflow-hidden"
       aria-labelledby="process-heading"
     >
@@ -132,7 +136,6 @@ export const Process: React.FC<{ onNavigate: (page: PageView) => void }> = ({ on
             {steps.map((step, idx) => (
               <div
                 key={step.id}
-                ref={el => { stepRefs.current[idx] = el; }}
                 data-step={idx}
                 className="relative transition-all duration-600"
                 style={{
@@ -177,7 +180,6 @@ export const Process: React.FC<{ onNavigate: (page: PageView) => void }> = ({ on
           {steps.map((step, idx) => (
             <div
               key={step.id}
-              ref={el => { if (!stepRefs.current[idx]) stepRefs.current[idx] = el; }}
               data-step={idx}
               className="relative flex gap-4 transition-all"
               style={{

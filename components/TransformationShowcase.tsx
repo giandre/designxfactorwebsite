@@ -23,7 +23,7 @@ const transformations: Transformation[] = [
   },
   {
     id: 'entrepreneurship',
-    industry: 'Higher Education',
+    industry: 'Corporate Training',
     title: '7-week entrepreneurship course',
     beforeLabel: 'PowerPoint slides and printed handouts',
     afterLabel: 'Immersive mountain climbing learning journey',
@@ -32,7 +32,7 @@ const transformations: Transformation[] = [
   },
   {
     id: 'healthcare',
-    industry: 'Healthcare',
+    industry: 'Higher Education Healthcare',
     title: 'AI essentials for clinical staff',
     beforeLabel: 'Text-heavy compliance documents',
     afterLabel: 'Futuristic clinical dashboard experience',

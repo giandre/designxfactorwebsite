@@ -188,7 +188,14 @@ export const Hero: React.FC = () => {
   };
 
   const scrollToNext = () => {
-    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+    // Hero is 150vh for parallax effect; scroll past it to the next section
+    const heroSection = document.querySelector('[aria-label="Hero section - Corporate training transformation"]');
+    if (heroSection) {
+      const nextSectionTop = heroSection.getBoundingClientRect().height + heroSection.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: nextSectionTop, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: window.innerHeight * 1.5, behavior: 'smooth' });
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

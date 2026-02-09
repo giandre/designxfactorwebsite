@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavProps, PageView } from '../types';
-import { CheckCircle, ShieldCheck, Zap, BookOpen, Layers, Activity, BarChart3, Lock, Server } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 interface LegalProps {
   page: PageView;
@@ -178,50 +178,6 @@ export const Legal: React.FC<LegalProps> = ({ page }) => {
               </div>
             </div>
           </>
-        );
-      case 'api':
-        return (
-          <div className="flex flex-col items-center justify-center py-10 text-center">
-             <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mb-8 border border-white/20 backdrop-blur-md">
-                <Zap className="text-white w-12 h-12" />
-             </div>
-             
-             <span className="bg-brand-red text-white px-6 py-2 rounded-full text-sm font-bold tracking-widest mb-8">COMING SOON</span>
-             
-             <h1 className="text-5xl font-black text-white mb-6">API Documentation</h1>
-             <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-16">
-               Build powerful integrations with Design X Factor's AI-powered learning platform. Our comprehensive API will enable you to programmatically transform educational content, integrate with your systems, and create custom learning experiences.
-             </p>
-             
-             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left max-w-5xl w-full mb-16">
-                {[
-                  { icon: Zap, title: "RESTful API", desc: "Easy-to-use endpoints for transformation & analytics" },
-                  { icon: BookOpen, title: "Comprehensive Docs", desc: "Detailed guides & interactive explorer" },
-                  { icon: ShieldCheck, title: "Secure Auth", desc: "OAuth 2.0 & API key authentication" },
-                  { icon: Layers, title: "LMS Integration", desc: "Pre-built connectors for Canvas & Blackboard" },
-                  { icon: Activity, title: "Webhooks", desc: "Real-time notifications for events" },
-                  { icon: BarChart3, title: "Analytics API", desc: "Access engagement metrics & outcomes" }
-                ].map((item, i) => (
-                  <div key={i} className="bg-white/5 p-6 rounded-xl border border-white/10 backdrop-blur hover:bg-white/10 transition-colors">
-                    <h4 className="text-[#FCA5A5] font-bold mb-2 flex items-center gap-3 text-lg">
-                       <item.icon size={20} /> {item.title}
-                    </h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-             </div>
-
-             <div className="bg-white rounded-2xl p-8 max-w-lg w-full text-center">
-                <h3 className="text-brand-blue text-2xl font-bold mb-4">Get Notified When We Launch</h3>
-                <p className="text-slate-600 mb-6">Be the first to know when our API documentation is available.</p>
-                <div className="space-y-4">
-                  <input type="email" placeholder="your-email@institution.edu" className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue outline-none text-slate-900" />
-                  <button className="w-full bg-brand-blue text-white font-bold py-3 rounded-lg hover:bg-sky-600 transition-colors">
-                    Notify Me
-                  </button>
-                </div>
-             </div>
-          </div>
         );
       default:
         return null;

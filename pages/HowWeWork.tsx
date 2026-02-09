@@ -782,7 +782,13 @@ const DeliveryPhase: React.FC<{ onRestart: () => void; onNavigate: (page: PageVi
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
             <button
-              onClick={() => onNavigate('start')}
+              onClick={() => {
+                onNavigate('home');
+                setTimeout(() => {
+                  const el = document.getElementById('contact');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+              }}
               className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-red to-orange-500 hover:from-brand-red/90 hover:to-orange-500/90 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-brand-red/30"
             >
               <Calendar size={28} />

@@ -21,9 +21,9 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
       className="relative z-30 border-t border-white/10 bg-space pt-20 pb-8 px-6"
       role="contentinfo"
     >
-      <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 mb-16">
         {/* Brand Column */}
-        <div className="md:col-span-1">
+        <div>
           <div className="flex items-center gap-2 mb-6">
             <img
               src="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/DXF_logo-white.png"
@@ -32,80 +32,28 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
             />
           </div>
           <p className="text-slate-300 text-sm leading-relaxed mb-4">
-            We design learning experiences. Transform your content into engaging eBooks, videos, podcasts, and courses.
+            We transform static corporate training into experiences learners actually remember.
           </p>
           <p className="text-slate-500 text-xs">
-            Powered by our proprietary transformation technology.
+            Custom design for YOUR audience — never templates.
           </p>
         </div>
 
-        {/* Services Navigation */}
-        <nav aria-labelledby="footer-services-heading">
+        {/* Explore Navigation */}
+        <nav aria-labelledby="footer-explore-heading">
           <h4
-            id="footer-services-heading"
+            id="footer-explore-heading"
             className="font-bold text-white mb-6 uppercase tracking-wider text-sm"
           >
-            Services
+            Explore
           </h4>
           <ul className="space-y-4 text-slate-300 text-sm">
             <li>
               <button
-                onClick={() => handleLink('services', true)}
+                onClick={() => handleLink('how-we-work', true)}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
-                All Services
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => handleLink('services', true)}
-                className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
-              >
-                eBook Creation
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => handleLink('services', true)}
-                className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
-              >
-                Video Production
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => handleLink('services', true)}
-                className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
-              >
-                Course Development
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => handleLink('services', true)}
-                className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
-              >
-                Accessibility
-              </button>
-            </li>
-          </ul>
-        </nav>
-
-        {/* Resources Navigation */}
-        <nav aria-labelledby="footer-resources-heading">
-          <h4
-            id="footer-resources-heading"
-            className="font-bold text-white mb-6 uppercase tracking-wider text-sm"
-          >
-            Resources
-          </h4>
-          <ul className="space-y-4 text-slate-300 text-sm">
-            <li>
-              <button
-                onClick={() => handleLink('portfolio', true)}
-                className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
-              >
-                Portfolio
+                How We Work
               </button>
             </li>
             <li>
@@ -118,32 +66,24 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
             </li>
             <li>
               <button
-                onClick={() => handleLink('audit', true)}
-                className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
-              >
-                Content Debt Audit
-              </button>
-            </li>
-          </ul>
-        </nav>
-
-        {/* Company Navigation */}
-        <nav aria-labelledby="footer-company-heading">
-          <h4
-            id="footer-company-heading"
-            className="font-bold text-white mb-6 uppercase tracking-wider text-sm"
-          >
-            Company
-          </h4>
-          <ul className="space-y-4 text-slate-300 text-sm">
-            <li>
-              <button
                 onClick={() => handleLink('contact')}
                 className="hover:text-brand-blue transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               >
                 Contact Us
               </button>
             </li>
+          </ul>
+        </nav>
+
+        {/* Legal Navigation */}
+        <nav aria-labelledby="footer-legal-heading">
+          <h4
+            id="footer-legal-heading"
+            className="font-bold text-white mb-6 uppercase tracking-wider text-sm"
+          >
+            Legal
+          </h4>
+          <ul className="space-y-4 text-slate-300 text-sm">
             <li>
               <button
                 onClick={() => handleLink('privacy', true)}
@@ -166,8 +106,13 @@ export const Footer: React.FC<NavProps> = ({ onNavigate }) => {
 
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto pt-8 border-t border-white/5 text-center text-slate-400 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
-        <p>© {new Date().getFullYear()} Design X Factor. All rights reserved.</p>
-        <p>Bueno. Bonito. Barato. — Quality, Beauty, Affordability.</p>
+        <p>&copy; {new Date().getFullYear()} Design X Factor. All rights reserved.</p>
+        <p>
+          <span className="text-brand-gold">Bueno.</span>{' '}
+          <span className="text-brand-purple">Bonito.</span>{' '}
+          <span className="text-brand-blue">Barato.</span>{' '}
+          <span className="text-slate-500">— Quality, Beauty, Affordability.</span>
+        </p>
       </div>
     </footer>
   );

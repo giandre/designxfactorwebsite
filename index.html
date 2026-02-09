@@ -6,10 +6,10 @@
     <meta name="theme-color" content="#050508" />
     
     <!-- Primary Meta Tags -->
-    <title>Design X Factor | Premium Learning Content Creation</title>
-    <meta name="title" content="Design X Factor | Premium Learning Content Creation" />
-    <meta name="description" content="We create engaging eBooks, videos, podcasts, and full courses that captivate learners. Professional content production with built-in accessibility for education and corporate training." />
-    <meta name="keywords" content="ebook creation, video production, course development, podcast production, learning content, corporate training, educational videos, accessible content, instructional design" />
+    <title>DesignXFactor | Your Training Content Exists. We Make It Unforgettable.</title>
+    <meta name="title" content="DesignXFactor | Your Training Content Exists. We Make It Unforgettable." />
+    <meta name="description" content="We transform static corporate training into experiences learners actually remember. Custom design for YOUR audience — in weeks, not months. WCAG 2.1 AA compliant." />
+    <meta name="keywords" content="corporate training design, learning experience design, training transformation, interactive training, WCAG compliant training, elearning design, course development, accessible training" />
     <meta name="author" content="Design X Factor" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
@@ -17,8 +17,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://designxfactor.com/" />
-    <meta property="og:title" content="Design X Factor | Premium Learning Content Creation" />
-    <meta property="og:description" content="We create engaging eBooks, videos, podcasts, and full courses that captivate learners. Professional content production for education and corporate training." />
+    <meta property="og:title" content="DesignXFactor | Your Training Content Exists. We Make It Unforgettable." />
+    <meta property="og:description" content="We transform static corporate training into experiences learners actually remember. Custom design for YOUR audience — in weeks, not months." />
     <meta property="og:image" content="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/og-image.png" />
     <meta property="og:site_name" content="Design X Factor" />
     <meta property="og:locale" content="en_US" />
@@ -26,8 +26,8 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://designxfactor.com/" />
-    <meta name="twitter:title" content="Design X Factor | Premium Learning Content Creation" />
-    <meta name="twitter:description" content="We create engaging eBooks, videos, podcasts, and full courses that captivate learners. Professional content production for education and corporate training." />
+    <meta name="twitter:title" content="DesignXFactor | Your Training Content Exists. We Make It Unforgettable." />
+    <meta name="twitter:description" content="We transform static corporate training into experiences learners actually remember. Custom design for YOUR audience — in weeks, not months." />
     <meta name="twitter:image" content="https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/og-image.png" />
 
     <!-- Canonical URL -->
@@ -48,13 +48,13 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Design X Factor",
-      "description": "Professional learning content creation services. We produce engaging eBooks, videos, podcasts, and full courses for education and corporate training.",
+      "description": "We transform static corporate training into experiences learners actually remember. Custom learning experience design — in weeks, not months.",
       "url": "https://designxfactor.com",
       "logo": "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/DXF_logo-white.png",
       "image": "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/og-image.png",
       "priceRange": "$$",
       "areaServed": "Worldwide",
-      "serviceType": ["eBook Creation", "Video Production", "Podcast Production", "Course Development", "Accessibility Remediation"],
+      "serviceType": ["Learning Experience Design", "Corporate Training Transformation", "Course Development", "Accessibility Remediation"],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Learning Content Services",
@@ -96,7 +96,7 @@
       "name": "Design X Factor",
       "url": "https://designxfactor.com",
       "logo": "https://pub-e5994fd168b34b10b119b4228ec3bf11.r2.dev/DXF_logo-white.png",
-      "description": "Premium learning content creation studio. We produce eBooks, videos, podcasts, and courses that engage learners and meet accessibility standards.",
+      "description": "We transform static corporate training into experiences learners actually remember. Custom learning experience design, WCAG 2.1 AA compliant.",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
@@ -208,6 +208,32 @@
       .orbit-obj-r2 { animation: counter-spin-rev 55s linear infinite; }
       .orbit-obj-r3 { animation: counter-spin 70s linear infinite; }
       .orbit-obj-r4 { animation: counter-spin-rev 100s linear infinite; }
+
+      /* Shimmer highlight sweep for gradient text */
+      @keyframes shimmer {
+        0% { background-position: 200% center; }
+        100% { background-position: -200% center; }
+      }
+
+      /* Subtle glow pulse for cards */
+      @keyframes glow-pulse-red {
+        0%, 100% { border-color: rgba(255, 77, 109, 0.2); box-shadow: 0 0 0 rgba(255, 77, 109, 0); }
+        50% { border-color: rgba(255, 77, 109, 0.35); box-shadow: 0 0 20px rgba(255, 77, 109, 0.08); }
+      }
+
+      /* Glitch shake for transformation destabilize phase */
+      @keyframes glitch-shake {
+        0%, 100% { transform: translate(0, 0); }
+        10% { transform: translate(-4px, 2px); }
+        20% { transform: translate(3px, -3px); }
+        30% { transform: translate(-3px, -1px); }
+        40% { transform: translate(4px, 2px); }
+        50% { transform: translate(-2px, 3px); }
+        60% { transform: translate(3px, -2px); }
+        70% { transform: translate(-4px, 1px); }
+        80% { transform: translate(2px, -3px); }
+        90% { transform: translate(-2px, 2px); }
+      }
 
       /* Reduced Motion - Comprehensive */
       @media (prefers-reduced-motion: reduce) {

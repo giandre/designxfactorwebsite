@@ -26,8 +26,8 @@ export interface LayerContent {
   hex: string;
 }
 
-// UPDATED: Added services, portfolio, start, and how-we-work pages
-export type PageView = 'home' | 'terms' | 'privacy' | 'api' | 'thank-you' | 'learning-transformer' | 'audit' | 'pipeline' | 'services' | 'portfolio' | 'start' | 'how-we-work';
+// Simplified navigation - focused on core training message
+export type PageView = 'home' | 'how-we-work' | 'terms' | 'privacy' | 'thank-you';
 
 export interface NavProps {
   onNavigate: (page: PageView) => void;

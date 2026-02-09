@@ -1,8 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { NavProps } from '../types';
 
 export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNavigate }) => {
+  const [sectionVisible, setSectionVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setSectionVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) setSectionVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -82,7 +102,14 @@ export const Contact: React.FC<{ onNavigate: NavProps['onNavigate'] }> = ({ onNa
 
   return (
     <section id="contact" className="py-24 bg-slate-50 relative z-30 scroll-mt-24">
-      <div className="container mx-auto px-6 max-w-4xl">
+      <div
+        ref={sectionRef}
+        className="container mx-auto px-6 max-w-4xl transition-all duration-700"
+        style={{
+          opacity: sectionVisible ? 1 : 0,
+          transform: sectionVisible ? 'translateY(0)' : 'translateY(40px)',
+        }}
+      >
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Ready to Transform Your Learning Experience?</h2>
           <p className="text-lg text-slate-600">

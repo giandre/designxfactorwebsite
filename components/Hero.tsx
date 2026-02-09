@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { FileText, FileType, Presentation, FileSpreadsheet, Code, ChevronDown } from 'lucide-react';
+import { FileText, FileType, Presentation, FileSpreadsheet, ChevronDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const [orbiters, setOrbiters] = useState<any[]>([]);
@@ -7,13 +7,13 @@ export const Hero: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  const types = ['pdf', 'doc', 'ppt', 'xls', 'html'];
+  const types = ['pdf', 'doc', 'ppt', 'xls'];
 
   // Check for reduced motion preference
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
-    
+
     const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
     mediaQuery.addEventListener('change', handler);
     return () => mediaQuery.removeEventListener('change', handler);
@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
 
   useEffect(() => {
     if (prefersReducedMotion) return;
-    
+
     const initial: any[] = [];
     for (let i = 0; i < 18; i++) {
       initial.push(createOrbiter(i));
@@ -69,16 +69,16 @@ export const Hero: React.FC = () => {
 
   useEffect(() => {
     if (prefersReducedMotion) return;
-    
+
     const interval = setInterval(() => {
       setOrbiters(prev => {
         if (prev.length < 10) return prev;
-        
+
         const idx = Math.floor(Math.random() * prev.length);
         const chosen = prev[idx];
-        
+
         setFallers(f => [...f, createFaller(Date.now(), chosen)]);
-        
+
         const newOrbiters = prev.filter((_, i) => i !== idx);
         const replacement = createOrbiter(Date.now() + 1);
         return [...newOrbiters, replacement];
@@ -90,7 +90,7 @@ export const Hero: React.FC = () => {
 
   useEffect(() => {
     if (prefersReducedMotion) return;
-    
+
     let animationId: number;
 
     const animate = () => {
@@ -106,7 +106,7 @@ export const Hero: React.FC = () => {
             const newDistance = p.distance - p.speed;
             const newSpeed = p.speed * 1.012;
             const newOrbitSpeed = p.orbitSpeed * 1.008;
-            
+
             return {
               ...p,
               distance: newDistance,
@@ -127,7 +127,6 @@ export const Hero: React.FC = () => {
   }, [prefersReducedMotion]);
 
   const scrollThreshold = 900;
-  // Only apply effects when scrolling down, ensure clean reset at top
   const progress = scrollY <= 10 ? 0 : Math.min(Math.max(scrollY / scrollThreshold, 0), 1);
   const heroOpacity = 1 - Math.pow(progress, 2);
   const heroBlur = progress * 10;
@@ -138,7 +137,6 @@ export const Hero: React.FC = () => {
       doc: { color: 'bg-blue-500', icon: FileText, iconColor: 'text-blue-500', label: 'DOCX' },
       ppt: { color: 'bg-orange-500', icon: Presentation, iconColor: 'text-orange-500', label: 'PPTX' },
       xls: { color: 'bg-green-500', icon: FileSpreadsheet, iconColor: 'text-green-500', label: 'XLSX' },
-      html: { color: 'bg-purple-500', icon: Code, iconColor: 'text-purple-500', label: 'HTML' },
     };
     return styles[type] || styles.doc;
   };
@@ -148,16 +146,16 @@ export const Hero: React.FC = () => {
     const wobbleOffset = isFalling ? 0 : Math.sin(p.wobble) * 8;
     const x = Math.cos(p.angle) * dist;
     const y = Math.sin(p.angle) * dist + wobbleOffset;
-    
+
     let opacity = 0.9;
     if (isFalling && p.distance < 80) {
       opacity = (p.distance - 20) / 60;
     }
-    
-    const scale = isFalling 
+
+    const scale = isFalling
       ? p.scale * (1 + (350 - p.distance) / 500)
       : p.scale;
-    
+
     const style = getStyle(p.type);
     const Icon = style.icon;
 
@@ -201,25 +199,25 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section 
+    <section
       className="relative h-[150vh] bg-space"
-      aria-label="Hero section - Transform your content experience"
+      aria-label="Hero section - Corporate training transformation"
     >
       {/* Sticky Container */}
       <div className="sticky top-0 left-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center perspective-[1200px]">
-        
-        {/* Background Gradients - Decorative */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-b from-[#050508] via-[#0a0a15] to-[#050508] opacity-90" 
+
+        {/* Background Gradients */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[#050508] via-[#0a0a15] to-[#050508] opacity-90"
           aria-hidden="true"
         />
-        <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-[80px] animate-pulse-slow" 
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-[80px] animate-pulse-slow"
           aria-hidden="true"
         />
 
-        {/* Center glow - Decorative */}
-        <div 
+        {/* Center glow */}
+        <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           aria-hidden="true"
         >
@@ -228,10 +226,10 @@ export const Hero: React.FC = () => {
           <div className="absolute -inset-16 bg-blue-500/10 rounded-full blur-2xl" />
         </div>
 
-        {/* Particles container - Decorative animation */}
+        {/* Orbiting file particles */}
         {!prefersReducedMotion && (
-          <div 
-            className="absolute inset-0 overflow-hidden" 
+          <div
+            className="absolute inset-0 overflow-hidden"
             style={{ perspective: '600px' }}
             aria-hidden="true"
             role="presentation"
@@ -257,25 +255,27 @@ export const Hero: React.FC = () => {
           />
 
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter mb-6 drop-shadow-2xl">
-            We Design{' '}
+            Your Training Content Exists.{' '}
             <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-brand-purple to-brand-red">
-              Learning Experiences
+              We Make It Unforgettable.
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-slate-300 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
-            From PDF to podcast. From manual to masterclass. We transform your content into engaging, accessible experiences — in weeks, not months.
+            We transform static corporate training into experiences that learners actually remember — in weeks, not months.
           </p>
 
-          <button
-            onClick={scrollToNext}
-            className="px-8 py-3 bg-brand-red hover:bg-brand-red/90 rounded-full text-white font-semibold transition-all shadow-[0_0_30px_rgba(255,77,109,0.3)] hover:shadow-[0_0_40px_rgba(255,77,109,0.5)] mb-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-space"
-          >
-            Explore Our Services
-          </button>
+          <div className="flex justify-center mb-8">
+            <button
+              onClick={scrollToNext}
+              className="px-8 py-3 bg-brand-red hover:bg-brand-red/90 rounded-full text-white font-semibold transition-all shadow-[0_0_30px_rgba(255,77,109,0.3)] hover:shadow-[0_0_40px_rgba(255,77,109,0.5)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-space"
+            >
+              See What We Do
+            </button>
+          </div>
 
-          <div 
+          <div
             onClick={scrollToNext}
             onKeyDown={handleKeyDown}
             role="button"

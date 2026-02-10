@@ -264,6 +264,7 @@ export const SampleViewer: React.FC<SampleViewerProps> = ({
       <div
         className="absolute inset-0 bg-black/90 backdrop-blur-sm"
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Modal Content */}

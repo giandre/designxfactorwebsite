@@ -53,7 +53,7 @@ const IntroScreen: React.FC<{ onStart: () => void }> = ({ onStart }) => {
 
         <button
           onClick={onStart}
-          className="group relative flex items-center gap-3 mx-auto bg-gradient-to-r from-brand-red to-orange-500 hover:from-brand-red/90 hover:to-orange-500/90 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-brand-red/30"
+          className="group relative flex items-center gap-3 mx-auto bg-gradient-to-r from-brand-red to-orange-500 hover:from-brand-red/90 hover:to-orange-500/90 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-brand-red/30 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-red/50"
         >
           <Play size={28} className="group-hover:scale-110 transition-transform" />
           <span>Begin Your Journey</span>
@@ -141,7 +141,7 @@ const DiscoveryPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ 
               <button
                 key={idx}
                 onClick={() => handleAnswer(idx)}
-                className={`w-full text-left p-8 rounded-2xl border-2 transition-all transform hover:scale-[1.02] ${
+                className={`w-full text-left p-8 rounded-2xl border-2 transition-all transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/50 ${
                   isAnswered
                     ? 'bg-brand-blue/10 border-brand-blue/50 shadow-lg shadow-brand-blue/20'
                     : 'bg-white/5 border-white/10 hover:border-brand-blue/30 hover:bg-white/10'
@@ -179,13 +179,13 @@ const DiscoveryPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={onBack}
-                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40"
+                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
               >
                 <ArrowLeft size={24} /> Back
               </button>
               <button
                 onClick={onNext}
-                className="inline-flex items-center gap-3 bg-brand-blue hover:bg-brand-blue/90 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-brand-blue/30"
+                className="inline-flex items-center gap-3 bg-brand-blue hover:bg-brand-blue/90 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-brand-blue/30 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-blue/50"
               >
                 Continue to Personas <ChevronRight size={24} />
               </button>
@@ -254,7 +254,7 @@ const PersonasPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ o
             Not just stakeholders. We interview the <em>real people</em> who will use your training.
           </p>
           <p className="text-slate-500">
-            Click each card to discover who we found.
+            Click or press Enter on each card to discover who we found.
           </p>
         </div>
 
@@ -266,7 +266,11 @@ const PersonasPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ o
               <div
                 key={idx}
                 onClick={() => revealPersona(idx)}
-                className={`relative p-8 rounded-3xl border-2 cursor-pointer transition-all duration-500 transform hover:scale-105 ${
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); revealPersona(idx); } }}
+                role="button"
+                tabIndex={0}
+                aria-label={isRevealed ? `Persona ${idx + 1}: ${persona.name}, ${persona.role}` : `Reveal persona ${idx + 1}`}
+                className={`relative p-8 rounded-3xl border-2 cursor-pointer transition-all duration-500 transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2 focus-visible:ring-offset-space ${
                   isRevealed
                     ? 'bg-brand-purple/10 border-brand-purple/50 shadow-2xl shadow-brand-purple/20'
                     : 'bg-white/5 border-white/10 hover:border-brand-purple/30'
@@ -278,7 +282,7 @@ const PersonasPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ o
                     <div className="w-24 h-24 mx-auto bg-gradient-to-br from-brand-purple/20 to-brand-red/20 rounded-full flex items-center justify-center mb-6 border-2 border-white/20">
                       <span className="text-5xl animate-pulse">?</span>
                     </div>
-                    <p className="text-slate-400 font-medium">Click to reveal</p>
+                    <p className="text-slate-400 font-medium">Press to reveal</p>
                     <p className="text-slate-600 text-sm mt-2">Persona #{idx + 1}</p>
                   </div>
                 ) : (
@@ -318,13 +322,13 @@ const PersonasPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ o
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={onBack}
-                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40"
+                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
               >
                 <ArrowLeft size={24} /> Back
               </button>
               <button
                 onClick={onNext}
-                className="inline-flex items-center gap-3 bg-brand-purple hover:bg-brand-purple/90 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-brand-purple/30"
+                className="inline-flex items-center gap-3 bg-brand-purple hover:bg-brand-purple/90 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-brand-purple/30 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-purple/50"
               >
                 See Design Validation <ChevronRight size={24} />
               </button>
@@ -378,7 +382,7 @@ const ValidationPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({
             <button
               onClick={() => handleSelect('A')}
               disabled={selected !== null}
-              className={`group relative p-4 rounded-xl border-2 text-left transition-all transform hover:scale-[1.02] ${
+              className={`group relative p-4 rounded-xl border-2 text-left transition-all transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 ${
                 selected === 'A'
                   ? 'bg-amber-500/20 border-amber-500/50 ring-2 ring-amber-500/30 scale-[1.02] md:col-span-2'
                   : 'bg-white/5 border-white/10 hover:border-amber-500/30'
@@ -408,7 +412,7 @@ const ValidationPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({
             <button
               onClick={() => handleSelect('B')}
               disabled={selected !== null}
-              className={`group relative p-4 rounded-xl border-2 text-left transition-all transform hover:scale-[1.02] ${
+              className={`group relative p-4 rounded-xl border-2 text-left transition-all transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 ${
                 selected === 'B'
                   ? 'bg-amber-500/20 border-amber-500/50 ring-2 ring-amber-500/30 scale-[1.02] md:col-span-2'
                   : 'bg-white/5 border-white/10 hover:border-amber-500/30'
@@ -468,13 +472,13 @@ const ValidationPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={onBack}
-                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40"
+                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
               >
                 <ArrowLeft size={24} /> Back
               </button>
               <button
                 onClick={onNext}
-                className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-400 text-black px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg"
+                className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-400 text-black px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-500/50"
               >
                 Review Content <ChevronRight size={24} />
               </button>
@@ -627,7 +631,7 @@ const ReviewPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ onN
             <button
               onClick={() => setApproved(true)}
               disabled={!scrolled}
-              className={`inline-flex items-center gap-3 px-10 py-5 rounded-xl font-bold text-lg transition-all transform ${
+              className={`inline-flex items-center gap-3 px-10 py-5 rounded-xl font-bold text-lg transition-all transform focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 ${
                 scrolled
                   ? 'bg-emerald-500 hover:bg-emerald-400 text-white hover:scale-105 shadow-lg shadow-emerald-500/30'
                   : 'bg-slate-600 text-slate-400 cursor-not-allowed'
@@ -651,13 +655,13 @@ const ReviewPhase: React.FC<{ onNext: () => void; onBack: () => void }> = ({ onN
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button
                   onClick={onBack}
-                  className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40"
+                  className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                 >
                   <ArrowLeft size={24} /> Back
                 </button>
                 <button
                   onClick={onNext}
-                  className="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-emerald-500/30"
+                  className="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-emerald-500/30 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50"
                 >
                   See Your Delivery <ChevronRight size={24} />
                 </button>
@@ -789,7 +793,7 @@ const DeliveryPhase: React.FC<{ onRestart: () => void; onNavigate: (page: PageVi
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
               }}
-              className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-red to-orange-500 hover:from-brand-red/90 hover:to-orange-500/90 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-brand-red/30"
+              className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-red to-orange-500 hover:from-brand-red/90 hover:to-orange-500/90 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-brand-red/30 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-red/50"
             >
               <Calendar size={28} />
               <span>Start Your Project</span>
@@ -797,7 +801,7 @@ const DeliveryPhase: React.FC<{ onRestart: () => void; onNavigate: (page: PageVi
             </button>
             <button
               onClick={onRestart}
-              className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-10 py-6 rounded-2xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40"
+              className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-10 py-6 rounded-2xl font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             >
               Experience Again
             </button>
@@ -805,7 +809,7 @@ const DeliveryPhase: React.FC<{ onRestart: () => void; onNavigate: (page: PageVi
           <div className="flex justify-center">
             <button
               onClick={onBack}
-              className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white px-6 py-3 rounded-xl font-medium text-sm transition-all border border-white/10 hover:border-white/20"
+              className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white px-6 py-3 rounded-xl font-medium text-sm transition-all border border-white/10 hover:border-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             >
               <ArrowLeft size={20} /> Back to Review
             </button>

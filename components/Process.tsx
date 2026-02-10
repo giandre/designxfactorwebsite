@@ -223,7 +223,7 @@ export const Process: React.FC<{ onNavigate: (page: PageView) => void }> = ({ on
         {/* CTA to full experience */}
         <div
           ref={ctaRef}
-          className="mt-16 text-center transition-all duration-700"
+          className="mt-16 text-center transition-all duration-700 focus-within:!opacity-100 focus-within:!translate-y-0"
           style={{
             opacity: ctaVisible ? 1 : 0,
             transform: ctaVisible ? 'translateY(0)' : 'translateY(20px)',

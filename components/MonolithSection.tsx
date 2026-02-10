@@ -553,7 +553,7 @@ export const MonolithSection: React.FC<{ onNavigate: NavProps['onNavigate'] }> =
                   {layer.id === 1 && (
                     <button
                       onClick={() => onNavigate('services')}
-                      className="mt-6 flex items-center gap-2 px-6 py-3 bg-brand-blue/20 hover:bg-brand-blue text-brand-blue hover:text-white border border-brand-blue/30 rounded-lg font-semibold transition-all"
+                      className="mt-6 flex items-center gap-2 px-6 py-3 bg-brand-blue/20 hover:bg-brand-blue text-brand-blue hover:text-white border border-brand-blue/30 rounded-lg font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-space"
                     >
                       View Our Services <ArrowRight size={18} />
                     </button>

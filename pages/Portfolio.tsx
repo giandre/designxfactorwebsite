@@ -420,10 +420,14 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onNavigate }) => {
                   key={item.id}
                   className={`group bg-white/[0.02] border rounded-2xl overflow-hidden transition-all ${
                     isInteractive
-                      ? 'border-white/20 hover:border-white/40 cursor-pointer hover:shadow-lg hover:shadow-white/5'
+                      ? 'border-white/20 hover:border-white/40 cursor-pointer hover:shadow-lg hover:shadow-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-space'
                       : 'border-white/10 hover:border-white/20'
                   }`}
                   onClick={() => isInteractive && openSample(item)}
+                  onKeyDown={(e) => { if (isInteractive && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openSample(item); } }}
+                  tabIndex={isInteractive ? 0 : undefined}
+                  role={isInteractive ? 'button' : undefined}
+                  aria-label={isInteractive ? `View ${item.title} sample` : undefined}
                 >
                   {/* Thumbnail */}
                   <div

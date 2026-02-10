@@ -219,16 +219,24 @@ export const AccessibleVideoPlayer: React.FC<AccessibleVideoPlayerProps> = ({
       )}
 
       {/* Custom Controls Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity">
         {/* Progress Bar */}
         <div
-          className="mb-3 h-1 bg-white/30 rounded cursor-pointer hover:h-2 transition-all"
+          className="mb-3 h-1 bg-white/30 rounded cursor-pointer hover:h-2 focus-within:h-2 transition-all"
           onClick={handleProgressClick}
-          role="progressbar"
+          onKeyDown={(e) => {
+            const video = videoRef.current;
+            if (!video) return;
+            if (e.key === 'ArrowLeft') { e.preventDefault(); e.stopPropagation(); video.currentTime = Math.max(0, video.currentTime - 5); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); video.currentTime = Math.min(video.duration, video.currentTime + 5); }
+          }}
+          role="slider"
+          tabIndex={0}
           aria-label="Video progress"
           aria-valuenow={Math.floor(progressPercent)}
           aria-valuemin={0}
           aria-valuemax={100}
+          aria-valuetext={`${formatTime(currentTime)} of ${formatTime(duration)}`}
         >
           <div
             className="h-full bg-brand-red rounded"
